@@ -48,9 +48,6 @@ export default function RootLayout({
                 <Button variant="ghost" asChild>
                   <Link href="/streaming-schedule">配信スケジュール</Link>
                 </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/dashboard">ダッシュボード</Link>
-                </Button>
               </div>
             </div>
           </nav>

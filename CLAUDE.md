@@ -4,22 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the wadoyuniko AI education platform project - a comprehensive system for delivering AI development courses and seminars in Japanese called "バイブコーディング" (Vibe Coding). The project is actively under development with a Next.js frontend, Supabase backend, and shadcn/ui components.
+This is the **バイブコーディング (Vibe Coding) Launch Project** - a business launch campaign for an AI development education course targeting August 28-30, 2025. The repository serves as a support system for the launch with a Next.js static site for streaming schedules and marketing pages.
 
 ## Technology Stack
 
-### Frontend
+### Frontend & Deployment
 - **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS with shadcn/ui components
-- **State Management**: Zustand
+- **Deployment**: Static site export (`output: 'export'`) configured for GitHub Pages
 - **Theme**: next-themes with dark/light mode support
-
-### Backend
-- **Runtime**: Node.js  
-- **Database**: PostgreSQL with Supabase
-- **Authentication**: Supabase Auth (@supabase/ssr for SSR support)
-- **API**: Next.js API routes with server actions
 
 ### UI Components
 - **Library**: Radix UI primitives with shadcn/ui
@@ -27,6 +21,10 @@ This is the wadoyuniko AI education platform project - a comprehensive system fo
 - **Forms**: React Hook Form with Zod validation
 - **Charts**: Recharts
 - **Notifications**: Sonner toasts
+
+### Project Type
+- **Static Site**: Images unoptimized, no server-side features
+- **Purpose**: Marketing pages, streaming schedules, launch support
 
 ## Development Commands
 
@@ -37,10 +35,10 @@ npm install
 # Development server
 npm run dev
 
-# Build for production
+# Build static site for deployment
 npm run build
 
-# Start production server  
+# Start production server (for testing build locally)
 npm run start
 
 # Run tests
@@ -54,86 +52,86 @@ npm run format        # Prettier with Tailwind plugin
 npm run type-check    # TypeScript checking without emit
 ```
 
+### Static Site Export Configuration
+- **Build Output**: Static files in `out/` directory
+- **Images**: Unoptimized (no Next.js Image optimization)
+- **Routing**: Trailing slashes enabled for better static hosting
+- **Base Path**: Configurable for GitHub Pages deployment
+
 ## Project Architecture
 
 ### Directory Structure
 ```
 /
 ├── app/                   # Next.js App Router
-│   ├── layout.tsx        # Root layout with theme provider
+│   ├── layout.tsx        # Root layout with navigation
 │   ├── page.tsx          # Homepage
 │   ├── globals.css       # Global Tailwind styles
-│   └── dashboard/        # Dashboard pages
+│   ├── dashboard/        # Dashboard pages
+│   └── streaming-schedule/ # Launch streaming schedule page
 ├── components/           # React components
 │   ├── ui/              # shadcn/ui components (Button, Card, etc.)
 │   └── theme-provider.tsx # Theme context provider
 ├── lib/                 # Utilities and configurations
-│   ├── utils.ts         # cn() utility and helpers
-│   └── supabase/        # Supabase client/server configurations
-├── types/               # TypeScript type definitions
-├── docs/                # Business and project documentation
-│   ├── product/         # Product specifications
-│   ├── task/            # Task management
-│   └── kpi-dashboard/   # KPI tracking documentation
-├── team/                # Team-specific documentation and assets
-│   ├── present/         # Presentation materials
-│   ├── Live/            # Live streaming guides
-│   └── x/               # Social media strategies
-└── orggen/              # AI organization configuration
-    └── project.yaml     # Multi-agent system configuration
+│   └── utils.ts         # cn() utility and helpers
+├── docs/                # Launch project documentation
+│   ├── product/         # Product specifications (Vibe Coding)
+│   ├── project-management/ # Launch timeline and strategy
+│   └── kpi-dashboard/   # Launch metrics tracking
+└── team/                # Launch team assets
+    ├── present/         # Marketing materials
+    ├── Live/            # Streaming guides for launch
+    └── x/               # Social media launch strategies
 ```
 
 ### Key Architecture Patterns
 
-- **App Router**: Uses Next.js 15 app directory structure
-- **Server Components**: Default server-side rendering with client components where needed
-- **Component Composition**: Radix UI primitives composed into reusable shadcn/ui components
+- **Static Site Generation**: All pages pre-rendered at build time
+- **Component-First**: shadcn/ui components with Tailwind styling
+- **Mobile-Responsive**: Design-first for multi-device launch promotion  
 - **Type Safety**: Strict TypeScript with path mapping (@/* aliases)
-- **Styling**: Tailwind with CSS variables for theming
-- **Authentication**: Supabase Auth with SSR support
+- **Launch-Focused**: Optimized for marketing pages and streaming schedules
+
+## Launch Context
+
+### Business Goals
+- **Launch Date**: August 28-30, 2025
+- **Revenue Target**: 30 million yen
+- **Student Target**: 100 enrollments
+- **Pricing**: 300k yen (Vibe Coding), 500k yen (with Prompt Engineering)
+
+### Critical Milestones
+- **August 14**: Major collaboration announcement
+- **August 21**: Launch post campaign begins
+- **August 28-30**: 3-day seminar implementation
 
 ## Testing Configuration
 
 ### Jest Setup
 - **Framework**: Jest with jsdom environment for component testing
-- **Config**: `jest.config.js` with Next.js integration
-- **Setup**: `jest.setup.js` for test environment configuration
-- **Coverage Thresholds**: 
-  - Functions: 80%
-  - Lines: 80% 
-  - Statements: 80%
-  - Branches: 70%
-- **Testing Libraries**: @testing-library/react, @testing-library/jest-dom, @testing-library/user-event
+- **Coverage Thresholds**: Functions: 80%, Lines: 80%, Statements: 80%, Branches: 70%
+- **Testing Libraries**: @testing-library/react, @testing-library/jest-dom
 
-### Running Tests
+### Running Single Tests
 ```bash
-npm run test           # Run all tests
-npm run test:watch     # Run tests in watch mode
-npm run test:coverage  # Run with coverage report
+npm run test -- --testNamePattern="ComponentName"
+npm run test -- components/ui/button.test.tsx
 ```
 
 ## Environment Setup
 
-### Required Environment Variables
+### For Static Site Development
 ```bash
-# Supabase (required)
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-# AI API Keys (server-side only)
-CLAUDE_API_KEY=your_claude_api_key
-OPENAI_API_KEY=your_openai_api_key
-
-# Application
+# Optional for development
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# Optional
-REDIS_URL=redis://localhost:6379
-JWT_SECRET=your_jwt_secret_here
-ENCRYPTION_KEY=your_encryption_key_here
+# No server-side environment variables needed for static export
 ```
 
-Copy `.env.local.example` to `.env.local` and fill in your values.
+### Production Deployment
+- Static files exported to `out/` directory
+- No environment variables required for runtime
+- GitHub Pages compatible
 
 ## Code Conventions
 
@@ -141,46 +139,35 @@ Copy `.env.local.example` to `.env.local` and fill in your values.
 - Use shadcn/ui components from `@/components/ui`
 - Apply Tailwind classes with `cn()` utility from `@/lib/utils`
 - Follow Radix UI patterns for accessibility
-- Use forwardRef for component composition
+- Static-first: No server-side database calls or authentication
 
 ### Import Patterns
 ```typescript
 // Absolute imports using @ alias
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { createClient } from '@/lib/supabase/client'
 ```
 
 ### Styling Conventions
 - Use Tailwind CSS classes
 - Leverage CSS variables for theming
-- Support both light and dark modes
-- Use `next-themes` for theme switching
+- Support both light and dark modes with `next-themes`
+- Mobile-first responsive design for launch promotion
 
-## AI Organization System
+## Launch Project Documentation
 
-The project implements a sophisticated multi-agent AI organization with defined roles and communication protocols. Key documentation is in:
+### Key Documentation Locations
+- `docs/product/`: Vibe Coding course specifications
+- `docs/project-management/`: Launch timeline and team strategy
+- `team/present/`: Marketing materials and bonus content
+- `team/Live/`: Streaming guides and YouTube strategy
+- `team/x/`: Social media launch campaigns
 
-- `orggen/project.yaml`: Master organization configuration
-- `docs/`: Extensive business and project documentation
-- `team/`: Team-specific assets and strategies
-
-### AI Agent Roles
-- **CEO**: Strategic vision and decision-making
-- **CTO**: Technical architecture and leadership  
-- **Engineering Manager**: Development team coordination
-- **Security Officer**: Security policies and incident response
-- **QA Lead**: Quality assurance and testing strategies
-- **DevOps Engineer**: Infrastructure and deployment
-- **Product Manager**: Product strategy and requirements
-
-## Business Context
-
-- **Company**: wadoyuniko (和道ユニコ)
-- **Product**: バイブコーディング (Vibe Coding) - AI development courses
-- **Target Audience**: Programming beginners wanting to monetize AI skills
-- **Language**: Japanese for user-facing content, English for code/technical docs
-- **Mission**: Democratize AI development education in Japan
+### Launch Team Structure
+- **PM**: 中井健登 (Nakai Kento) - Project management and coordination
+- **Content**: ゆき, ちょこ, こばやし ゆうた - Video and slide production  
+- **Marketing**: わど, 中上裕三, Yui Mitsui - Seminar execution and sales
+- **Partner**: ユニコーン社 - Content provision and Discord community
 
 ## Development Workflow
 
@@ -188,27 +175,22 @@ The project implements a sophisticated multi-agent AI organization with defined 
 ```bash
 npx shadcn-ui@latest add [component-name]
 ```
-Components are automatically configured to use the `@/` alias structure.
+Components automatically configured for static export.
 
-### Supabase Integration
-- Client-side: Use `createClient()` from `@/lib/supabase/client`  
-- Server-side: Use appropriate server client from `@/lib/supabase/server`
-- SSR support with `@supabase/ssr` package
-
-### Next.js Configuration
-- Server actions enabled with 2MB body size limit
-- Image optimization for localhost and supabase.co domains  
-- React strict mode and SWC minification enabled
+### Deployment Configuration
+- **Development**: Standard Next.js with server features enabled
+- **Production**: Supports both static export and server deployment
+- **Vercel**: Optimized for Vercel deployment with server actions
+- **Images**: Configured for localhost and Supabase domains
 
 ## Important Notes for Claude Code
 
-- Project is actively in development with working Next.js setup
-- Use TypeScript strictly - all files should be .ts/.tsx
-- Follow the established shadcn/ui + Tailwind patterns
-- Maintain test coverage above 80% (configured in jest.config.js)
-- All user-facing content should be in Japanese
-- Code, comments, and technical documentation should be in English
-- Use the multi-agent system defined in orggen/ for complex decisions
+- **Project Type**: Business launch support site, not full platform
+- **Timeline**: Critical launch milestones approaching (August 2025)
+- **Focus**: Marketing pages, streaming schedules, launch documentation
+- **Language**: Japanese for user-facing content, English for code
+- **Deployment**: Static site export for GitHub Pages or similar
+- **Documentation**: Extensive launch strategy docs in `docs/` and `team/`
 
 ## Quality Standards
 
@@ -222,13 +204,13 @@ Components are automatically configured to use the `@/` alias structure.
 - Run `npm run lint` and `npm run type-check` before committing
 - Ensure tests pass with `npm run test`
 - Follow TypeScript strict mode requirements
-- Use established patterns from existing components
+- Launch timeline sensitive - prioritize working features over perfect code
 
-### Deployment Configuration
-- Next.js app configured for Vercel deployment
-- Environment variables must be set in production
-- Server actions enabled with proper validation
-- Image optimization configured for Supabase domains
+### Launch-Critical Features
+- **Streaming Schedule**: Core functionality for marketing campaign
+- **Mobile Responsiveness**: Essential for audience reach
+- **Fast Loading**: Critical for user conversion during launch
+- **Japanese Localization**: Required for target audience
 
-**Last Updated**: 2025-01-11
-**Next Review**: 2025-02-11
+**Last Updated**: 2025-01-11 (Launch Project Context)
+**Next Review**: Post-launch (September 2025)

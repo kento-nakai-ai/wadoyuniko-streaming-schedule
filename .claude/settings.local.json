@@ -8,7 +8,8 @@
       "Bash(brew install:*)",
       "Bash(mkdir:*)",
       "Bash(npm run build:*)",
-      "Bash(tmux capture-pane:*)"
+      "Bash(tmux capture-pane:*)",
+      "Bash(tmux send-keys:*)"
     ],
     "deny": []
   }

@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     domains: ['localhost', 'supabase.co'],
   },
@@ -10,6 +9,7 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
+  // Remove static export configuration for dynamic Vercel deployment
 }
 
 module.exports = nextConfig
