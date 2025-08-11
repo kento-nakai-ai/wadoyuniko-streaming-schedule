@@ -1,0 +1,298 @@
+{
+  "mcpServers": {
+    "o3": {
+      "description": "OpenAI O3 for advanced reasoning and planning",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-o3"],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+        "O3_MODEL": "o3-mini",
+        "O3_MAX_TOKENS": "4096",
+        "O3_TEMPERATURE": "0.7",
+        "O3_REASONING_EFFORT": "medium",
+        "O3_SAFETY_LEVEL": "high"
+      },
+      "tools": [
+        "search_and_plan",
+        "analyze_security",
+        "compare_solutions",
+        "review_architecture"
+      ],
+      "rateLimits": {
+        "requestsPerMinute": 10,
+        "requestsPerDay": 100,
+        "maxCostPerDay": 10.00
+      }
+    },
+    "github": {
+      "description": "GitHub integration for PR, issues, and repository management",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
+        "GITHUB_OWNER": "${GITHUB_OWNER}",
+        "GITHUB_REPO": "${GITHUB_REPO}"
+      },
+      "tools": [
+        "create_pr",
+        "review_pr",
+        "create_issue",
+        "list_issues",
+        "get_commits",
+        "create_branch"
+      ]
+    },
+    "slack": {
+      "description": "Slack integration for team communication",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_TOKEN": "${SLACK_TOKEN}",
+        "SLACK_WORKSPACE": "${SLACK_WORKSPACE}"
+      },
+      "tools": [
+        "send_message",
+        "read_channel",
+        "create_channel",
+        "list_channels",
+        "get_user_info"
+      ]
+    },
+    "postgres": {
+      "description": "PostgreSQL database operations",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}",
+        "PG_SSL_MODE": "require"
+      },
+      "tools": [
+        "query",
+        "execute",
+        "list_tables",
+        "describe_table",
+        "create_backup"
+      ],
+      "permissions": {
+        "allowedAgents": ["backend-architect", "senior-fullstack", "devops-engineer"],
+        "readOnly": false,
+        "requireApproval": ["DROP", "DELETE", "TRUNCATE"]
+      }
+    },
+    "web": {
+      "description": "Web browsing and content extraction",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-web"],
+      "env": {
+        "USER_AGENT": "AI-Organization-Bot/1.0"
+      },
+      "tools": [
+        "browse",
+        "search",
+        "extract_content",
+        "take_screenshot"
+      ]
+    },
+    "filesystem": {
+      "description": "Enhanced filesystem operations",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem"],
+      "env": {
+        "FS_ROOT": "${PROJECT_ROOT}",
+        "FS_ALLOW_SYMLINKS": "false"
+      },
+      "tools": [
+        "read_file",
+        "write_file",
+        "list_directory",
+        "file_info",
+        "search_files"
+      ],
+      "restrictions": {
+        "allowedPaths": [
+          "${PROJECT_ROOT}/src",
+          "${PROJECT_ROOT}/tests",
+          "${PROJECT_ROOT}/docs",
+          "${PROJECT_ROOT}/.claude"
+        ],
+        "deniedPaths": [
+          "${PROJECT_ROOT}/.env",
+          "${PROJECT_ROOT}/.git",
+          "${PROJECT_ROOT}/node_modules"
+        ]
+      }
+    },
+    "memory": {
+      "description": "Long-term memory and knowledge management",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_STORE": "${PROJECT_ROOT}/.claude/memory",
+        "MEMORY_FORMAT": "json"
+      },
+      "tools": [
+        "store_memory",
+        "recall_memory",
+        "search_memories",
+        "list_topics",
+        "forget"
+      ]
+    },
+    "monitoring": {
+      "description": "System monitoring and alerting",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-monitoring"],
+      "env": {
+        "PROMETHEUS_URL": "${PROMETHEUS_URL}",
+        "GRAFANA_URL": "${GRAFANA_URL}",
+        "ALERT_WEBHOOK": "${ALERT_WEBHOOK}"
+      },
+      "tools": [
+        "get_metrics",
+        "create_alert",
+        "check_health",
+        "get_logs",
+        "trigger_incident"
+      ]
+    }
+  },
+  "globalConfig": {
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000,
+    "logging": {
+      "level": "info",
+      "destination": ".claude/logs/mcp.log",
+      "rotateDaily": true,
+      "maxFiles": 30
+    },
+    "caching": {
+      "enabled": true,
+      "ttl": 3600,
+      "maxSize": "100MB",
+      "location": ".claude/cache/mcp"
+    },
+    "security": {
+      "validateSSL": true,
+      "encryptCache": true,
+      "auditLog": true,
+      "requireApproval": ["production", "delete", "drop"]
+    }
+  },
+  "agentPermissions": {
+    "ceo": ["*"],
+    "cto": ["*"],
+    "engineering-manager": [
+      "github.*",
+      "slack.*",
+      "filesystem.read_file",
+      "o3.search_and_plan",
+      "monitoring.*"
+    ],
+    "senior-fullstack": [
+      "github.*",
+      "postgres.*",
+      "filesystem.*",
+      "web.*",
+      "o3.search_and_plan"
+    ],
+    "frontend-specialist": [
+      "github.*",
+      "filesystem.*",
+      "web.*"
+    ],
+    "backend-architect": [
+      "github.*",
+      "postgres.*",
+      "filesystem.*",
+      "o3.*",
+      "monitoring.*"
+    ],
+    "qa-lead": [
+      "github.review_pr",
+      "filesystem.read_file",
+      "monitoring.*",
+      "o3.search_and_plan"
+    ],
+    "security-officer": [
+      "github.*",
+      "filesystem.*",
+      "monitoring.*",
+      "o3.analyze_security"
+    ],
+    "devops-engineer": [
+      "github.*",
+      "postgres.*",
+      "filesystem.*",
+      "monitoring.*"
+    ],
+    "technical-writer": [
+      "github.create_pr",
+      "filesystem.*",
+      "web.*"
+    ],
+    "hr-manager": [
+      "slack.*",
+      "memory.*"
+    ],
+    "product-manager": [
+      "github.create_issue",
+      "github.list_issues",
+      "slack.*",
+      "web.*"
+    ]
+  },
+  "workflows": {
+    "security_review": {
+      "trigger": "pr_created",
+      "steps": [
+        {
+          "agent": "security-officer",
+          "tool": "o3.analyze_security",
+          "params": {
+            "severity": ["critical", "high"]
+          }
+        },
+        {
+          "condition": "vulnerabilities.length > 0",
+          "agent": "cto",
+          "action": "approve_or_reject"
+        }
+      ]
+    },
+    "architecture_review": {
+      "trigger": "major_feature",
+      "steps": [
+        {
+          "agent": "backend-architect",
+          "tool": "o3.review_architecture"
+        },
+        {
+          "agent": "cto",
+          "action": "final_approval"
+        }
+      ]
+    },
+    "incident_response": {
+      "trigger": "alert",
+      "steps": [
+        {
+          "agent": "devops-engineer",
+          "tool": "monitoring.check_health"
+        },
+        {
+          "agent": "engineering-manager",
+          "tool": "slack.send_message",
+          "params": {
+            "channel": "#incidents"
+          }
+        },
+        {
+          "condition": "severity === 'critical'",
+          "agent": "cto",
+          "action": "coordinate_response"
+        }
+      ]
+    }
+  }
+}

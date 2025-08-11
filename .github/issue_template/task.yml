@@ -1,0 +1,166 @@
+name: 📋 Task / Development Issue
+description: 開発タスクやAIエージェントへの作業依頼を作成
+title: "[TASK]: "
+labels: ["task", "development"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        開発タスクを作成します。
+        AIエージェントが自動的に担当者を決定し、作業を進めます。
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: 優先度
+      description: タスクの優先度を選択してください
+      options:
+        - P3 - Low (低)
+        - P2 - Medium (中)
+        - P1 - High (高)  
+        - P0 - Critical (緊急)
+      default: 1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: タスクの種類
+      description: 実行するタスクの種類を選択してください
+      options:
+        - 新機能開発
+        - バグ修正
+        - リファクタリング
+        - テスト作成
+        - ドキュメント作成
+        - パフォーマンス改善
+        - セキュリティ対応
+        - インフラ・CI/CD
+        - 調査・分析
+        - コードレビュー
+        - その他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: preferred_agent
+    attributes:
+      label: 希望担当エージェント
+      description: 特定のエージェントに依頼したい場合は選択してください（任意）
+      options:
+        - 自動割り当て（推奨）
+        - CEO
+        - CTO
+        - Engineering Manager
+        - Security Officer
+        - QA Lead
+        - DevOps Engineer
+        - Senior Fullstack Engineer
+        - Frontend Specialist
+        - Backend Architect
+        - Technical Writer
+        - Product Manager
+        - HR Manager
+      default: 0
+
+  - type: input
+    id: estimated_hours
+    attributes:
+      label: 予想作業時間（時間）
+      description: このタスクの完了に必要な時間を入力してください
+      placeholder: "例: 8, 16, 0.5"
+
+  - type: input
+    id: due_date
+    attributes:
+      label: 希望完了日
+      description: タスクの完了希望日を入力してください
+      placeholder: "例: 2025-01-20"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: タスクの詳細
+      description: 実行してほしいタスクの詳細を説明してください
+      placeholder: |
+        何を作成・修正・調査するのかを具体的に記述してください。
+        
+        例：
+        - ユーザー認証機能のJWTトークン実装
+        - パフォーマンス問題の原因調査と最適化
+        - APIドキュメントの更新
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: 完了条件
+      description: このタスクが完了したと判断するための条件を明確に記述してください
+      placeholder: |
+        - [ ] 〜が実装されている
+        - [ ] テストが通過している
+        - [ ] ドキュメントが更新されている
+        - [ ] コードレビューが完了している
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical_requirements
+    attributes:
+      label: 技術要件・制約
+      description: 技術的な要件や制約があれば記述してください
+      placeholder: |
+        - 使用する技術スタック
+        - パフォーマンス要件
+        - セキュリティ要件
+        - 互換性の制約
+        - など
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依存関係
+      description: 他のタスクやシステムへの依存関係があれば記述してください
+      placeholder: |
+        - 〜のタスクが完了後に開始
+        - 〜のAPIが利用可能になってから実装
+        - 〜の承認が必要
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: 参考資料・リソース
+      description: 関連するドキュメント、参考URL、設計書などがあれば記述してください
+      placeholder: |
+        - 設計書: 〜
+        - 参考実装: 〜
+        - API仕様書: 〜
+        - 関連Issue: #〜
+
+  - type: textarea
+    id: testing_requirements
+    attributes:
+      label: テスト要件
+      description: 必要なテストの種類や範囲を記述してください
+      placeholder: |
+        - ユニットテスト: 〜をテスト
+        - 統合テスト: 〜をテスト
+        - E2Eテスト: 〜をテスト
+        - 手動テスト: 〜を確認
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 確認事項
+      description: タスク作成前に以下を確認してください
+      options:
+        - label: タスクの目的と完了条件が明確に定義されている
+          required: true
+        - label: 必要な技術要件や制約が記載されている
+          required: true
+        - label: 適切な優先度が設定されている
+          required: true

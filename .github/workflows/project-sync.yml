@@ -1,0 +1,149 @@
+name: GitHub Projects Sync
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled, unlabeled]
+  pull_request:
+    types: [opened, edited, closed, reopened, labeled, unlabeled, ready_for_review, converted_to_draft]
+  workflow_dispatch:
+
+jobs:
+  sync-to-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get project data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.repository_owner }}
+          PROJECT_NUMBER: 1
+        run: |
+          gh api graphql -f query='
+            query($org: String!, $number: Int!) {
+              organization(login: $org){
+                projectV2(number: $number) {
+                  id
+                  fields(first:20) {
+                    nodes {
+                      ... on ProjectV2Field {
+                        id
+                        name
+                      }
+                      ... on ProjectV2SingleSelectField {
+                        id
+                        name
+                        options {
+                          id
+                          name
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f org=$ORGANIZATION -F number=$PROJECT_NUMBER > project_data.json
+          
+          echo 'PROJECT_ID='$(jq -r '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
+          echo 'STATUS_FIELD_ID='$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV
+          echo 'PRIORITY_FIELD_ID='$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Priority") | .id' project_data.json) >> $GITHUB_ENV
+
+      - name: Add issue to project
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_ID: ${{ github.event.issue.node_id }}
+        run: |
+          item_id="$(gh api graphql -f query='
+            mutation($project:ID!, $issue:ID!) {
+              addProjectV2ItemById(input: {projectId: $project, contentId: $issue}) {
+                item {
+                  id
+                }
+              }
+            }' -f project=$PROJECT_ID -f issue=$ISSUE_ID --jq '.data.addProjectV2ItemById.item.id')"
+          
+          echo 'ITEM_ID='$item_id >> $GITHUB_ENV
+
+      - name: Set priority based on labels
+        if: github.event_name == 'issues' && (github.event.action == 'opened' || github.event.action == 'labeled')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_LABELS: ${{ toJson(github.event.issue.labels.*.name) }}
+        run: |
+          # Get priority option IDs
+          P0_OPTION_ID=$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Priority") | .options[] | select(.name=="P0 - Critical") | .id' project_data.json)
+          P1_OPTION_ID=$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Priority") | .options[] | select(.name=="P1 - High") | .id' project_data.json)
+          P2_OPTION_ID=$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Priority") | .options[] | select(.name=="P2 - Medium") | .id' project_data.json)
+          P3_OPTION_ID=$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Priority") | .options[] | select(.name=="P3 - Low") | .id' project_data.json)
+          
+          # Set priority based on labels
+          if echo '${{ env.ISSUE_LABELS }}' | grep -q "P0\|critical\|urgent"; then
+            OPTION_ID=$P0_OPTION_ID
+          elif echo '${{ env.ISSUE_LABELS }}' | grep -q "P1\|high"; then
+            OPTION_ID=$P1_OPTION_ID
+          elif echo '${{ env.ISSUE_LABELS }}' | grep -q "P2\|medium"; then
+            OPTION_ID=$P2_OPTION_ID
+          else
+            OPTION_ID=$P3_OPTION_ID
+          fi
+          
+          # Update priority field
+          if [ -n "$OPTION_ID" ] && [ -n "$ITEM_ID" ]; then
+            gh api graphql -f query='
+              mutation($project: ID!, $item: ID!, $priority_field: ID!, $priority_value: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $project
+                  itemId: $item
+                  fieldId: $priority_field
+                  value: {singleSelectOptionId: $priority_value}
+                }) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }' -f project=$PROJECT_ID -f item=$ITEM_ID -f priority_field=$PRIORITY_FIELD_ID -f priority_value=$OPTION_ID
+          fi
+
+      - name: Update status on issue close
+        if: github.event_name == 'issues' && github.event.action == 'closed'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get Done option ID
+          DONE_OPTION_ID=$(jq -r '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .options[] | select(.name=="Done") | .id' project_data.json)
+          
+          # Get item ID for this issue
+          ISSUE_ID="${{ github.event.issue.node_id }}"
+          ITEM_ID="$(gh api graphql -f query='
+            query($project: ID!, $issue: ID!) {
+              node(id: $project) {
+                ... on ProjectV2 {
+                  items(first: 100) {
+                    nodes {
+                      id
+                      content {
+                        ... on Issue {
+                          id
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }' -f project=$PROJECT_ID -f issue=$ISSUE_ID --jq '.data.node.items.nodes[] | select(.content.id=="'$ISSUE_ID'") | .id')"
+          
+          # Update status to Done
+          if [ -n "$ITEM_ID" ] && [ -n "$DONE_OPTION_ID" ]; then
+            gh api graphql -f query='
+              mutation($project: ID!, $item: ID!, $status_field: ID!, $status_value: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $project
+                  itemId: $item
+                  fieldId: $status_field
+                  value: {singleSelectOptionId: $status_value}
+                }) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }' -f project=$PROJECT_ID -f item=$ITEM_ID -f status_field=$STATUS_FIELD_ID -f status_value=$DONE_OPTION_ID
+          fi

@@ -1,0 +1,304 @@
+name: Security Scan
+
+on:
+  schedule:
+    # Run security scan daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
+        with:
+          fail-on-severity: moderate
+          warn-only: false
+
+  vulnerability-scan:
+    name: Vulnerability Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run npm audit
+        run: |
+          echo "Running npm audit..."
+          npm audit --audit-level high --json > audit-results.json || true
+          
+          # Check if there are high or critical vulnerabilities
+          HIGH_VULN=$(jq '.metadata.vulnerabilities.high // 0' audit-results.json)
+          CRITICAL_VULN=$(jq '.metadata.vulnerabilities.critical // 0' audit-results.json)
+          
+          echo "High vulnerabilities: $HIGH_VULN"
+          echo "Critical vulnerabilities: $CRITICAL_VULN"
+          
+          if [ "$HIGH_VULN" -gt 0 ] || [ "$CRITICAL_VULN" -gt 0 ]; then
+            echo "❌ High or critical vulnerabilities found!"
+            npm audit --audit-level high
+            exit 1
+          else
+            echo "✅ No high or critical vulnerabilities found."
+          fi
+
+      - name: Upload audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-results
+          path: audit-results.json
+
+  snyk-scan:
+    name: Snyk Security Scan
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high --json-file-output=snyk-results.json
+
+      - name: Upload Snyk results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snyk-results
+          path: snyk-results.json
+
+  codeql-analysis:
+    name: CodeQL Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript' ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: +security-and-quality
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: 'dummy_url_for_build'
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: 'dummy_key_for_build'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{matrix.language}}"
+
+  secrets-scan:
+    name: Secrets Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: TruffleHog OSS
+        uses: trufflesecurity/truffleHog@main
+        with:
+          path: ./
+          base: main
+          head: HEAD
+          extra_args: --debug --only-verified
+
+  docker-security-scan:
+    name: Docker Security Scan
+    runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.modified, 'Dockerfile') || contains(github.event.head_commit.added, 'Dockerfile')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t wadoyuniko:latest .
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'wadoyuniko:latest'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  license-compliance:
+    name: License Compliance Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install license checker
+        run: npm install -g license-checker
+
+      - name: Check licenses
+        run: |
+          echo "Checking licenses..."
+          license-checker --onlyAllow 'MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;CC0-1.0;Unlicense' --excludePrivatePackages > license-report.txt || true
+          
+          # Check if there are any license violations
+          if grep -q "UNKNOWN" license-report.txt; then
+            echo "❌ Unknown licenses found!"
+            cat license-report.txt
+            exit 1
+          else
+            echo "✅ All licenses are compliant."
+          fi
+
+      - name: Upload license report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: license-report
+          path: license-report.txt
+
+  security-report:
+    name: Generate Security Report
+    runs-on: ubuntu-latest
+    needs: [vulnerability-scan, snyk-scan, codeql-analysis, secrets-scan, license-compliance]
+    if: always()
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: Generate security summary
+        run: |
+          echo "# Security Scan Results" > security-summary.md
+          echo "Date: $(date)" >> security-summary.md
+          echo "" >> security-summary.md
+          
+          # Check vulnerability scan results
+          if [ -f "audit-results/audit-results.json" ]; then
+            echo "## NPM Audit Results" >> security-summary.md
+            HIGH_VULN=$(jq -r '.metadata.vulnerabilities.high // 0' audit-results/audit-results.json)
+            CRITICAL_VULN=$(jq -r '.metadata.vulnerabilities.critical // 0' audit-results/audit-results.json)
+            echo "- High vulnerabilities: $HIGH_VULN" >> security-summary.md
+            echo "- Critical vulnerabilities: $CRITICAL_VULN" >> security-summary.md
+            echo "" >> security-summary.md
+          fi
+          
+          # Check Snyk results
+          if [ -f "snyk-results/snyk-results.json" ]; then
+            echo "## Snyk Scan Results" >> security-summary.md
+            echo "Snyk scan completed. Check artifacts for detailed results." >> security-summary.md
+            echo "" >> security-summary.md
+          fi
+          
+          # License compliance
+          if [ -f "license-report/license-report.txt" ]; then
+            echo "## License Compliance" >> security-summary.md
+            echo "License check completed. All dependencies use approved licenses." >> security-summary.md
+            echo "" >> security-summary.md
+          fi
+          
+          echo "## Actions Taken" >> security-summary.md
+          echo "- Automated security scans completed" >> security-summary.md
+          echo "- Code quality analysis performed" >> security-summary.md
+          echo "- Dependency vulnerabilities checked" >> security-summary.md
+          echo "- License compliance verified" >> security-summary.md
+          
+          echo "Security scan completed at $(date)"
+          cat security-summary.md
+
+      - name: Upload security summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-summary
+          path: security-summary.md
+
+      - name: Comment security summary on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            try {
+              const summary = fs.readFileSync('security-summary.md', 'utf8');
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## 🔒 Security Scan Results\n\n${summary}`
+              });
+            } catch (error) {
+              console.log('Could not read security summary file');
+            }

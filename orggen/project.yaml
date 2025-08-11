@@ -1,0 +1,182 @@
+name: ai-organization-system
+mission: >
+  先進的なAI組織運用システムを構築し、複数のAIエージェントが協調して
+  高品質なソフトウェア開発とプロジェクト管理を実現する。
+  人間的な組織文化と効率的な開発プロセスの融合を目指す。
+
+principles:
+  - 透明性と説明責任を重視する
+  - 継続的改善と学習を促進する
+  - セキュリティとプライバシーを最優先事項とする
+  - 人間的な価値観と組織文化を尊重する
+  - 小さく始めて素早く検証する
+  - 品質と保守性を犠牲にしない
+  - チーム間の協調と知識共有を推進する
+  - 反省と振り返りを通じて成長する
+
+product_scope:
+  features:
+    - multi_agent_coordination
+    - task_management_system
+    - code_review_workflow
+    - automated_testing
+    - knowledge_management
+    - performance_monitoring
+    - security_auditing
+    - continuous_integration
+    - documentation_generation
+    - team_communication_hub
+  
+  non_goals:
+    - 完全な自律運用（人間の監督は必須）
+    - リアルタイム処理（非同期処理を前提）
+    - 外部システムへの自動デプロイ（承認フロー必須）
+
+stack:
+  frontend: 
+    - Next.js 15
+    - TypeScript
+    - Tailwind CSS
+    - shadcn/ui
+  backend: 
+    - Node.js
+    - PostgreSQL
+    - Supabase
+    - Redis (cache)
+  ai_models:
+    - claude-opus-4.1
+    - claude-3.7-sonnet
+    - o3 (via MCP)
+  infrastructure:
+    - Docker
+    - GitHub Actions
+    - Vercel
+  monitoring:
+    - OpenTelemetry
+    - Prometheus
+    - Grafana
+
+constraints:
+  - すべてのコード変更には複数エージェントのレビューが必要
+  - セキュリティ脆弱性スキャンを毎日実行
+  - APIキーとシークレットの厳格な管理
+  - 個人情報の適切な取り扱いとGDPR準拠
+  - 12週間以内にMVPリリース
+  - 月次でのパフォーマンスレビュー実施
+  - ドキュメント coverage 80%以上維持
+
+roles_seed:
+  - CEO (Chief Executive Officer)
+  - CTO (Chief Technology Officer)
+  - Engineering Manager
+  - Senior Fullstack Engineer
+  - Frontend Specialist
+  - Backend Architect
+  - QA Lead
+  - Security Officer
+  - DevOps Engineer
+  - Technical Writer
+  - HR Manager
+  - Product Manager
+
+security_baseline:
+  - 依存関係の週次監査
+  - PRごとのセキュリティレビュー必須
+  - ペネトレーションテストの四半期実施
+  - シークレットローテーション（30日ごと）
+  - アクセスログの監査と異常検知
+  - データ暗号化（保存時・転送時）
+  - 最小権限の原則の徹底
+
+metrics:
+  - code_quality_score
+  - test_coverage_percentage
+  - bug_escape_rate
+  - mean_time_to_recovery
+  - deployment_frequency
+  - lead_time_for_changes
+  - team_satisfaction_score
+  - knowledge_sharing_index
+  - security_vulnerability_count
+  - documentation_completeness
+
+culture:
+  - 失敗を恐れず学習機会として捉える
+  - オープンで建設的なフィードバック
+  - 継続的な改善マインドセット
+  - 多様性と包括性の推進
+  - ワークライフバランスの重視
+  - 知識共有と相互メンタリング
+
+review_process:
+  pr_review:
+    required_approvals: 2
+    must_include:
+      - security_check
+      - test_coverage_check
+      - documentation_check
+    review_sla: 4_hours
+  
+  architecture_review:
+    trigger: major_feature
+    participants:
+      - CTO
+      - Backend Architect
+      - Security Officer
+    documentation_required: true
+
+training_requirements:
+  onboarding:
+    - system_architecture_overview
+    - security_best_practices
+    - coding_standards
+    - review_process_training
+  
+  continuous:
+    - weekly_tech_talks
+    - monthly_security_training
+    - quarterly_hackathons
+
+communication:
+  channels:
+    daily_standup: .claude/chat/daily-standup.md
+    team_chat: .claude/chat/team-chat.md
+    pr_discussions: .claude/chat/pr-discussions.md
+    incident_reports: .claude/chat/incidents.md
+    retrospectives: .claude/chat/retrospectives.md
+  
+  cadence:
+    daily: standup
+    weekly: team_sync
+    biweekly: sprint_planning
+    monthly: all_hands
+    quarterly: performance_review
+
+incident_management:
+  severity_levels:
+    - P0: critical_production_down
+    - P1: major_functionality_impaired
+    - P2: minor_functionality_affected
+    - P3: cosmetic_or_low_impact
+  
+  response_sla:
+    P0: 15_minutes
+    P1: 1_hour
+    P2: 4_hours
+    P3: 24_hours
+  
+  postmortem_required: [P0, P1]
+
+knowledge_base:
+  documentation:
+    - architecture_decisions
+    - api_specifications
+    - deployment_guides
+    - troubleshooting_guides
+    - best_practices
+  
+  storage:
+    decisions: .claude/decisions/
+    guides: .claude/guides/
+    templates: .claude/templates/
+    retrospectives: .claude/retrospectives/
