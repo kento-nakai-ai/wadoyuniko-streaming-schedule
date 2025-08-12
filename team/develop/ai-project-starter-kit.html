@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI開発体験キット - バイブコーディング特典</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tool-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #4f46e5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h3 {
+            color: #4f46e5;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .tool-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .input-group input, 
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .output {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f0f9ff;
+            border-radius: 8px;
+            border-left: 4px solid #06b6d4;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            color: #92400e;
+            margin-left: 20px;
+        }
+
+        .footer {
+            background: #f8fafc;
+            padding: 30px 40px;
+            text-align: center;
+            color: #64748b;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .tool-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 AI開発体験キット</h1>
+            <p>Cursor × Claude Code で「アイデアを、最速でカタチに。」</p>
+        </header>
+
+        <main class="main-content">
+            <div class="instructions">
+                <h3>📋 使い方ガイド</h3>
+                <ul>
+                    <li>各ツールは実際のAI開発でよく使われるパターンです</li>
+                    <li>生成されたコードはCursorにペーストして実行してみてください</li>
+                    <li>Claude Codeで「@senior-fullstack このコードをレビューして」と聞いてみましょう</li>
+                    <li>これらのツールが30分で作れるようになるのがVibe Codingの目標です</li>
+                </ul>
+            </div>
+
+            <div class="tool-grid">
+                <!-- ツール1: API呼び出しスクリプト生成 -->
+                <div class="tool-card">
+                    <h3>🌐 API連携コード生成器</h3>
+                    <p>外部APIと連携するJavaScriptコードを自動生成。クライアントワークでよく求められる機能です。</p>
+                    
+                    <div class="input-group">
+                        <label for="apiUrl">API URL:</label>
+                        <input type="text" id="apiUrl" placeholder="https://api.example.com/data">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="apiKey">APIキーの変数名:</label>
+                        <input type="text" id="apiKey" placeholder="API_KEY" value="API_KEY">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="dataFormat">データ処理方法:</label>
+                        <select id="dataFormat">
+                            <option value="json">JSON形式で取得</option>
+                            <option value="csv">CSV形式で出力</option>
+                            <option value="table">HTML表として表示</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" onclick="generateApiCode()">🚀 コード生成</button>
+                    <div class="output" id="apiOutput"></div>
+                </div>
+
+                <!-- ツール2: データスクレイピング -->
+                <div class="tool-card">
+                    <h3>🕷️ Webスクレイピング生成器</h3>
+                    <p>Webサイトから情報を抽出するPythonコードを生成。データ収集業務の自動化に最適です。</p>
+                    
+                    <div class="input-group">
+                        <label for="targetUrl">対象URL:</label>
+                        <input type="text" id="targetUrl" placeholder="https://example.com">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="targetElement">取得したい要素:</label>
+                        <input type="text" id="targetElement" placeholder="記事タイトル、価格、レビューなど">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="outputFormat">出力形式:</label>
+                        <select id="outputFormat">
+                            <option value="csv">CSV</option>
+                            <option value="json">JSON</option>
+                            <option value="excel">Excel</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" onclick="generateScrapingCode()">🔍 コード生成</button>
+                    <div class="output" id="scrapingOutput"></div>
+                </div>
+
+                <!-- ツール3: 自動化スクリプト -->
+                <div class="tool-card">
+                    <h3>⚙️ 業務自動化スクリプト生成器</h3>
+                    <p>日常業務を自動化するスクリプトを生成。ファイル処理、メール送信、レポート作成など。</p>
+                    
+                    <div class="input-group">
+                        <label for="taskType">自動化したいタスク:</label>
+                        <select id="taskType">
+                            <option value="file">ファイル整理・リネーム</option>
+                            <option value="email">メール一括送信</option>
+                            <option value="report">レポート自動生成</option>
+                            <option value="backup">データバックアップ</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="taskDetail">詳細設定:</label>
+                        <textarea id="taskDetail" rows="3" placeholder="例：毎日9時にCSVファイルを読み込んで、顧客リストを更新する"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="frequency">実行頻度:</label>
+                        <select id="frequency">
+                            <option value="daily">毎日</option>
+                            <option value="weekly">毎週</option>
+                            <option value="monthly">毎月</option>
+                            <option value="manual">手動実行</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn" onclick="generateAutomationCode()">⚡ コード生成</button>
+                    <div class="output" id="automationOutput"></div>
+                </div>
+
+                <!-- ツール4: Discord Bot -->
+                <div class="tool-card">
+                    <h3>🤖 Discord Bot生成器</h3>
+                    <p>コミュニティ運営やチーム管理に使えるDiscord Botを生成。Vibe Coding受講生同士の交流にも活用できます。</p>
+                    
+                    <div class="input-group">
+                        <label for="botName">Bot名:</label>
+                        <input type="text" id="botName" placeholder="VibeCodingBot">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="botFeature">主な機能:</label>
+                        <select id="botFeature">
+                            <option value="welcome">新メンバー歓迎</option>
+                            <option value="quiz">プログラミングクイズ</option>
+                            <option value="progress">学習進捗管理</option>
+                            <option value="reminder">リマインダー機能</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="customCommand">カスタムコマンド:</label>
+                        <input type="text" id="customCommand" placeholder="!progress, !help, !motiなど">
+                    </div>
+                    
+                    <button class="btn" onclick="generateBotCode()">🤖 コード生成</button>
+                    <div class="output" id="botOutput"></div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>💎 <strong>バイブコーディング特典ツール</strong> | 作成時間：約30分 | これが君の開発スピードです</p>
+            <p>🎯 <strong>次のステップ：</strong>生成されたコードをCursorで実行 → Claude Codeでレビュー → 改善提案を受ける</p>
+        </footer>
+    </div>
+
+    <script>
+        function generateApiCode() {
+            const url = document.getElementById('apiUrl').value || 'https://api.example.com/data';
+            const apiKey = document.getElementById('apiKey').value || 'API_KEY';
+            const format = document.getElementById('dataFormat').value;
+
+            let code = `// API連携コード - Cursor × Claude Code 生成
+// 使用方法：このコードをCursorにペーストして実行してください
+
+const axios = require('axios');
+const fs = require('fs');
+
+async function fetchApiData() {
+    try {
+        console.log('🚀 API通信を開始...');
+        
+        const response = await axios.get('${url}', {
+            headers: {
+                'Authorization': \`Bearer \${process.env.${apiKey}}\`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const data = response.data;
+        console.log('✅ データ取得成功:', data.length || 1, '件');
+
+`;
+
+            if (format === 'csv') {
+                code += `        // CSV形式で出力
+        const csv = convertToCSV(data);
+        fs.writeFileSync('output.csv', csv);
+        console.log('📄 CSVファイルを生成しました');
+
+function convertToCSV(data) {
+    if (!Array.isArray(data)) data = [data];
+    const headers = Object.keys(data[0]).join(',');
+    const rows = data.map(item => Object.values(item).join(',')).join('\\n');
+    return headers + '\\n' + rows;
+}`;
+            } else if (format === 'table') {
+                code += `        // HTML表として表示
+        const html = generateTable(data);
+        fs.writeFileSync('output.html', html);
+        console.log('🌐 HTMLテーブルを生成しました');
+
+function generateTable(data) {
+    if (!Array.isArray(data)) data = [data];
+    const headers = Object.keys(data[0]).map(key => \`<th>\${key}</th>\`).join('');
+    const rows = data.map(item => 
+        '<tr>' + Object.values(item).map(val => \`<td>\${val}</td>\`).join('') + '</tr>'
+    ).join('');
+    return \`<table border="1"><thead><tr>\${headers}</tr></thead><tbody>\${rows}</tbody></table>\`;
+}`;
+            } else {
+                code += `        // JSON形式で出力
+        fs.writeFileSync('output.json', JSON.stringify(data, null, 2));
+        console.log('📋 JSONファイルを生成しました');`;
+            }
+
+            code += `
+    } catch (error) {
+        console.error('❌ エラーが発生しました:', error.message);
+        
+        // Claude Codeに聞いてみましょう
+        console.log('💡 解決方法: Claude Codeで "@senior-fullstack このエラーを解決して" と入力してください');
+    }
+}
+
+// 実行
+fetchApiData();
+
+// 📝 次のステップ：
+// 1. npm install axios でaxiosをインストール
+// 2. .env ファイルを作成して${apiKey}=your_actual_api_key を設定
+// 3. node このファイル名.js で実行
+// 4. Claude Codeで "@qa-lead コードをレビューして" でコード品質チェック`;
+
+            showOutput('apiOutput', code);
+        }
+
+        function generateScrapingCode() {
+            const url = document.getElementById('targetUrl').value || 'https://example.com';
+            const element = document.getElementById('targetElement').value || '記事タイトル';
+            const format = document.getElementById('outputFormat').value;
+
+            const code = `# Webスクレイピングコード - Cursor × Claude Code 生成
+# 使用方法：このコードをCursorにペーストして実行してください
+
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+import json
+import time
+from datetime import datetime
+
+def scrape_website():
+    """${element}を${url}から取得する"""
+    
+    print("🕷️ スクレイピングを開始...")
+    
+    try:
+        # ユーザーエージェントを設定（ブロック防止）
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        }
+        
+        response = requests.get('${url}', headers=headers)
+        response.raise_for_status()
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # データ抽出ロジック（要素に応じてカスタマイズ）
+        results = []
+        
+        # ${element}を抽出
+        ${generateExtractionLogic(element)}
+        
+        print(f"✅ {len(results)}件のデータを取得しました")
+        
+        # データ保存
+        save_data(results, '${format}')
+        
+    except Exception as e:
+        print(f"❌ エラーが発生しました: {e}")
+        print("💡 解決方法: Claude Codeで '@senior-fullstack このエラーを解決して' と入力してください")
+
+def save_data(data, format_type):
+    """データを指定形式で保存"""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    if format_type == 'csv':
+        df = pd.DataFrame(data)
+        filename = f"scraped_data_{timestamp}.csv"
+        df.to_csv(filename, index=False, encoding='utf-8')
+        print(f"📄 CSVファイルを保存: {filename}")
+        
+    elif format_type == 'json':
+        filename = f"scraped_data_{timestamp}.json"
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        print(f"📋 JSONファイルを保存: {filename}")
+        
+    elif format_type == 'excel':
+        df = pd.DataFrame(data)
+        filename = f"scraped_data_{timestamp}.xlsx"
+        df.to_excel(filename, index=False)
+        print(f"📊 Excelファイルを保存: {filename}")
+
+if __name__ == "__main__":
+    scrape_website()
+
+# 📝 次のステップ：
+# 1. pip install requests beautifulsoup4 pandas openpyxl でライブラリをインストール
+# 2. python このファイル名.py で実行  
+# 3. Claude Codeで "@qa-lead スクレイピングの品質をチェックして" でレビュー
+# 4. "@devops-engineer スケジュール実行の設定を教えて" で自動化設定`;
+
+            showOutput('scrapingOutput', code);
+        }
+
+        function generateExtractionLogic(element) {
+            const elementMap = {
+                '記事タイトル': `# 記事タイトルを抽出
+        titles = soup.find_all(['h1', 'h2', '.title', '.headline'])
+        for title in titles[:10]:  # 上位10件
+            results.append({
+                'title': title.get_text().strip(),
+                'url': title.get('href', ''),
+                'scraped_at': datetime.now().isoformat()
+            })`,
+                '価格': `# 価格情報を抽出
+        prices = soup.find_all(['.price', '.cost', '[class*="price"]'])
+        for price in prices:
+            results.append({
+                'price': price.get_text().strip(),
+                'currency': 'JPY',
+                'scraped_at': datetime.now().isoformat()
+            })`,
+                'レビュー': `# レビュー情報を抽出
+        reviews = soup.find_all(['.review', '.comment', '[class*="review"]'])
+        for review in reviews:
+            results.append({
+                'review_text': review.get_text().strip(),
+                'rating': extract_rating(review),
+                'scraped_at': datetime.now().isoformat()
+            })`
+            };
+            
+            return elementMap[element] || `# ${element}を抽出
+        elements = soup.find_all(text=True)
+        for elem in elements[:20]:  # 上位20件
+            if elem.strip():
+                results.append({
+                    'content': elem.strip(),
+                    'type': '${element}',
+                    'scraped_at': datetime.now().isoformat()
+                })`;
+        }
+
+        function generateAutomationCode() {
+            const taskType = document.getElementById('taskType').value;
+            const detail = document.getElementById('taskDetail').value || '自動化タスク';
+            const frequency = document.getElementById('frequency').value;
+
+            let code = `# 業務自動化スクリプト - Cursor × Claude Code 生成
+# タスク: ${detail}
+# 実行頻度: ${frequency}
+
+import os
+import shutil
+import glob
+import schedule
+import time
+from datetime import datetime, timedelta
+import logging
+
+# ログ設定
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('automation.log'),
+        logging.StreamHandler()
+    ]
+)
+
+def main_task():
+    """メインの自動化タスク"""
+    try:
+        logging.info(f"🚀 自動化タスク開始: ${detail}")
+        
+`;
+
+            if (taskType === 'file') {
+                code += `        # ファイル整理・リネーム
+        source_folder = "./downloads"  # 対象フォルダ
+        organized_folder = "./organized"
+        
+        # フォルダ作成
+        os.makedirs(organized_folder, exist_ok=True)
+        
+        # ファイル種別ごとに整理
+        file_types = {
+            'images': ['.jpg', '.png', '.gif', '.jpeg'],
+            'documents': ['.pdf', '.docx', '.txt', '.xlsx'],
+            'videos': ['.mp4', '.avi', '.mov', '.mkv']
+        }
+        
+        for category, extensions in file_types.items():
+            category_folder = os.path.join(organized_folder, category)
+            os.makedirs(category_folder, exist_ok=True)
+            
+            for ext in extensions:
+                files = glob.glob(f"{source_folder}/*{ext}")
+                for file_path in files:
+                    filename = os.path.basename(file_path)
+                    # タイムスタンプ付きリネーム
+                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                    new_name = f"{timestamp}_{filename}"
+                    shutil.move(file_path, os.path.join(category_folder, new_name))
+                    logging.info(f"📁 移動: {filename} → {category}/{new_name}")`;
+            
+            } else if (taskType === 'email') {
+                code += `        # メール一括送信
+        import smtplib
+        from email.mime.text import MIMEText
+        from email.mime.multipart import MIMEMultipart
+        import csv
+        
+        # メール設定（環境変数から取得）
+        smtp_server = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
+        smtp_port = 587
+        sender_email = os.getenv('SENDER_EMAIL')
+        sender_password = os.getenv('SENDER_PASSWORD')
+        
+        # 送信先リスト読み込み
+        with open('email_list.csv', 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            recipients = list(reader)
+        
+        for recipient in recipients:
+            msg = MIMEMultipart()
+            msg['From'] = sender_email
+            msg['To'] = recipient['email']
+            msg['Subject'] = f"お知らせ - {recipient['name']}様"
+            
+            body = f"""
+            {recipient['name']}様
+            
+            いつもお世話になっております。
+            ${detail}
+            
+            引き続きよろしくお願いいたします。
+            """
+            
+            msg.attach(MIMEText(body, 'plain'))
+            
+            with smtplib.SMTP(smtp_server, smtp_port) as server:
+                server.starttls()
+                server.login(sender_email, sender_password)
+                server.send_message(msg)
+                logging.info(f"📧 送信完了: {recipient['email']}")
+                time.sleep(1)  # 送信間隔調整`;
+            
+            } else if (taskType === 'report') {
+                code += `        # レポート自動生成
+        import pandas as pd
+        import matplotlib.pyplot as plt
+        from jinja2 import Template
+        
+        # データ読み込み
+        data = pd.read_csv('data.csv')
+        
+        # 基本統計
+        stats = {
+            'total_records': len(data),
+            'date_range': f"{data['date'].min()} - {data['date'].max()}",
+            'summary': data.describe().to_dict()
+        }
+        
+        # グラフ生成
+        plt.figure(figsize=(10, 6))
+        data.plot(x='date', y='value', kind='line')
+        plt.title('データ推移')
+        plt.savefig('chart.png')
+        plt.close()
+        
+        # HTMLレポート生成
+        template = Template('''
+        <html>
+        <body>
+            <h1>自動生成レポート</h1>
+            <p>生成日時: {{ timestamp }}</p>
+            <p>総レコード数: {{ stats.total_records }}</p>
+            <p>期間: {{ stats.date_range }}</p>
+            <img src="chart.png" alt="グラフ">
+        </body>
+        </html>
+        ''')
+        
+        report_html = template.render(
+            timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            stats=stats
+        )
+        
+        with open(f'report_{datetime.now().strftime("%Y%m%d")}.html', 'w', encoding='utf-8') as f:
+            f.write(report_html)
+            
+        logging.info("📊 レポート生成完了")`;
+            
+            } else {  // backup
+                code += `        # データバックアップ
+        backup_folder = f"./backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        os.makedirs(backup_folder, exist_ok=True)
+        
+        # バックアップ対象フォルダ
+        source_folders = ['./data', './documents', './projects']
+        
+        for folder in source_folders:
+            if os.path.exists(folder):
+                folder_name = os.path.basename(folder)
+                shutil.copytree(folder, os.path.join(backup_folder, folder_name))
+                logging.info(f"💾 バックアップ完了: {folder}")
+        
+        # 古いバックアップの削除（30日以上前）
+        cutoff_date = datetime.now() - timedelta(days=30)
+        for backup_dir in glob.glob('./backup_*'):
+            dir_date_str = backup_dir.split('_')[1][:8]  # YYYYMMDD
+            dir_date = datetime.strptime(dir_date_str, '%Y%m%d')
+            if dir_date < cutoff_date:
+                shutil.rmtree(backup_dir)
+                logging.info(f"🗑️ 古いバックアップを削除: {backup_dir}")`;
+            }
+
+            // スケジュール設定
+            let scheduleCode = '';
+            if (frequency === 'daily') {
+                scheduleCode = `schedule.every().day.at("09:00").do(main_task)`;
+            } else if (frequency === 'weekly') {
+                scheduleCode = `schedule.every().monday.at("09:00").do(main_task)`;
+            } else if (frequency === 'monthly') {
+                scheduleCode = `schedule.every(30).days.do(main_task)`;
+            } else {
+                scheduleCode = `# 手動実行用 - main_task()を直接呼び出し`;
+            }
+
+            code += `
+        
+        logging.info("✅ タスク完了")
+        
+    except Exception as e:
+        logging.error(f"❌ エラー: {e}")
+        print("💡 解決方法: Claude Codeで '@devops-engineer このエラーを解決して' と入力してください")
+
+if __name__ == "__main__":
+    ${scheduleCode}
+    
+    if "${frequency}" != "manual":
+        print(f"⏰ スケジュール設定: ${frequency}")
+        print("自動実行を開始します...")
+        while True:
+            schedule.run_pending()
+            time.sleep(60)
+    else:
+        print("🖱️ 手動実行モード")
+        main_task()
+
+# 📝 次のステップ：
+# 1. pip install schedule pandas matplotlib jinja2 でライブラリをインストール
+# 2. 必要に応じて.envファイルで環境変数を設定
+# 3. python このファイル名.py で実行
+# 4. Claude Codeで "@devops-engineer 本番環境での実行方法を教えて" で運用方法確認`;
+
+            showOutput('automationOutput', code);
+        }
+
+        function generateBotCode() {
+            const botName = document.getElementById('botName').value || 'VibeCodingBot';
+            const feature = document.getElementById('botFeature').value;
+            const customCommand = document.getElementById('customCommand').value || '!help';
+
+            const code = `# Discord Bot - Cursor × Claude Code 生成
+# Bot名: ${botName}
+# 機能: ${feature}
+
+import discord
+from discord.ext import commands
+import asyncio
+import random
+import json
+import os
+from datetime import datetime
+
+# Bot設定
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+# データ保存用
+DATA_FILE = 'bot_data.json'
+
+def load_data():
+    """データ読み込み"""
+    try:
+        with open(DATA_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+def save_data(data):
+    """データ保存"""
+    with open(DATA_FILE, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+@bot.event
+async def on_ready():
+    print(f'🤖 {bot.user} がログインしました！')
+    print(f'📊 {len(bot.guilds)} サーバーに接続中')
+
+${generateBotFeatureCode(feature)}
+
+@bot.command(name='help')
+async def help_command(ctx):
+    """ヘルプコマンド"""
+    embed = discord.Embed(
+        title=f"🤖 {botName} コマンド一覧",
+        color=0x00ff00,
+        timestamp=datetime.now()
+    )
+    
+    embed.add_field(
+        name="基本コマンド",
+        value="""
+        \`!help\` - このヘルプを表示
+        \`${customCommand}\` - カスタム機能
+        \`!stats\` - 統計情報
+        """,
+        inline=False
+    )
+    
+    embed.set_footer(text="Vibe Coding AI開発コース特典Bot")
+    await ctx.send(embed=embed)
+
+@bot.command(name='stats')
+async def stats_command(ctx):
+    """統計情報表示"""
+    data = load_data()
+    user_id = str(ctx.author.id)
+    
+    embed = discord.Embed(
+        title="📊 統計情報",
+        color=0x3498db,
+        timestamp=datetime.now()
+    )
+    
+    embed.add_field(
+        name="サーバー情報",
+        value=f"メンバー数: {ctx.guild.member_count}人",
+        inline=True
+    )
+    
+    embed.add_field(
+        name="あなたの活動",
+        value=f"コマンド使用回数: {data.get(user_id, {}).get('commands_used', 0)}回",
+        inline=True
+    )
+    
+    await ctx.send(embed=embed)
+
+# カスタムコマンド
+${generateCustomCommand(customCommand, feature)}
+
+# エラーハンドリング
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send("❓ そのコマンドは存在しません。\`!help\`でコマンド一覧を確認してください。")
+    else:
+        print(f"エラー: {error}")
+        await ctx.send("❌ エラーが発生しました。Claude Codeで '@devops-engineer Botのエラーを解決して' と聞いてみてください。")
+
+# Bot起動
+if __name__ == "__main__":
+    TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+    if not TOKEN:
+        print("❌ DISCORD_BOT_TOKENが設定されていません。")
+        print("💡 Discord Developer Portalでボットを作成し、トークンを.envファイルに保存してください。")
+    else:
+        bot.run(TOKEN)
+
+# 📝 セットアップ手順：
+# 1. pip install discord.py でライブラリをインストール
+# 2. Discord Developer Portal (https://discord.com/developers/applications) でBot作成
+# 3. .env ファイルに DISCORD_BOT_TOKEN=your_token_here を設定
+# 4. python このファイル名.py で起動
+# 5. Claude Codeで "@devops-engineer Botの機能拡張方法を教えて" で更なる機能追加`;
+
+            showOutput('botOutput', code);
+        }
+
+        function generateBotFeatureCode(feature) {
+            const featureMap = {
+                'welcome': `@bot.event
+async def on_member_join(member):
+    """新メンバー歓迎"""
+    channel = discord.utils.get(member.guild.channels, name='welcome')
+    if channel:
+        embed = discord.Embed(
+            title="🎉 新メンバー参加！",
+            description=f"{member.mention} さん、Vibe Codingコミュニティへようこそ！",
+            color=0x00ff00
+        )
+        embed.add_field(
+            name="スタートガイド",
+            value="まずは \`!help\` でコマンドを確認してみてください！",
+            inline=False
+        )
+        await channel.send(embed=embed)`,
+
+                'quiz': `@bot.command(name='quiz')
+async def quiz_command(ctx):
+    """プログラミングクイズ"""
+    quizzes = [
+        {
+            "question": "Pythonでリストを作成するときに使う記号は？",
+            "options": ["A: ()", "B: {}", "C: []", "D: <>"],
+            "answer": "C"
+        },
+        {
+            "question": "JavaScriptで変数を宣言するキーワードは？",
+            "options": ["A: var", "B: let", "C: const", "D: 全て正しい"],
+            "answer": "D"
+        }
+    ]
+    
+    quiz = random.choice(quizzes)
+    embed = discord.Embed(
+        title="🧠 プログラミングクイズ",
+        description=quiz["question"],
+        color=0xff9900
+    )
+    
+    options_text = "\\n".join(quiz["options"])
+    embed.add_field(name="選択肢", value=options_text, inline=False)
+    
+    message = await ctx.send(embed=embed)
+    
+    # リアクション追加
+    reactions = ['🇦', '🇧', '🇨', '🇩']
+    for reaction in reactions[:len(quiz["options"])]:
+        await message.add_reaction(reaction)`,
+
+                'progress': `@bot.command(name='progress')
+async def progress_command(ctx, *, goal=None):
+    """学習進捗管理"""
+    data = load_data()
+    user_id = str(ctx.author.id)
+    
+    if not data.get(user_id):
+        data[user_id] = {"goals": [], "completed": []}
+    
+    if goal:
+        data[user_id]["goals"].append({
+            "goal": goal,
+            "created_at": datetime.now().isoformat()
+        })
+        save_data(data)
+        
+        embed = discord.Embed(
+            title="🎯 目標設定完了！",
+            description=f"目標: {goal}",
+            color=0x00ff00
+        )
+        await ctx.send(embed=embed)
+    else:
+        goals = data[user_id]["goals"]
+        completed = data[user_id]["completed"]
+        
+        embed = discord.Embed(
+            title="📈 あなたの学習進捗",
+            color=0x3498db
+        )
+        
+        if goals:
+            goals_text = "\\n".join([f"• {g['goal']}" for g in goals[-5:]])
+            embed.add_field(name="現在の目標", value=goals_text, inline=False)
+        
+        embed.add_field(
+            name="達成状況",
+            value=f"完了: {len(completed)}項目 | 進行中: {len(goals)}項目",
+            inline=False
+        )
+        
+        await ctx.send(embed=embed)`,
+
+                'reminder': `@bot.command(name='remind')
+async def remind_command(ctx, time_str, *, message):
+    """リマインダー設定"""
+    try:
+        # 簡単な時間解析（分単位）
+        minutes = int(time_str.replace('min', '').replace('m', ''))
+        
+        embed = discord.Embed(
+            title="⏰ リマインダー設定",
+            description=f"{minutes}分後にリマインドします: {message}",
+            color=0xffa500
+        )
+        await ctx.send(embed=embed)
+        
+        # 指定時間待機
+        await asyncio.sleep(minutes * 60)
+        
+        # リマインド送信
+        remind_embed = discord.Embed(
+            title="🔔 リマインド",
+            description=message,
+            color=0xff0000
+        )
+        await ctx.send(f"{ctx.author.mention}", embed=remind_embed)
+        
+    except ValueError:
+        await ctx.send("❌ 時間の形式が正しくありません。例: \`!remind 30 宿題をやる\`")`
+            };
+
+            return featureMap[feature] || '';
+        }
+
+        function generateCustomCommand(command, feature) {
+            const commandName = command.replace('!', '').split(',')[0].trim() || 'custom';
+            
+            return `@bot.command(name='${commandName}')
+async def custom_command(ctx):
+    """カスタムコマンド"""
+    responses = [
+        "💪 頑張って！Vibe Codingで夢を実現しよう！",
+        "🚀 AI開発の未来はキミの手の中にある！",
+        "⚡ Cursor × Claude Code = 最強の開発環境",
+        "🎯 アイデアを、最速でカタチに。",
+        "🌟 今日も一歩ずつ、プログラミングマスターへ！"
+    ]
+    
+    embed = discord.Embed(
+        title=f"💎 {commandName.upper()}",
+        description=random.choice(responses),
+        color=0x9b59b6
+    )
+    
+    # コマンド使用回数を記録
+    data = load_data()
+    user_id = str(ctx.author.id)
+    if user_id not in data:
+        data[user_id] = {}
+    data[user_id]['commands_used'] = data[user_id].get('commands_used', 0) + 1
+    save_data(data)
+    
+    await ctx.send(embed=embed)`;
+        }
+
+        function showOutput(outputId, content) {
+            const output = document.getElementById(outputId);
+            output.textContent = content;
+            output.style.display = 'block';
+            output.scrollTop = 0;
+        }
+
+        // 初期表示時に一つずつアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tool-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
