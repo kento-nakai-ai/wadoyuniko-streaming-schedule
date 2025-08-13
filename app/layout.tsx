@@ -46,6 +46,9 @@ export default function RootLayout({
                   <Link href="/">ホーム</Link>
                 </Button>
                 <Button variant="ghost" asChild>
+                  <Link href="/bonus">特典リスト</Link>
+                </Button>
+                <Button variant="ghost" asChild>
                   <Link href="/streaming-schedule">配信スケジュール</Link>
                 </Button>
                 <Button variant="ghost" asChild>
@@ -59,6 +62,12 @@ export default function RootLayout({
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/nakai-posts">中井投稿</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/team-overview">チーム総合</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/docs">ドキュメント</Link>
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/sales-team">セールスチーム</Link>

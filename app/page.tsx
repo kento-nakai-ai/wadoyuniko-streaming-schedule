@@ -111,6 +111,12 @@ export default function HomePage() {
                   チームダッシュボード
                 </Button>
               </Link>
+              <Link href="/bonus">
+                <Button size="lg" className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-xl">
+                  <Gift className="h-5 w-5" />
+                  特典リスト
+                </Button>
+              </Link>
               <Link href="/x-posts">
                 <Button size="lg" variant="outline" className="gap-2 border-2 hover:bg-purple-50 dark:hover:bg-purple-950">
                   <MessageSquare className="h-5 w-5" />
@@ -196,7 +202,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {/* チームダッシュボード */}
             <Link href="/teams">
               <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-purple-400">
@@ -216,6 +222,30 @@ export default function HomePage() {
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-muted-foreground">8名のメンバー</span>
                     <ArrowRight className="h-4 w-4 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* 特典リスト */}
+            <Link href="/bonus">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-orange-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-orange-100 dark:bg-orange-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Gift className="h-6 w-6 text-orange-600" />
+                    </div>
+                    <Badge className="bg-orange-600 text-white">人気</Badge>
+                  </div>
+                  <CardTitle>特典リスト</CardTitle>
+                  <CardDescription>
+                    104個・総額840万円相当の特典
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">8カテゴリ</span>
+                    <ArrowRight className="h-4 w-4 text-orange-600 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
               </Card>
