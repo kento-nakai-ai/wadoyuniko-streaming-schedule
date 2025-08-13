@@ -48,6 +48,21 @@ export default function RootLayout({
                 <Button variant="ghost" asChild>
                   <Link href="/streaming-schedule">配信スケジュール</Link>
                 </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/teams">チームドキュメント</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/x-posts">X投稿集</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/wado-posts">わど投稿</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/nakai-posts">中井投稿</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/sales-team">セールスチーム</Link>
+                </Button>
               </div>
             </div>
           </nav>

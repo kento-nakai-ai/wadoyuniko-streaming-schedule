@@ -23,8 +23,8 @@ This is the **バイブコーディング (Vibe Coding) Launch Project** - a bus
 - **Notifications**: Sonner toasts
 
 ### Project Type
-- **Static Site**: Images unoptimized, no server-side features
-- **Purpose**: Marketing pages, streaming schedules, launch support
+- **Dynamic Site**: Next.js with server actions and Supabase integration
+- **Purpose**: Marketing pages, streaming schedules, launch support, content management
 
 ## Development Commands
 
@@ -52,11 +52,11 @@ npm run format        # Prettier with Tailwind plugin
 npm run type-check    # TypeScript checking without emit
 ```
 
-### Static Site Export Configuration
-- **Build Output**: Static files in `out/` directory
-- **Images**: Unoptimized (no Next.js Image optimization)
-- **Routing**: Trailing slashes enabled for better static hosting
-- **Base Path**: Configurable for GitHub Pages deployment
+### Server Actions & Dynamic Features
+- **Server Actions**: Enabled with 2MB body size limit
+- **Images**: Optimized for localhost and Supabase domains
+- **Database**: Supabase integration for dynamic content
+- **State Management**: Zustand for client-side state
 
 ## Project Architecture
 
@@ -86,11 +86,11 @@ npm run type-check    # TypeScript checking without emit
 
 ### Key Architecture Patterns
 
-- **Static Site Generation**: All pages pre-rendered at build time
+- **App Router**: Next.js 15 App Router with server components
 - **Component-First**: shadcn/ui components with Tailwind styling
-- **Mobile-Responsive**: Design-first for multi-device launch promotion  
+- **Database Integration**: Supabase for content management and data storage
 - **Type Safety**: Strict TypeScript with path mapping (@/* aliases)
-- **Launch-Focused**: Optimized for marketing pages and streaming schedules
+- **Marketing-Focused**: Content management system for educational materials and promotion
 
 ## Launch Context
 
@@ -120,18 +120,21 @@ npm run test -- components/ui/button.test.tsx
 
 ## Environment Setup
 
-### For Static Site Development
+### For Development
 ```bash
+# Required for Supabase integration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+
 # Optional for development
 NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# No server-side environment variables needed for static export
 ```
 
 ### Production Deployment
-- Static files exported to `out/` directory
-- No environment variables required for runtime
-- GitHub Pages compatible
+- Vercel deployment with server-side features
+- Environment variables for Supabase integration required
+- Database migrations and seed data via Supabase dashboard
 
 ## Code Conventions
 
@@ -139,7 +142,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 - Use shadcn/ui components from `@/components/ui`
 - Apply Tailwind classes with `cn()` utility from `@/lib/utils`
 - Follow Radix UI patterns for accessibility
-- Static-first: No server-side database calls or authentication
+- Server components for data fetching, client components for interactivity
+- Supabase client/server utilities in `@/lib/supabase/`
 
 ### Import Patterns
 ```typescript
@@ -159,9 +163,30 @@ import { cn } from '@/lib/utils'
 ### Key Documentation Locations
 - `docs/product/`: Vibe Coding course specifications
 - `docs/project-management/`: Launch timeline and team strategy
-- `team/present/`: Marketing materials and bonus content
+- `team/present/bonuses/`: 33 educational bonus materials (295万円相当)
+- `team/present/promotion/`: 10 promotional/marketing materials
 - `team/Live/`: Streaming guides and YouTube strategy
-- `team/x/`: Social media launch campaigns
+- `team/x/`: Social media launch campaigns and X algorithm optimization
+- `docs/sales-scripts/`: Complete sales training materials and scripts
+
+### Content Management Architecture
+The project contains extensive educational and promotional content:
+
+#### Educational Content (33 bonuses)
+- **Pre-distribution bonuses** (10): Free lead magnets in `team/present/bonuses/pre-distribution/`
+- **Course purchase bonuses** (3): Premium bonuses in `team/present/bonuses/course-purchase/`  
+- **Seminar limited bonuses** (11): Exclusive content in `team/present/bonuses/seminar-limited/`
+
+#### Marketing Materials (10 promotional assets)
+- **Lead generation**: Landing pages, webinars, startup kits in `team/present/promotion/lead-generation/`
+- **Viral campaigns**: SNS templates, contests in `team/present/promotion/viral-campaigns/`
+- **Partnerships**: Influencer collaboration, affiliate programs in `team/present/promotion/partnerships/`
+- **Media kit**: Press releases, media assets in `team/present/promotion/media-kit/`
+
+#### Content File Naming Convention
+- Numbered prefixes (01-, 02-, etc.) indicate sequence/priority
+- Category-based subdirectories for organization
+- INDEX.md files provide comprehensive overviews
 
 ### Launch Team Structure
 - **PM**: 中井健登 (Nakai Kento) - Project management and coordination
@@ -175,22 +200,23 @@ import { cn } from '@/lib/utils'
 ```bash
 npx shadcn-ui@latest add [component-name]
 ```
-Components automatically configured for static export.
+Components automatically configured with proper imports and styling.
 
 ### Deployment Configuration
 - **Development**: Standard Next.js with server features enabled
-- **Production**: Supports both static export and server deployment
-- **Vercel**: Optimized for Vercel deployment with server actions
+- **Production**: Vercel deployment with server actions enabled (static export removed)
+- **Vercel**: Optimized for Vercel deployment with 2MB body size limit for server actions
 - **Images**: Configured for localhost and Supabase domains
 
 ## Important Notes for Claude Code
 
 - **Project Type**: Business launch support site, not full platform
 - **Timeline**: Critical launch milestones approaching (August 2025)
-- **Focus**: Marketing pages, streaming schedules, launch documentation
+- **Focus**: Educational content management, marketing automation, launch support
 - **Language**: Japanese for user-facing content, English for code
-- **Deployment**: Static site export for GitHub Pages or similar
-- **Documentation**: Extensive launch strategy docs in `docs/` and `team/`
+- **Content Value**: 295万円 worth of educational materials, 2億円 promotional value
+- **Deployment**: Vercel with Supabase integration for content management
+- **Documentation**: Extensive educational and marketing content in `team/present/`
 
 ## Quality Standards
 
@@ -212,5 +238,9 @@ Components automatically configured for static export.
 - **Fast Loading**: Critical for user conversion during launch
 - **Japanese Localization**: Required for target audience
 
-**Last Updated**: 2025-01-11 (Launch Project Context)
-**Next Review**: Post-launch (September 2025)
+**Last Updated**: 2025-01-12 (Major Content Expansion - 43 total assets created)
+**Recent Additions**: 
+- 33 educational bonus materials (team/present/bonuses/)
+- 10 promotional marketing assets (team/present/promotion/)
+- Comprehensive sales training materials (docs/sales-scripts/)
+**Next Review**: Pre-launch (August 2025)

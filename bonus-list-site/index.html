@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイブコーディングスクール特典リスト | 総額840万円相当の104特典</title>
+    <meta name="description" content="バイブコーディングスクールの受講特典104個を完全公開。AI開発、収益化、ツール活用など総額840万円相当の特典をご用意しています。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#f59e0b',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'gradient': 'gradient 15s ease infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* グラデーション背景 */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        /* スクロールバー */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* カードホバーエフェクト */
+        .bonus-card {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bonus-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .bonus-card:hover::before {
+            left: 100%;
+        }
+        
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* カテゴリバッジ */
+        .category-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+        }
+        
+        /* カウントアップアニメーション */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .count-animation {
+            animation: countUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- ヘッダー -->
+    <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold">🎁 バイブコーディングスクール特典リスト</h1>
+                    <p class="text-sm opacity-90 mt-1">総額840万円相当・104個の特典を完全公開</p>
+                </div>
+                <button id="menuToggle" class="lg:hidden">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ナビゲーション -->
+    <nav id="navigation" class="bg-white shadow-md sticky top-20 z-40 hidden lg:block">
+        <div class="container mx-auto px-4">
+            <ul class="flex flex-wrap gap-2 py-3 text-sm">
+                <li><a href="#overview" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">概要</a></li>
+                <li><a href="#basic" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">基礎学習</a></li>
+                <li><a href="#tools" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">開発ツール</a></li>
+                <li><a href="#monetize" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">収益化</a></li>
+                <li><a href="#prompt" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">プロンプト</a></li>
+                <li><a href="#community" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">コミュニティ</a></li>
+                <li><a href="#course" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">専門講座</a></li>
+                <li><a href="#live" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">動画配信</a></li>
+                <li><a href="#limited" class="px-4 py-2 rounded hover:bg-primary hover:text-white transition">限定特典</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- メインコンテンツ -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 概要セクション -->
+        <section id="overview" class="mb-12">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <span class="gradient-bg bg-clip-text text-transparent">圧倒的な特典でAI開発をマスター</span>
+                </h2>
+                
+                <!-- 統計情報 -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg">
+                        <div class="text-4xl font-bold text-primary count-animation">104</div>
+                        <div class="text-sm text-gray-600">総特典数</div>
+                    </div>
+                    <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
+                        <div class="text-4xl font-bold text-secondary count-animation">840万円</div>
+                        <div class="text-sm text-gray-600">特典総額</div>
+                    </div>
+                    <div class="text-center p-4 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-lg">
+                        <div class="text-4xl font-bold text-accent count-animation">8</div>
+                        <div class="text-sm text-gray-600">カテゴリ</div>
+                    </div>
+                    <div class="text-center p-4 bg-gradient-to-br from-green-50 to-blue-50 rounded-lg">
+                        <div class="text-4xl font-bold text-green-600 count-animation">∞</div>
+                        <div class="text-sm text-gray-600">可能性</div>
+                    </div>
+                </div>
+
+                <!-- 配布タイミング -->
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4">🎯 特典配布タイミング</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold">Phase 1</span>
+                            <span>無料登録時：基礎学習コンテンツ10個</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold">Phase 2</span>
+                            <span>セミナー参加：ツール・収益化コンテンツ40個</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold">Phase 3</span>
+                            <span>購入決済後：全アクセス権限94個</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold">Phase 4</span>
+                            <span>48時間限定：緊急特典10個</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- カテゴリ別特典リスト -->
+        <!-- 基礎学習系 -->
+        <section id="basic" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">🚀</span>
+                    AI開発基礎・学習系特典
+                    <span class="category-badge">13個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">プログラミング未経験者から上級者まで対応した学習コンテンツ</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">1. 初心者から月収100万円！12週間ロードマップ</h3>
+                    <p class="text-sm text-gray-600">AI副業完全攻略の段階別学習プラン</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">2. AI開発スキルピラミッド完全攻略</h3>
+                    <p class="text-sm text-gray-600">効率的なスキル習得順序と学習戦略</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">3. CLI最強活用術で開発効率10倍アップ</h3>
+                    <p class="text-sm text-gray-600">ターミナル・コマンドライン完全マスター</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">4. 完全初心者向けファーストステップ</h3>
+                    <p class="text-sm text-gray-600">プログラミング未経験者向け30日間ガイド</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">5. AI開発者ロードマップ2025年版</h3>
+                    <p class="text-sm text-gray-600">月収100万円エンジニアへの最短経路</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">6. 必須アプリ開発スキル習得ガイド</h3>
+                    <p class="text-sm text-gray-600">Web・モバイル・デスクトップ開発の基礎</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">7. 初心者のための前提スキル完全ガイド</h3>
+                    <p class="text-sm text-gray-600">プログラミング学習前に必要な基礎知識</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">8. 0円から始めるAI開発スターターキット</h3>
+                    <p class="text-sm text-gray-600">完全無料で始められる環境構築</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">9. 30分でできるAI開発クイックスタート</h3>
+                    <p class="text-sm text-gray-600">最速でAI開発を始める方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">10. AI開発エラー解決完全マニュアル</h3>
+                    <p class="text-sm text-gray-600">よくあるエラーと解決法1000選</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">11. バイブコーディング環境構築完全ガイド</h3>
+                    <p class="text-sm text-gray-600">動画付き完全セットアップガイド</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">12. 最新AI技術トレンド完全解説</h3>
+                    <p class="text-sm text-gray-600">2025年最新技術動向</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">13. 次世代開発ツール活用マスターガイド</h3>
+                    <p class="text-sm text-gray-600">最先端ツールの効果的な使い方</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 開発ツール系 -->
+        <section id="tools" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">🛠️</span>
+                    開発ツール・環境系特典
+                    <span class="category-badge">20個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">最新のAI開発ツールと環境構築の完全ガイド</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">14. Cursor×Claude Code完全連携マスター</h3>
+                    <p class="text-sm text-gray-600">最新IDE統合による爆速開発環境構築</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">15. Claude Code完全ガイド</h3>
+                    <p class="text-sm text-gray-600">AIペアプログラミング究極のマニュアル</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">16. Cursor完全攻略マニュアル</h3>
+                    <p class="text-sm text-gray-600">AI駆動開発の最強IDE徹底解説</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">17. Dify完全攻略マニュアル</h3>
+                    <p class="text-sm text-gray-600">ノーコードAI開発で月収50万円を目指す</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">18. Gemini CLI・Codex CLI活用ガイド</h3>
+                    <p class="text-sm text-gray-600">次世代AIツールで開発生産性を革新</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">19. MCP完全実践ガイド</h3>
+                    <p class="text-sm text-gray-600">Claude Codeの最強拡張方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">20. n8n自動化完全マスターガイド</h3>
+                    <p class="text-sm text-gray-600">AI×自動化で月収200万円を生み出す</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">21. Google AI Studio Build徹底解説</h3>
+                    <p class="text-sm text-gray-600">ノーコードでAIアプリを量産する方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">22. わどAI BOT機能解説マニュアル</h3>
+                    <p class="text-sm text-gray-600">バイブコーディング専用AI支援システム</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">23. 無料ツール環境構築完全ガイド</h3>
+                    <p class="text-sm text-gray-600">0円で始めるAI開発環境セットアップ</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">24. プラットフォーム比較ガイド</h3>
+                    <p class="text-sm text-gray-600">主要AI開発プラットフォーム徹底比較</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">25. 予算別代替ツールガイド</h3>
+                    <p class="text-sm text-gray-600">コスト最適化のための代替ソリューション</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">26. 開発環境トラブルシューティング大全</h3>
+                    <p class="text-sm text-gray-600">よくあるエラーと解決法1000選</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">27. AI開発ツールキット厳選集</h3>
+                    <p class="text-sm text-gray-600">必須ツール50選と使い方</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">28. tmux完全活用ガイド</h3>
+                    <p class="text-sm text-gray-600">ターミナルマルチプレクサマスター</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">29. VSCode AI拡張機能コレクション</h3>
+                    <p class="text-sm text-gray-600">開発効率を劇的に向上させる拡張機能</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">30. Docker & Kubernetes入門</h3>
+                    <p class="text-sm text-gray-600">コンテナ技術でAI開発を加速</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">31. GitHub Copilot活用術</h3>
+                    <p class="text-sm text-gray-600">AIペアプログラミングの実践</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">32. 開発効率化ツールチェーン構築</h3>
+                    <p class="text-sm text-gray-600">CI/CDパイプライン設計</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">33. 実プロジェクトテンプレート集</h3>
+                    <p class="text-sm text-gray-600">ECサイト・SNS・管理システム</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 収益化系 -->
+        <section id="monetize" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">💰</span>
+                    収益化・ビジネス系特典
+                    <span class="category-badge">15個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">AI開発スキルを収益に変える実践的ノウハウ</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">34. AI副業7つの収益化モデル完全攻略</h3>
+                    <p class="text-sm text-gray-600">月収300万円達成のマネタイズ戦略</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">35. AI駆動開発ビジネス完全講座</h3>
+                    <p class="text-sm text-gray-600">年商3000万円企業を個人で作る方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">36. note有料記事テンプレート集50選</h3>
+                    <p class="text-sm text-gray-600">コピペで使える鉄板記事構成</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">37. AIツール収益化戦略ガイド</h3>
+                    <p class="text-sm text-gray-600">SaaS開発からマネタイズまで</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">38. 成功事例集50選</h3>
+                    <p class="text-sm text-gray-600">実際の受講生の成功ストーリー</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">39. AIバイラルコンテンツ作成システム</h3>
+                    <p class="text-sm text-gray-600">SNSで爆発的に拡散する仕組み</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">40. AI開発者のためのSNSマーケティング術</h3>
+                    <p class="text-sm text-gray-600">フォロワー10万人への道</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">41. ランチャー戦略特別マニュアル</h3>
+                    <p class="text-sm text-gray-600">新サービス立ち上げの極意</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">42. ファネル最適化完全ガイド</h3>
+                    <p class="text-sm text-gray-600">コンバージョン率を3倍にする方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">43. AI開発案件獲得保証プログラム</h3>
+                    <p class="text-sm text-gray-600">3ヶ月以内に案件獲得する方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">44. 月収100万円達成ロードマップ</h3>
+                    <p class="text-sm text-gray-600">12週間の具体的アクションプラン</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">45. 企業導入事例＆提案書テンプレート</h3>
+                    <p class="text-sm text-gray-600">大手企業への提案実績</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">46. AIコンサルティング開業マニュアル</h3>
+                    <p class="text-sm text-gray-600">時給2万円コンサルタントへの道</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">47. 個人SaaS開発・運営ガイド</h3>
+                    <p class="text-sm text-gray-600">年商1億円SaaSの作り方</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">48. AI教材ビジネス構築術</h3>
+                    <p class="text-sm text-gray-600">オンライン講座で月収500万円</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- プロンプト系 -->
+        <section id="prompt" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">🎨</span>
+                    プロンプト・テンプレート系特典
+                    <span class="category-badge">15個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">すぐに使える実践的なプロンプトとテンプレート集</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">49. AI画像生成プロンプト最適化集100選</h3>
+                    <p class="text-sm text-gray-600">Midjourney/DALL-E/SD対応</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">50. SNS用コンテンツ自動生成プロンプト</h3>
+                    <p class="text-sm text-gray-600">バズるコンテンツの法則</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">51. AIゲーム&クイズ作成プロンプト集</h3>
+                    <p class="text-sm text-gray-600">インタラクティブコンテンツ作成</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">52. ショート動画企画&台本作成プロンプト</h3>
+                    <p class="text-sm text-gray-600">YouTube Shorts/TikTok/Reels対応</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">53. 漫画ストーリー&キャラクター設定プロンプト</h3>
+                    <p class="text-sm text-gray-600">AI漫画制作の完全ガイド</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">54. ビジネス文書作成プロンプト100選</h3>
+                    <p class="text-sm text-gray-600">提案書・報告書・メール文例</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">55. プログラミング学習プロンプト集</h3>
+                    <p class="text-sm text-gray-600">コード解説・デバッグ支援</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">56. 15分でできるAIツールキット</h3>
+                    <p class="text-sm text-gray-600">即座に使える実用ツール20選</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">57. AIエージェント性格設定集</h3>
+                    <p class="text-sm text-gray-600">100種類のペルソナテンプレート</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">58. カスタムコマンド自動化集</h3>
+                    <p class="text-sm text-gray-600">開発効率化スクリプト</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">59. 30分クイックスタートガイド</h3>
+                    <p class="text-sm text-gray-600">最速でAI開発を始める方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">60. ダッシュボード&メトリクス設計</h3>
+                    <p class="text-sm text-gray-600">KPI可視化テンプレート</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">61. 高度なカスタマイズテクニック集</h3>
+                    <p class="text-sm text-gray-600">上級者向けカスタマイズ</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">62. 将来のロードマップ&展望</h3>
+                    <p class="text-sm text-gray-600">AI技術の未来予測</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">63. バイブコーディングツールキット</h3>
+                    <p class="text-sm text-gray-600">専用開発ツール集</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- コミュニティ系 -->
+        <section id="community" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">👥</span>
+                    コミュニティ・サポート系特典
+                    <span class="category-badge">15個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">充実したサポート体制と仲間との交流機会</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">64. 専用LINEオプチャ参加権</h3>
+                    <p class="text-sm text-gray-600">24時間質問し放題</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">65. 星森＆あお共同作業会参加権</h3>
+                    <p class="text-sm text-gray-600">週2回のオンラインもくもく会</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">66. Discord永久コミュニティ参加権</h3>
+                    <p class="text-sm text-gray-600">卒業後も永続的にアクセス可能</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">67. プライベートSlackチャンネル招待</h3>
+                    <p class="text-sm text-gray-600">わど・ユニコが直接回答</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">68. マンツーマンZoomセッション権</h3>
+                    <p class="text-sm text-gray-600">ユニコとの1対1相談（60分）</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">69. 地域別オフライン勉強会開催権</h3>
+                    <p class="text-sm text-gray-600">全国10都市で毎月開催</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">70. バイブコーディング同期生グループ</h3>
+                    <p class="text-sm text-gray-600">同じ時期に始めた仲間と繋がる</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">71. ペアプログラミングマッチング</h3>
+                    <p class="text-sm text-gray-600">相性の良いパートナー紹介</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">72. AI開発コンテスト参加権</h3>
+                    <p class="text-sm text-gray-600">賞金総額100万円</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">73. 成功者メンター制度</h3>
+                    <p class="text-sm text-gray-600">先輩受講生からの直接指導</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">74. バイブコーディング交流会招待</h3>
+                    <p class="text-sm text-gray-600">年4回の大型オフラインイベント</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">75. 24時間365日サポートデスク</h3>
+                    <p class="text-sm text-gray-600">技術的な質問も完全対応</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">76. 学習進捗管理サポート</h3>
+                    <p class="text-sm text-gray-600">専属メンターが伴走</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">77. 挫折ゼロ保証プログラム</h3>
+                    <p class="text-sm text-gray-600">個別フォローアップ体制</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">78. 初心者専用スローペース学習</h3>
+                    <p class="text-sm text-gray-600">自分のペースで学べる環境</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 専門講座系 -->
+        <section id="course" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">🎓</span>
+                    専門講座・教材系特典
+                    <span class="category-badge">12個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">業界トップ講師陣による専門的な講座</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">79. ハヤシシュンスケのAI開発短期講座</h3>
+                    <p class="text-sm text-gray-600">3日間集中プログラム</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">80. 【さとり公認】Difyの教科書</h3>
+                    <p class="text-sm text-gray-600">ノーコード開発完全マスター</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">81. おじぎねこ式AI開発の教科書</h3>
+                    <p class="text-sm text-gray-600">独自メソッドによる効率学習</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">82. おじぎねこ式Manusの教科書</h3>
+                    <p class="text-sm text-gray-600">AI自動化ツール完全解説</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">83. おじぎねこ式Gensparkの教科書</h3>
+                    <p class="text-sm text-gray-600">次世代AI開発プラットフォーム</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">84. SNSでバズれ！Gensparkマネタイズ戦略</h3>
+                    <p class="text-sm text-gray-600">バイラルアプリの作り方</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">85. プラチナメンバー限定マスタークラス</h3>
+                    <p class="text-sm text-gray-600">月1回の少人数制講座</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">86. AI開発エリートコミュニティ永久会員権</h3>
+                    <p class="text-sm text-gray-600">年会費10万円相当が永久無料</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">87. 個別コンサルティング3回分</h3>
+                    <p class="text-sm text-gray-600">30万円相当のサービス</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">88. AI開発者専用ツールライセンス永久版</h3>
+                    <p class="text-sm text-gray-600">通常月額5万円のツール群</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">89. VIPラウンジアクセス権</h3>
+                    <p class="text-sm text-gray-600">オフラインイベント特別席</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">90. カスタムAIエージェント作成代行</h3>
+                    <p class="text-sm text-gray-600">あなた専用のAI秘書構築</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ライブ配信系 -->
+        <section id="live" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">📺</span>
+                    ライブ配信・動画系特典
+                    <span class="category-badge">10個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">実践的な開発ライブと動画コンテンツ</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">91. 開発ライブ配信アーカイブ全集</h3>
+                    <p class="text-sm text-gray-600">100時間以上のライブ配信録画</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">92. ハンズオンプロジェクト動画集</h3>
+                    <p class="text-sm text-gray-600">実際の開発を0から解説</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">93. YouTube配信スケジュール＆台本</h3>
+                    <p class="text-sm text-gray-600">365日分のコンテンツ計画</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">94. OBSコメント設定完全ガイド</h3>
+                    <p class="text-sm text-gray-600">プロ級の配信環境構築</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">95. BGM制作ガイド</h3>
+                    <p class="text-sm text-gray-600">AI音楽生成の活用法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">96. 配信チェックリスト</h3>
+                    <p class="text-sm text-gray-600">配信前の準備項目</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">97. アプリ開発目標設定ガイド</h3>
+                    <p class="text-sm text-gray-600">明確なゴール設定方法</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">98. 簡単セットアップガイド</h3>
+                    <p class="text-sm text-gray-600">5分で配信環境構築</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">99. 改善版配信計画</h3>
+                    <p class="text-sm text-gray-600">視聴者エンゲージメント向上</p>
+                </div>
+                <div class="bonus-card bg-white rounded-lg p-5 shadow hover:shadow-xl">
+                    <h3 class="font-bold text-lg mb-2">100. エピソード詳細台本集</h3>
+                    <p class="text-sm text-gray-600">人気配信の完全台本</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 限定特典 -->
+        <section id="limited" class="mb-12">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="text-3xl">🚀</span>
+                    限定・緊急特典
+                    <span class="category-badge bg-red-500">4個</span>
+                </h2>
+                <p class="text-gray-600 mt-2">今だけの特別オファー</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bonus-card bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-5 shadow hover:shadow-xl border-2 border-red-200">
+                    <h3 class="font-bold text-lg mb-2">101. ユニコnote全記事永久アクセス権</h3>
+                    <p class="text-sm text-gray-600">有料記事100本以上が読み放題</p>
+                </div>
+                <div class="bonus-card bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-5 shadow hover:shadow-xl border-2 border-purple-200">
+                    <h3 class="font-bold text-lg mb-2">102. チームユニコ最新ノウハウ限定コンテンツ</h3>
+                    <p class="text-sm text-gray-600">毎月更新される最新情報</p>
+                </div>
+                <div class="bonus-card bg-gradient-to-br from-blue-50 to-green-50 rounded-lg p-5 shadow hover:shadow-xl border-2 border-blue-200">
+                    <h3 class="font-bold text-lg mb-2">103. わどユニコ認定証発行システム</h3>
+                    <p class="text-sm text-gray-600">LinkedIn掲載可能な公式認定</p>
+                </div>
+                <div class="bonus-card bg-gradient-to-br from-green-50 to-yellow-50 rounded-lg p-5 shadow hover:shadow-xl border-2 border-green-200">
+                    <h3 class="font-bold text-lg mb-2">104. 完全返金保証＋成果保証ダブル特典</h3>
+                    <p class="text-sm text-gray-600">30日間の返金保証+6ヶ月の成果保証</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA セクション -->
+        <section class="mb-12">
+            <div class="gradient-bg rounded-2xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">今すぐ特典を手に入れよう！</h2>
+                <p class="text-xl mb-6">総額840万円相当の特典があなたを待っています</p>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    <button class="bg-white text-primary px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition transform hover:scale-105">
+                        無料登録で特典GET
+                    </button>
+                    <button class="bg-accent text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-orange-500 transition transform hover:scale-105">
+                        セミナーに申し込む
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 価値総額表 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">特典価値総額</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b-2 border-gray-200">
+                                <th class="text-left py-3">カテゴリ</th>
+                                <th class="text-center py-3">特典数</th>
+                                <th class="text-right py-3">通常価格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">AI開発基礎・学習系</td>
+                                <td class="text-center">13個</td>
+                                <td class="text-right font-semibold">65万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">開発ツール・環境系</td>
+                                <td class="text-center">20個</td>
+                                <td class="text-right font-semibold">100万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">収益化・ビジネス系</td>
+                                <td class="text-center">15個</td>
+                                <td class="text-right font-semibold">150万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">プロンプト・テンプレート系</td>
+                                <td class="text-center">15個</td>
+                                <td class="text-right font-semibold">75万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">コミュニティ・サポート系</td>
+                                <td class="text-center">15個</td>
+                                <td class="text-right font-semibold">100万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">専門講座・教材系</td>
+                                <td class="text-center">12個</td>
+                                <td class="text-right font-semibold">200万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">ライブ配信・動画系</td>
+                                <td class="text-center">10個</td>
+                                <td class="text-right font-semibold">50万円相当</td>
+                            </tr>
+                            <tr class="border-b hover:bg-gray-50">
+                                <td class="py-3">限定・緊急特典</td>
+                                <td class="text-center">4個</td>
+                                <td class="text-right font-semibold">100万円相当</td>
+                            </tr>
+                            <tr class="bg-gradient-to-r from-blue-50 to-purple-50">
+                                <td class="py-4 font-bold text-lg">合計</td>
+                                <td class="text-center font-bold text-lg">104個</td>
+                                <td class="text-right font-bold text-2xl text-primary">840万円相当</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">© 2025 バイブコーディングスクール</p>
+                <p class="text-sm opacity-75">AI開発で人生を変える</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // メニュートグル
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navigation').classList.toggle('hidden');
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // カウントアップアニメーション
+        function animateCount() {
+            const counters = document.querySelectorAll('.count-animation');
+            counters.forEach(counter => {
+                const target = parseInt(counter.innerText);
+                if (!isNaN(target)) {
+                    let count = 0;
+                    const increment = target / 100;
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            counter.innerText = target.toLocaleString();
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = Math.floor(count).toLocaleString();
+                        }
+                    }, 10);
+                }
+            });
+        }
+
+        // ページ読み込み時にアニメーション実行
+        window.addEventListener('load', animateCount);
+
+        // スクロール時のヘッダー固定
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > 100) {
+                header.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

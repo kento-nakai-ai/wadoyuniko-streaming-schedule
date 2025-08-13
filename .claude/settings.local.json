@@ -9,7 +9,12 @@
       "Bash(mkdir:*)",
       "Bash(npm run build:*)",
       "Bash(tmux capture-pane:*)",
-      "Bash(tmux send-keys:*)"
+      "Bash(tmux send-keys:*)",
+      "Bash(cp:*)",
+      "Bash(npm run dev:*)",
+      "Bash(rm:*)",
+      "Bash(python:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
