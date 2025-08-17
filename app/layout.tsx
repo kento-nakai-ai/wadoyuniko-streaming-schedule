@@ -41,12 +41,15 @@ export default function RootLayout({
               <Link href="/" className="text-xl font-bold text-primary">
                 wadoyuniko
               </Link>
-              <div className="flex space-x-4">
+              <div className="hidden lg:flex space-x-4">
                 <Button variant="ghost" asChild>
                   <Link href="/">ホーム</Link>
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/bonus">特典リスト</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/bonus-schedule">特典配布</Link>
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/streaming-schedule">配信スケジュール</Link>
@@ -74,6 +77,11 @@ export default function RootLayout({
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/sales-team">セールスチーム</Link>
+                </Button>
+              </div>
+              <div className="lg:hidden">
+                <Button variant="ghost" asChild>
+                  <Link href="/bonus-schedule">特典配布</Link>
                 </Button>
               </div>
             </div>
