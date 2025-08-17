@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -563,10 +564,10 @@ export default function StrategyDashboardPage() {
                       </a>
                     </Button>
                     <Button asChild className="w-full justify-start" variant="outline">
-                      <a href="/streaming-schedule" className="flex items-center gap-2">
+                      <Link href="/streaming-schedule" className="flex items-center gap-2">
                         <Calendar className="w-4 h-4" />
                         配信スケジュール
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
