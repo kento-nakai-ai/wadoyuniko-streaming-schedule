@@ -57,6 +57,7 @@ export default function DashboardPage() {
 
   // 最近のアクティビティ
   const recentActivities = [
+    { type: "new", title: "🎯 プロジェクト重要方針ページ作成完了", time: "1分前", user: "Claude Code" },
     { type: "new", title: "note記事配布キャンペーンシステム構築完了", time: "5分前", user: "中井健登" },
     { type: "complete", title: "無料・有料note記事制作完了", time: "10分前", user: "Claude Code" },
     { type: "new", title: "戦略ダッシュボードをリアルタイム監視対応", time: "15分前", user: "中井健登" },
@@ -69,7 +70,7 @@ export default function DashboardPage() {
   // 重要な指標
   const kpiData = [
     { title: "ローンチまで", value: "11日", change: "-1", status: "urgent" },
-    { title: "オープンチャット", value: "892/1,000", change: "+156", status: "good" },
+    { title: "オープンチャット", value: "892/2,000", change: "+156", status: "warning" },
     { title: "セミナー申込", value: "456/1,500", change: "+89", status: "warning" },
     { title: "note閲覧数", value: "45.7K", change: "+5.2K", status: "good" },
     { title: "有料記事購入", value: "187", change: "+48", status: "excellent" },
@@ -214,6 +215,12 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3">
+                  <Button asChild variant="default" className="h-auto p-4 flex-col gap-2 bg-primary text-primary-foreground">
+                    <Link href="/project-strategy">
+                      <Target className="w-6 h-6" />
+                      <span className="text-sm">🎯 重要方針</span>
+                    </Link>
+                  </Button>
                   <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
                     <Link href="/streaming-schedule">
                       <Video className="w-6 h-6" />
@@ -278,6 +285,12 @@ export default function DashboardPage() {
                     <Link href="/competitive-analysis">
                       <BarChart3 className="w-6 h-6" />
                       <span className="text-sm">競合分析</span>
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
+                    <Link href="/announcement-schedule">
+                      <Calendar className="w-6 h-6" />
+                      <span className="text-sm">告知スケジュール</span>
                     </Link>
                   </Button>
                 </div>

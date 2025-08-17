@@ -113,6 +113,69 @@ export default function CompetitiveAnalysisPage() {
         </div>
       </section>
 
+      {/* AI開発講座 競合分析セクション */}
+      <section className="mb-12">
+        <h2 className="text-3xl font-bold mb-8 text-center">🤖 AI開発講座 競合分析</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="border-blue-200 bg-blue-50/50">
+            <CardHeader>
+              <CardTitle className="text-xl text-blue-700">開発系講座・スクール</CardTitle>
+              <CardDescription>プログラミング教育市場の動向</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="p-3 bg-white rounded-lg">
+                  <h4 className="font-semibold text-sm mb-1">価格帯分析</h4>
+                  <ul className="text-xs space-y-1 text-muted-foreground">
+                    <li>• 低単価講座: 5-30万円（基礎学習中心）</li>
+                    <li>• 高単価スクール: 50-100万円（転職保証付き）</li>
+                    <li>• サブスク型: 月1-5万円（継続学習型）</li>
+                  </ul>
+                </div>
+                <div className="p-3 bg-white rounded-lg">
+                  <h4 className="font-semibold text-sm mb-1">差別化ポイント</h4>
+                  <ul className="text-xs space-y-1 text-muted-foreground">
+                    <li>• AI特化 × 実践重視</li>
+                    <li>• 90日短期集中プログラム</li>
+                    <li>• 100個Bot開発の圧倒的ボリューム</li>
+                    <li>• 「書く」から「対話」へのパラダイムシフト</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-green-200 bg-green-50/50">
+            <CardHeader>
+              <CardTitle className="text-xl text-green-700">バイブコーディングの優位性</CardTitle>
+              <CardDescription>競合との明確な違い</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                <div className="p-3 bg-white rounded-lg">
+                  <h4 className="font-semibold text-sm mb-1">独自の強み</h4>
+                  <ul className="text-xs space-y-1 text-muted-foreground">
+                    <li>• リアルタイム開発 × 生配信サポート</li>
+                    <li>• わど × ユニコーン社の強力タッグ</li>
+                    <li>• 実際のローンチ業務でBot活用実例</li>
+                    <li>• 2段階ローンチによる継続収益</li>
+                  </ul>
+                </div>
+                <div className="p-3 bg-white rounded-lg">
+                  <h4 className="font-semibold text-sm mb-1">市場ポジショニング</h4>
+                  <ul className="text-xs space-y-1 text-muted-foreground">
+                    <li>• 初心者向け × 即実践 × 高収益</li>
+                    <li>• 革新的学習法による時間短縮</li>
+                    <li>• コミュニティドリブンな学習環境</li>
+                    <li>• 成果保証レベルのサポート体制</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* 競合インサイトセクション */}
       <section className="mb-12">
         <h2 className="text-3xl font-bold mb-8 text-center">競合から学んだ成功要因</h2>
@@ -146,26 +209,26 @@ export default function CompetitiveAnalysisPage() {
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="text-center">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-primary">1,000名</CardTitle>
-              <CardDescription>セミナー参加者目標</CardDescription>
+              <CardTitle className="text-3xl font-bold text-primary">2,000名</CardTitle>
+              <CardDescription>オープンチャット目標</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                申込1,500名（参加率67%）<br />
-                3日間完走700名（完走率70%）
+                セミナー申込1,500名<br />
+                オープンチャット2,000名達成
               </p>
             </CardContent>
           </Card>
           
           <Card className="text-center">
             <CardHeader>
-              <CardTitle className="text-3xl font-bold text-primary">10-15%</CardTitle>
-              <CardDescription>セミナー後成約率</CardDescription>
+              <CardTitle className="text-3xl font-bold text-primary">100名</CardTitle>
+              <CardDescription>AI開発講座 受講目標</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                100-150名の申込<br />
-                競合分析による最適化で達成
+                第1回ローンチ目標<br />
+                90日で収益化達成
               </p>
             </CardContent>
           </Card>

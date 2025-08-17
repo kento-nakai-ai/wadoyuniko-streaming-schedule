@@ -92,6 +92,12 @@ const navigationItems = [
     description: "note記事配布戦略"
   },
   {
+    title: "告知スケジュール",
+    href: "/announcement-schedule",
+    icon: Calendar,
+    description: "各SNS・LINE告知管理"
+  },
+  {
     title: "わど投稿",
     href: "/wado-posts",
     icon: TrendingUp,

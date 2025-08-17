@@ -36,16 +36,18 @@ export default function StrategyDashboardPage() {
     return () => clearInterval(timer)
   }, [])
 
-  // キャンペーン全体のKPI
+  // AI開発講座ローンチKPI
   const campaignKPIs = {
     totalRevenue: { current: 1380, target: 3000, unit: '万円' },
     seminarSignups: { current: 456, target: 1500, unit: '名' },
-    openChatMembers: { current: 892, target: 1000, unit: '名' },
+    openChatMembers: { current: 892, target: 2000, unit: '名' },
     noteViews: { current: 45672, target: 50000, unit: '回' },
     freeDownloads: { current: 3421, target: 5000, unit: 'DL' },
     paidPurchases: { current: 187, target: 500, unit: '購入' },
     conversionRate: { current: 5.5, target: 8.0, unit: '%' },
-    attendanceRate: { current: 67, target: 70, unit: '%' }
+    attendanceRate: { current: 67, target: 70, unit: '%' },
+    botDevelopment: { current: 10, target: 20, unit: '個' },
+    courseEnrollment: { current: 0, target: 100, unit: '名' }
   }
 
   // デイリートレンド
@@ -206,6 +208,7 @@ export default function StrategyDashboardPage() {
         <Tabs defaultValue="overview" className="space-y-8">
           <TabsList className="bg-black/20 border-white/10">
             <TabsTrigger value="overview" className="text-white data-[state=active]:bg-white/20">概要</TabsTrigger>
+            <TabsTrigger value="course-strategy" className="text-white data-[state=active]:bg-white/20">🎓 講座戦略</TabsTrigger>
             <TabsTrigger value="funnel" className="text-white data-[state=active]:bg-white/20">ファネル分析</TabsTrigger>
             <TabsTrigger value="platforms" className="text-white data-[state=active]:bg-white/20">プラットフォーム</TabsTrigger>
             <TabsTrigger value="actions" className="text-white data-[state=active]:bg-white/20">アクション</TabsTrigger>
@@ -344,6 +347,231 @@ export default function StrategyDashboardPage() {
                 </div>
               </CardContent>
             </Card>
+          </TabsContent>
+
+          {/* AI開発講座戦略タブ */}
+          <TabsContent value="course-strategy" className="space-y-8">
+            {/* 2段階ローンチ戦略 */}
+            <Card className="bg-black/20 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  🚀 2段階ローンチ戦略
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  AI開発講座の段階的ローンチ計画と進捗
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="p-4 bg-primary/20 rounded-lg border border-primary/30">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge className="bg-green-100 text-green-800">実行中</Badge>
+                      <h3 className="font-bold">第1回ローンチ</h3>
+                    </div>
+                    <div className="text-sm space-y-2">
+                      <div><strong>期間:</strong> 2025年8月28-30日</div>
+                      <div><strong>ターゲット:</strong> AI開発を学びたい人</div>
+                      <div><strong>商品:</strong> 開発講座（Bot作成スキル習得）</div>
+                      <div><strong>目標:</strong> 100名受講・3000万円売上</div>
+                      <div className="mt-3">
+                        <div className="text-xs mb-1">進捗率</div>
+                        <Progress value={78} className="h-2" />
+                        <div className="text-xs mt-1">78% 完了</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-gray-800/50 rounded-lg border border-gray-600">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Badge className="bg-gray-100 text-gray-600">計画中</Badge>
+                      <h3 className="font-bold">第2回ローンチ</h3>
+                    </div>
+                    <div className="text-sm space-y-2">
+                      <div><strong>期間:</strong> 2025年9-10月（予定）</div>
+                      <div><strong>ターゲット:</strong> Botだけ欲しい人（開発不要）</div>
+                      <div><strong>商品:</strong> 完成した100個のBot販売</div>
+                      <div><strong>目標:</strong> Bot販売・継続収益</div>
+                      <div className="mt-3">
+                        <div className="text-xs mb-1">準備状況</div>
+                        <Progress value={15} className="h-2" />
+                        <div className="text-xs mt-1">15% 完了</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Bot開発プロジェクト進捗 */}
+            <Card className="bg-black/20 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  🤖 Bot開発プロジェクト進捗
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  100個のBot開発の現在の状況
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="text-center p-4 bg-green-900/20 rounded-lg border border-green-500/30">
+                    <div className="text-2xl font-bold text-green-400">10</div>
+                    <div className="text-sm text-green-300">開発完了</div>
+                  </div>
+                  <div className="text-center p-4 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
+                    <div className="text-2xl font-bold text-yellow-400">10</div>
+                    <div className="text-sm text-yellow-300">開発中</div>
+                  </div>
+                  <div className="text-center p-4 bg-gray-800/50 rounded-lg border border-gray-600">
+                    <div className="text-2xl font-bold text-gray-400">80</div>
+                    <div className="text-sm text-gray-300">計画中</div>
+                  </div>
+                </div>
+                
+                <div className="mt-6">
+                  <div className="flex justify-between text-sm mb-2">
+                    <span>全体進捗</span>
+                    <span>20/100 (20%)</span>
+                  </div>
+                  <Progress value={20} className="h-3" />
+                </div>
+                
+                <div className="mt-4 space-y-2 text-sm">
+                  <div>• ローンチ業務用Bot: 10個完成（SNS投稿、分析、管理）</div>
+                  <div>• 教育用Bot: 5個開発中（学習サポート、質問回答）</div>
+                  <div>• ビジネス用Bot: 5個開発中（営業支援、顧客管理）</div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 告知スケジュール管理 */}
+            <Card className="bg-black/20 border-white/10 text-white">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  📅 告知スケジュール管理
+                </CardTitle>
+                <CardDescription className="text-gray-300">
+                  各SNS・LINEチームの必須対応事項
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
+                      <div className="flex items-center gap-2 mb-2">
+                        <AlertTriangle className="w-4 h-4 text-red-400" />
+                        <h4 className="font-semibold text-red-300">前日告知</h4>
+                        <Badge className="bg-red-100 text-red-800 text-xs">必須</Badge>
+                      </div>
+                      <p className="text-xs text-red-200">各SNS・LINEで事前告知を実施</p>
+                    </div>
+                    
+                    <div className="p-3 bg-red-900/20 rounded-lg border border-red-500/30">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Zap className="w-4 h-4 text-red-400" />
+                        <h4 className="font-semibold text-red-300">当日告知</h4>
+                        <Badge className="bg-red-100 text-red-800 text-xs">必須</Badge>
+                      </div>
+                      <p className="text-xs text-red-200">リアルタイムでの盛り上げ投稿</p>
+                    </div>
+                    
+                    <div className="p-3 bg-blue-900/20 rounded-lg border border-blue-500/30">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle className="w-4 h-4 text-blue-400" />
+                        <h4 className="font-semibold text-blue-300">翌日フォロー</h4>
+                        <Badge className="bg-blue-100 text-blue-800 text-xs">推奨</Badge>
+                      </div>
+                      <p className="text-xs text-blue-200">「盛り上がりました」等の成果報告</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4 p-3 bg-yellow-900/20 rounded-lg border border-yellow-500/30">
+                    <h4 className="font-semibold text-yellow-300 mb-2">⚠️ 重要注意事項</h4>
+                    <ul className="text-xs text-yellow-200 space-y-1">
+                      <li>• スケジュールに合わせた告知を徹底</li>
+                      <li>• ターゲット層の違いを意識した訴求</li>
+                      <li>• 訴求ポイントを明確に差別化</li>
+                      <li>• 2商品の同時展開は避け、AI開発講座を中心に</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 講座KPI */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="bg-black/20 border-white/10 text-white">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    🎯 講座専用KPI
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <span>Bot開発進捗</span>
+                      <div className="text-right">
+                        <div className="font-bold">{campaignKPIs.botDevelopment.current}/{campaignKPIs.botDevelopment.target}</div>
+                        <div className="text-xs text-gray-400">個</div>
+                      </div>
+                    </div>
+                    <Progress value={(campaignKPIs.botDevelopment.current / campaignKPIs.botDevelopment.target) * 100} className="h-2" />
+                    
+                    <div className="flex justify-between items-center">
+                      <span>講座申込数</span>
+                      <div className="text-right">
+                        <div className="font-bold">{campaignKPIs.courseEnrollment.current}/{campaignKPIs.courseEnrollment.target}</div>
+                        <div className="text-xs text-gray-400">名</div>
+                      </div>
+                    </div>
+                    <Progress value={(campaignKPIs.courseEnrollment.current / campaignKPIs.courseEnrollment.target) * 100} className="h-2" />
+                    
+                    <div className="flex justify-between items-center">
+                      <span>オープンチャット</span>
+                      <div className="text-right">
+                        <div className="font-bold">{campaignKPIs.openChatMembers.current}/{campaignKPIs.openChatMembers.target}</div>
+                        <div className="text-xs text-gray-400">名</div>
+                      </div>
+                    </div>
+                    <Progress value={(campaignKPIs.openChatMembers.current / campaignKPIs.openChatMembers.target) * 100} className="h-2" />
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-black/20 border-white/10 text-white">
+                <CardHeader>
+                  <CardTitle>クイックアクション</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    <Button asChild className="w-full justify-start" variant="outline">
+                      <a href="/project-strategy" className="flex items-center gap-2">
+                        <Target className="w-4 h-4" />
+                        重要方針を確認
+                      </a>
+                    </Button>
+                    <Button asChild className="w-full justify-start" variant="outline">
+                      <a href="/competitive-analysis" className="flex items-center gap-2">
+                        <BarChart3 className="w-4 h-4" />
+                        競合分析を確認
+                      </a>
+                    </Button>
+                    <Button asChild className="w-full justify-start" variant="outline">
+                      <a href="/note-campaign" className="flex items-center gap-2">
+                        <MessageSquare className="w-4 h-4" />
+                        note記事キャンペーン
+                      </a>
+                    </Button>
+                    <Button asChild className="w-full justify-start" variant="outline">
+                      <a href="/streaming-schedule" className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        配信スケジュール
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
 
           {/* ファネル分析タブ */}
