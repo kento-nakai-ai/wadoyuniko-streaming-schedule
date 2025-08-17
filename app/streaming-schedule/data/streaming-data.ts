@@ -169,90 +169,90 @@ export const streamingData: StreamingEvent[] = [
     id: "day6",
     date: "8/18",
     day: "日",
-    time: "20:00-21:30",
-    title: "Claude Code で本格AI開発",
-    description: "プロレベルのAI開発環境「Claude Code」を使って、テスト駆動開発でAIアプリを構築します。",
-    difficulty: "★★★",
-    tools: ["Claude Code", "VS Code", "GitHub"],
-    goal: "Gemini CLI自動化スクリプト完成",
+    time: "20:30-21:30",
+    title: "Dify配信：ノーコードAI開発プラットフォーム徹底解説",
+    description: "コード1行も書かずに本格AIアプリが完成！RAGとAIエージェントの仕組みを理解し、ChatGPT風アプリを構築します。",
+    difficulty: "★★☆",
+    tools: ["Dify Cloud", "RAG", "AIエージェント"],
+    goal: "RAG搭載FAQボット完成",
     week: 2,
     type: "実践編",
     features: [
-      "AIペアプログラミング",
-      "テスト駆動開発",
-      "Git連携開発",
-      "コードレビューAI"
+      "ノーコード開発",
+      "RAG実装",
+      "AIエージェント構築",
+      "知識ベース構築"
     ],
     learningOutcomes: [
-      "プロレベル開発環境習得",
-      "テスト設計思考",
-      "バージョン管理",
-      "品質管理手法"
+      "ノーコード開発手法",
+      "RAGシステム理解",
+      "AIエージェント設計",
+      "知識管理システム"
     ],
     prerequisites: [
-      "Week 1完了",
-      "Claude Code契約（$20/月）",
-      "VS Code インストール"
+      "Difyアカウント",
+      "基本的なAI知識",
+      "ブラウザ環境"
     ]
   },
   {
     id: "day7",
     date: "8/19",
     day: "月",
-    time: "20:00-21:30",
-    title: "Codex CLI マスタークラス",
-    description: "ChatGPT Plusの隠れた機能「Codex CLI」で、プロジェクト全体を15分で自動生成する技術を習得します。",
-    difficulty: "★★★",
-    tools: ["Codex CLI", "ChatGPT Plus", "Chrome Extension"],
-    goal: "データ分析ダッシュボード完成",
+    time: "20:00-21:00",
+    title: "Google AI Studio build機能配信",
+    description: "初心者必見！アプリ開発をしてみよう！プログラミング不要でAIアプリ開発ができる超初心者向けの配信です。",
+    difficulty: "★☆☆",
+    tools: ["Google AI Studio build", "Chrome Browser"],
+    goal: "30分でチャットボット構築",
     week: 2,
-    type: "実践編",
+    type: "基礎編",
     features: [
-      "プロジェクト一括生成",
-      "高度なプロンプトテンプレート",
-      "マルチファイル操作",
-      "アーキテクチャ自動設計"
+      "ブラウザだけで完結",
+      "環境構築不要",
+      "コピペで動く",
+      "成功体験を最優先"
     ],
     learningOutcomes: [
-      "上級プロンプトエンジニアリング",
-      "システム設計自動化",
-      "開発効率化手法",
-      "アーキテクチャパターン"
+      "AI開発の基本概念理解",
+      "プロンプトエンジニアリング入門",
+      "実用的なチャットボット作成",
+      "Google AI Studio build操作習得"
     ],
     prerequisites: [
-      "ChatGPT Plus契約",
-      "Chrome拡張機能インストール",
-      "基本的なWeb開発知識"
+      "Googleアカウント",
+      "Chrome/Edgeブラウザ",
+      "やる気だけ！"
     ]
   },
   {
     id: "day8",
     date: "8/20",
     day: "火",
-    time: "20:00-21:30",
-    title: "フルスタックアプリ設計編",
-    description: "AIを使って要件定義から設計まで効率化。Next.js + Supabase でモダンWebアプリの設計を学びます。",
-    difficulty: "★★★",
-    tools: ["Next.js", "Supabase", "Figma", "AI Tools"],
-    goal: "YUNICO設計書完成",
-    week: 3,
-    type: "応用編",
+    time: "21:00-22:00",
+    title: "Genspark開発配信",
+    description: "次世代AI開発で開発の常識が変わる。音声入力での開発フローや設計書からコード自動生成を体験します。",
+    difficulty: "★★☆",
+    tools: ["Genspark", "音声入力", "AIコード生成"],
+    goal: "ToDoアプリを60分で完成",
+    week: 2,
+    type: "実践編",
     features: [
-      "要件定義AI支援",
-      "データベース設計",
-      "API設計",
-      "UI/UX設計"
+      "音声入力での開発フロー",
+      "設計書からコード自動生成",
+      "即座デプロイまで",
+      "従来開発の1/100の工数"
     ],
     learningOutcomes: [
-      "システム設計全体像",
-      "データベース設計手法",
-      "API設計パターン",
-      "UI/UX設計思考"
+      "次世代開発手法の習得",
+      "音声ベースコーディング",
+      "設計自動化システム",
+      "開発スピードの革命的向上"
     ],
     prerequisites: [
-      "Week 2完了",
-      "Figmaアカウント",
-      "Supabaseアカウント"
+      "基本的なアプリ開発知識",
+      "マイク付きヘッドセット",
+      "新しい技術への好奇心"
     ]
   },
   {
@@ -348,87 +348,90 @@ export const streamingData: StreamingEvent[] = [
     id: "day12-special",
     date: "8/24",
     day: "土",
-    time: "14:00-16:00",
-    title: "🌟中間成果発表会",
-    description: "これまでに作成したアプリを発表！参加者同士でコードレビューや改善アイデアを共有します。",
+    time: "20:00-21:00",
+    title: "Manus開発配信",
+    description: "自律型AIエージェントで業務自動化！競合価格調査、カスタマーサポート、在庫管理などの業務をAIが自動化します。",
     difficulty: "★★☆",
-    tools: ["All Previous Tools"],
-    goal: "中間成果発表・フィードバック",
+    tools: ["Manus", "自律型AIエージェント"],
+    goal: "業務自動化システム完成",
     week: 3,
-    type: "特別編",
-    special: true,
+    type: "実践編",
+    special: false,
     features: [
-      "作品発表タイム",
-      "コードレビュー",
-      "改善提案",
-      "ネットワーキング"
+      "競合価格調査自動化",
+      "カスタマーサポート自動化",
+      "在庫管理・発注自動化",
+      "ROI計算と効果測定"
     ],
     learningOutcomes: [
-      "プレゼンテーション能力",
-      "コードレビュー体験",
-      "フィードバック活用",
-      "コミュニティ貢献"
+      "自律型AIエージェントの理解",
+      "業務プロセス自動化手法",
+      "コスト削減効果の定量化",
+      "実業務へのアプリケーション"
     ],
     prerequisites: [
-      "何か1つでもアプリ完成"
+      "基本的なビジネスプロセス理解",
+      "業務自動化への関心"
     ]
   },
   {
     id: "day13",
     date: "8/25",
     day: "日",
-    time: "20:00-21:30",
-    title: "実案件開発①要件定義・見積もり",
-    description: "実際のクライアント案件を例に、要件ヒアリングから見積もり作成まで、案件受注のプロセスを学びます。",
+    time: "21:00-22:00",
+    title: "Gemini CLI + Claude Code配信",
+    description: "CLI入門でツール開発 + 大規模開発の常識を変える。最強の開発環境を構築し、開発効率100倍を体験します。",
     difficulty: "★★★",
-    tools: ["Requirement Tools", "Estimation Tools", "Project Management"],
-    goal: "案件要件書・見積書完成",
-    week: 4,
-    type: "ビジネス編",
+    tools: ["Gemini CLI", "Claude Code", "Git自動化"],
+    goal: "最強開発環境構築完成",
+    week: 3,
+    type: "実践編",
     features: [
-      "要件ヒアリング技術",
-      "見積もり算出方法",
-      "提案書作成",
-      "契約書基礎"
+      "Gitコミットメッセージ自動生成",
+      "20万行コード解析デモ",
+      "AIペアプログラミング",
+      "ツール選定ガイドライン"
     ],
     learningOutcomes: [
-      "案件受注プロセス",
-      "要件定義手法",
-      "見積もり技術",
-      "提案力向上"
+      "軽量タスク vs 複雑タスクの使い分け",
+      "CLIツール開発手法",
+      "大規模プロジェクト管理",
+      "開発効率化の極意"
     ],
     prerequisites: [
-      "Week 3完了",
-      "ビジネス感覚"
+      "基本的なGit操作",
+      "CLI使用経験",
+      "開発効率化への意欲"
     ]
   },
   {
     id: "day14",
     date: "8/26",
     day: "月",
-    time: "20:00-21:30",
-    title: "実案件開発②アジャイル開発実践",
-    description: "アジャイル開発手法でMVPを構築。スプリント管理、デイリースクラム、レトロスペクティブまで実践します。",
+    time: "21:00-22:00",
+    title: "Codex CLI配信",
+    description: "OpenAIでターミナルを最強の開発環境に。プロダクション品質のツール開発、リファクタリング自動化、テストコード自動生成を体験します。",
     difficulty: "★★★",
-    tools: ["Jira", "Slack", "GitHub", "Development Tools"],
-    goal: "案件MVP完成",
-    week: 4,
-    type: "ビジネス編",
+    tools: ["Codex CLI", "OpenAI", "ChatGPT Plus"],
+    goal: "プロダクション品質ツール完成",
+    week: 3,
+    type: "実践編",
     features: [
-      "アジャイル開発実践",
-      "スプリント管理",
-      "チーム開発",
-      "品質管理"
+      "シェル統合マスター",
+      "リファクタリング自動化",
+      "テストコード自動生成",
+      "Gemini CLIとの比較実演"
     ],
     learningOutcomes: [
-      "アジャイル開発手法",
-      "プロジェクト管理",
-      "チームワーク",
-      "品質保証"
+      "プロダクション開発とプロトタイピングの使い分け",
+      "ターミナルベース開発極意",
+      "コード品質向上手法",
+      "CLIツール作成マスター"
     ],
     prerequisites: [
-      "Day 13要件定義完了",
-      "チーム開発経験への意欲"
+      "ChatGPT Plus契約（必須）",
+      "ターミナル操作経験",
+      "コード品質への意識"
     ]
   },
   {
@@ -551,30 +554,31 @@ export const streamingData: StreamingEvent[] = [
     id: "day19-finale",
     date: "8/31",
     day: "土",
-    time: "19:00-22:00",
-    title: "🎊Demo Day & 打ち上げLIVE",
-    description: "19日間の集大成！参加者全員の成果発表、表彰式、そして最高の打ち上げで感動のフィナーレ。",
-    difficulty: "★★★",
-    tools: ["All Tools"],
-    goal: "19日間完走＆コミュニティ形成",
+    time: "20:00-21:00",
+    title: "Cursor × Obsidian配信",
+    description: "知識管理と開発を完全に融合。メモからコード自動生成のワークフローを構築し、ナレッジベース駆動開発を体験します。",
+    difficulty: "★★☆",
+    tools: ["Cursor", "Obsidian", "知識管理"],
+    goal: "知識駆動開発ワークフロー完成",
     week: 4,
-    type: "フィナーレ",
-    special: true,
+    type: "実践編",
+    special: false,
     features: [
-      "成果発表会",
-      "表彰式",
-      "ネットワーキング",
-      "未来への展望"
+      "メモからコード自動生成",
+      "ナレッジベース駆動開発",
+      "学習と実践のサイクル化",
+      "8月シリーズ総括"
     ],
     learningOutcomes: [
-      "プレゼンテーション完成",
-      "19日間の達成感",
-      "コミュニティ参加",
-      "継続学習への動機"
+      "知識管理と開発の融合",
+      "メモベース開発手法",
+      "継続的な学習システム構築",
+      "過去の知識活用技術"
     ],
     prerequisites: [
-      "19日間の参加体験",
-      "発表への挑戦意欲"
+      "Obsidianアカウント",
+      "Cursor理解",
+      "知識管理への関心"
     ]
   }
 ]

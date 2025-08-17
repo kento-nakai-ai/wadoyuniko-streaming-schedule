@@ -55,6 +55,9 @@ export default function RootLayout({
                   <Link href="/streaming-schedule">配信スケジュール</Link>
                 </Button>
                 <Button variant="ghost" asChild>
+                  <Link href="/streaming-materials">配信資料</Link>
+                </Button>
+                <Button variant="ghost" asChild>
                   <Link href="/live-calendar">ライブカレンダー</Link>
                 </Button>
                 <Button variant="ghost" asChild>

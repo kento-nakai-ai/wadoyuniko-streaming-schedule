@@ -5,8 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CalendarDays, Clock, Users, Zap, Star, Trophy, Gift, Target, BookOpen, Lightbulb, ExternalLink } from "lucide-react"
+import { CalendarDays, Clock, Users, Zap, Star, Trophy, Gift, Target, BookOpen, Lightbulb, ExternalLink, ChevronRight } from "lucide-react"
 import { streamingData, weeklyThemes, type StreamingEvent } from './data/streaming-data'
+import Link from 'next/link'
 
 // カウントダウン機能
 const Countdown = () => {
@@ -160,15 +161,27 @@ const StreamCard = ({ stream }: { stream: StreamingEvent }) => {
           </div>
         )}
 
-        {/* 詳細表示ボタン */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="mt-3 w-full text-xs"
-        >
-          {isExpanded ? '詳細を閉じる' : '詳細を見る'}
-        </Button>
+        {/* アクションボタン */}
+        <div className="mt-3 flex gap-2">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="flex-1 text-xs"
+          >
+            {isExpanded ? '詳細を閉じる' : '詳細を見る'}
+          </Button>
+          <Button
+            size="sm"
+            className="text-xs"
+            asChild
+          >
+            <Link href={`/streaming-schedule/${stream.id}`}>
+              詳細ページ
+              <ChevronRight className="w-3 h-3 ml-1" />
+            </Link>
+          </Button>
+        </div>
 
         {/* 展開可能な詳細情報 */}
         {isExpanded && (
@@ -220,7 +233,7 @@ export default function StreamingSchedulePage() {
               19日間連続配信チャレンジ！🚀
             </p>
             <p className="text-lg text-muted-foreground">
-              8月13日〜31日 | 毎日20:00スタート
+              8月18日, 19日, 20日, 24日, 25日, 26日, 31日 | 時間別途
             </p>
           </div>
         </div>
@@ -320,11 +333,16 @@ export default function StreamingSchedulePage() {
           <p className="text-muted-foreground mb-6">
             19日間でAI開発者になる旅が、8月13日20:00からスタート！
           </p>
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-4 flex-wrap gap-2">
             <Button size="lg" asChild>
               <a href="https://youtube.com/@wadoyuniko" target="_blank" rel="noopener noreferrer">
                 チャンネル登録
               </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/streaming-materials">
+                配信資料ダウンロード
+              </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="https://line.me/ti/g/example" target="_blank" rel="noopener noreferrer">
