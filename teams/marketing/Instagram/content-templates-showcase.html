@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram投稿テンプレート集 - わどアカウント専用</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .account-badge {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .template-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 30px 30px 0 0;
+            margin-top: 50px;
+            padding: 60px 0 0 0;
+        }
+        
+        /* Template Categories */
+        .template-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .template-nav button {
+            background: transparent;
+            border: 2px solid #833ab4;
+            color: #833ab4;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .template-nav button.active,
+        .template-nav button:hover {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            color: white;
+            border-color: transparent;
+        }
+        
+        /* Template Sections */
+        .template-section {
+            margin-bottom: 80px;
+            padding: 0 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Template Grid */
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        /* Template Cards */
+        .template-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #833ab4;
+        }
+        
+        .template-header {
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .template-type {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .template-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .template-body {
+            padding: 25px;
+        }
+        
+        .template-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .template-structure {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .structure-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .structure-content {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #555;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #833ab4;
+            white-space: pre-line;
+        }
+        
+        .template-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .template-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .use-button {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .use-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(131, 58, 180, 0.3);
+        }
+        
+        /* Schedule Section */
+        .schedule-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 40px;
+            margin: 60px 0;
+            border-radius: 25px;
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .schedule-day {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .day-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .day-content {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .day-content strong {
+            display: block;
+            margin: 10px 0 5px 0;
+            color: #fcb045;
+        }
+        
+        /* Tips Section */
+        .tips-section {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            margin: 60px 0;
+            border-radius: 25px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tip-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #833ab4;
+        }
+        
+        .tip-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .tip-content {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .template-section {
+                padding: 0 20px;
+            }
+            
+            .schedule-section,
+            .tips-section {
+                padding: 40px 20px;
+            }
+            
+            .template-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .template-card {
+            animation: slideInUp 0.6s ease forwards;
+        }
+        
+        .template-card:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+        
+        .template-card:nth-child(3n) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📱 Instagram テンプレート集</div>
+                <div class="account-badge">@wad_ai0427 専用</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>🎨 Instagram投稿テンプレート</h1>
+            <p>バイブコーディングローンチ用 - すぐに使えるコンテンツテンプレート集</p>
+            
+            <div class="template-stats">
+                <div class="stat-card">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">投稿テンプレート</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">曜日別プラン</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">コンテンツ形式</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">実用可能</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Template Navigation -->
+            <nav class="template-nav">
+                <button class="active" onclick="showSection('reels')">🎬 リール</button>
+                <button onclick="showSection('carousel')">📸 カルーセル</button>
+                <button onclick="showSection('stories')">📱 ストーリーズ</button>
+                <button onclick="showSection('schedule')">📅 スケジュール</button>
+            </nav>
+
+            <!-- Reels Templates -->
+            <section id="reels" class="template-section">
+                <div class="section-header">
+                    <h2 class="section-title">🎬 リール用テンプレート</h2>
+                    <p class="section-description">バイラル性の高い動画コンテンツで、開発実演と成功ストーリーを効果的に訴求</p>
+                </div>
+                
+                <div class="template-grid">
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">リール | 開発実演</div>
+                            <div class="template-title">30分チャレンジシリーズ</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                「30分でAI○○アプリ作ってみた」形式で、リアルタイム開発プロセスを見せる最強のコンテンツ。バイブコーディングの実用性を証明し、視聴者に「私にもできそう」と感じさせます。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 構成テンプレート</div>
+                                <div class="structure-content">0-3秒: フック
+「プログラミング経験0から30分でこれ作れました」
++ 完成品の画面録画
+
+3-8秒: 問題設定
+「普通なら数週間かかるこのアプリ」
+「でもバイブコーディングなら...」
+
+8-20秒: 制作過程（早送り）
+- Claude Code起動
+- 日本語での指示入力
+- コード自動生成
+- エラー修正の様子
+
+20-25秒: 完成品デモ
+実際の動作画面
+「これが30分の成果です」
+
+25-30秒: CTA
+「作り方知りたい方はプロフィールから」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#バイブコーディング</span>
+                                    <span class="tag">#AI開発</span>
+                                    <span class="tag">#30分チャレンジ</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">リール | 成功ストーリー</div>
+                            <div class="template-title">Before/After変化</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                「3ヶ月前の私 vs 現在の私」で劇的な変化を視覚的に表現。受講生の成功事例を通じて、視聴者に具体的な未来をイメージさせる強力なコンテンツです。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 構成テンプレート</div>
+                                <div class="structure-content">0-3秒: 二画面分割設定
+左: 「3ヶ月前の私」（グレー調）
+右: 「今の私」（カラフル）
+
+3-8秒: Before状態
+左画面: 
+- 「プログラミング？無理無理」
+- 悩んでいる表情
+
+8-15秒: 学習過程
+- バイブコーディング受講画面
+- コミュニティでの交流
+- 「毎日2時間の積み重ね」
+
+15-22秒: After状態
+右画面:
+- 作成したアプリ一覧
+- 収入報告グラフ
+- 自信に満ちた表情
+
+22-27秒: 数値で比較
+「月収: 25万→65万円」
+「スキル: 0個→50個」
+
+27-30秒: メッセージ
+「あなたも3ヶ月で変われます」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#3ヶ月チャレンジ</span>
+                                    <span class="tag">#人生変わった</span>
+                                    <span class="tag">#転職成功</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">リール | 教育コンテンツ</div>
+                            <div class="template-title">AI開発あるある</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                初心者が必ずやってしまう間違いと正しい対策を面白く紹介。共感を呼びながら教育価値を提供し、専門性をアピールできるコンテンツです。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 構成テンプレート</div>
+                                <div class="structure-content">0-3秒: タイトル
+「初心者が必ずやってしまうこと5選」
+
+3-8秒: あるある1
+❌「コードを全部覚えようとする」
+✅「AIに任せればOK」
+
+8-13秒: あるある2  
+❌「完璧なアプリを最初から作ろうとする」
+✅「まず動くものを作る」
+
+...（3-5個の「あるある」を紹介）
+
+27-30秒: まとめ
+「正しい方法で学べば誰でもできる」
+「迷ったらプロに相談を」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#AI開発あるある</span>
+                                    <span class="tag">#初心者向け</span>
+                                    <span class="tag">#プログラミング学習</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Carousel Templates -->
+            <section id="carousel" class="template-section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📸 カルーセル投稿テンプレート</h2>
+                    <p class="section-description">詳細な情報を整理して伝える、保存されやすいコンテンツ</p>
+                </div>
+                
+                <div class="template-grid">
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">カルーセル | 実績報告</div>
+                            <div class="template-title">月間成果発表</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                毎月の受講生実績を数値とビジュアルで魅力的に表現。社会的証明を強化し、新規フォロワーの信頼を獲得する重要なコンテンツです。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 スライド構成</div>
+                                <div class="structure-content">スライド1: タイトル「今月の受講生実績発表」
+スライド2: 転職成功「12名がAIエンジニア転職成功」
+スライド3: 副業収入「28名が副業月収20万円以上達成」
+スライド4: アプリ公開「45個のオリジナルアプリ公開」
+スライド5: 学習実績「継続学習の成果」
+スライド6: CTA「次はあなたの番です」
+
+投稿文例:
+「今月も素晴らしい成果が続々と報告されています✨
+特に印象的だったのは...
+👨‍💻 完全未経験から3ヶ月でAIエンジニア転職
+💰 主婦の方が副業で月50万円達成
+🚀 高校生が作ったアプリが話題に
+
+#バイブコーディング #受講生実績 #AI転職」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#受講生実績</span>
+                                    <span class="tag">#AI転職</span>
+                                    <span class="tag">#副業成功</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">カルーセル | 教育コンテンツ</div>
+                            <div class="template-title">学習ロードマップ</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                「AI開発で月30万稼ぐロードマップ」など、段階的な学習方法を詳しく解説。保存率が高く、長期的にトラフィックを生み出すコンテンツです。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 スライド構成</div>
+                                <div class="structure-content">スライド1: タイトル「AI開発で月30万稼ぐロードマップ」
+スライド2: 1ヶ月目「基礎固め期間」
+スライド3: 2ヶ月目「スキルアップ期間」  
+スライド4: 3ヶ月目「収益化期間」
+スライド5: 必要なもの「準備するもの」
+スライド6: サポート体制「万全のサポート」
+スライド7: 特別価格「今だけ特別価格」
+スライド8: CTA「今すぐスタート」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#AI開発ロードマップ</span>
+                                    <span class="tag">#副業</span>
+                                    <span class="tag">#月30万円</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stories Templates -->
+            <section id="stories" class="template-section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title">📱 ストーリーズテンプレート</h2>
+                    <p class="section-description">24時間限定の緊急性を活用した、エンゲージメント重視のコンテンツ</p>
+                </div>
+                
+                <div class="template-grid">
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">ストーリーズ | 限定コンテンツ</div>
+                            <div class="template-title">24時間限定ノウハウ</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                緊急性を演出して高いエンゲージメントを獲得。限定感によりフォロワーの特別感を醸成し、定期的なストーリーズチェックを促進します。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 ストーリー構成</div>
+                                <div class="structure-content">ストーリー1: 予告
+「24時間限定公開」
+「AI開発で月50万稼ぐ5つの秘密」
+🔥 炎エフェクト、⏰ 時計マーク
+
+ストーリー2-6: 各秘密
+秘密1: 「ニッチな分野を狙え」
+秘密2: 「最初は簡単なものから」
+秘密3: 「SNSで積極発信」
+秘密4: 「コミュニティを活用」
+秘密5: 「継続が最強」
+
+ストーリー7: CTA
+「詳しく知りたい方はDMで」
+「『秘密』とメッセージください」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#24時間限定</span>
+                                    <span class="tag">#秘密ノウハウ</span>
+                                    <span class="tag">#緊急性</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">ストーリーズ | ライブ配信</div>
+                            <div class="template-title">開発ライブ配信</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                リアルタイムでの開発過程を公開し、透明性と信頼性を向上。視聴者との距離感を縮め、コミュニティ感を醸成します。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 配信構成</div>
+                                <div class="structure-content">ストーリー1: 開始予告
+「これから AI家計簿アプリ作ります」
+「リアルタイム開発配信」
+🔴 LIVE マーク
+
+ストーリー2-5: 開発過程
+- 「要件定義中...」
+- 「UIデザイン完成」
+- 「機能実装中」
+- 「テスト中」
+
+ストーリー6: 完成報告
+「完成しました！」
+「制作時間: 35分」
+
+ストーリー7: 感想・学び
+「今回学んだこと」
+「次回作りたいもの」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#ライブ配信</span>
+                                    <span class="tag">#リアルタイム開発</span>
+                                    <span class="tag">#透明性</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-header">
+                            <div class="template-type">ストーリーズ | インタラクティブ</div>
+                            <div class="template-title">Q&A・投票ストーリーズ</div>
+                        </div>
+                        <div class="template-body">
+                            <div class="template-description">
+                                質問ステッカーや投票機能を活用してフォロワーとの双方向コミュニケーションを促進。エンゲージメント率向上と親近感醸成に最適です。
+                            </div>
+                            
+                            <div class="template-structure">
+                                <div class="structure-title">📝 インタラクション設計</div>
+                                <div class="structure-content">質問募集ストーリー:
+「何でも質問してください」
+「AI開発・副業・転職なんでもOK」
+📩 質問ステッカー設置
+
+回答ストーリー:
+質問: 「プログラミング未経験でも大丈夫？」
+回答: 「全然大丈夫！受講生の90%が未経験スタート」
+
+投票ストーリー:
+「AI開発、どこから始めたい？」
+選択肢A: 「簡単なツールから」
+選択肢B: 「実用的なアプリから」
+
+結果発表:
+「結果発表！」
+A: 70% B: 30%
+「やっぱり基礎から派が多数」</div>
+                            </div>
+                            
+                            <div class="template-meta">
+                                <div class="template-tags">
+                                    <span class="tag">#Q&A</span>
+                                    <span class="tag">#インタラクティブ</span>
+                                    <span class="tag">#双方向</span>
+                                </div>
+                                <button class="use-button">使用する</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Section -->
+            <section id="schedule" class="schedule-section" style="display: none;">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: 20px;">📅 週間投稿スケジュール</h2>
+                    <p style="text-align: center; margin-bottom: 40px;">戦略的なコンテンツ配信で最大限の効果を実現</p>
+                    
+                    <div class="schedule-grid">
+                        <div class="schedule-day">
+                            <div class="day-header">月曜日 - 目標設定</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                受講生成功事例（カルーセル）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: 今週の目標設定<br>
+                                昼: 月曜モチベーション<br>
+                                夜: 週末成果報告まとめ
+                                
+                                <strong>目的:</strong>
+                                週の始まりにポジティブなエネルギーを提供し、フォロワーのモチベーションを向上
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">火曜日 - 技術・開発</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                30分でAIアプリ作成（リール）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: 今日学ぶ技術紹介<br>
+                                昼: 開発ライブ配信<br>
+                                夜: 技術的な学び・発見
+                                
+                                <strong>目的:</strong>
+                                バイブコーディングの実用性を具体的に証明し、技術的信頼性を構築
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">水曜日 - 教育</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                初心者向けガイド（カルーセル）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: よくある質問回答<br>
+                                昼: 初心者向けTips<br>
+                                夜: つまずきポイント解説
+                                
+                                <strong>目的:</strong>
+                                教育価値を提供し、専門性をアピール。初心者の不安を解消
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">木曜日 - 成功事例</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                受講生スポットライト（リール）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: 成功事例紹介<br>
+                                昼: 収入報告・実績<br>
+                                夜: 成功の秘訣
+                                
+                                <strong>目的:</strong>
+                                社会的証明を強化し、「自分にもできる」という感情を醸成
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">金曜日 - コミュニティ</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                Q&Aまとめ（カルーセル）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: コミュニティハイライト<br>
+                                昼: フォロワー交流<br>
+                                夜: 週末プロジェクト提案
+                                
+                                <strong>目的:</strong>
+                                コミュニティ感を醸成し、週末に向けてエンゲージメントを促進
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">土曜日 - ライフスタイル</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                AI開発者の1日（リール）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: 週末の過ごし方<br>
+                                昼: プライベート時間<br>
+                                夜: 来週への準備
+                                
+                                <strong>目的:</strong>
+                                人間性を見せて親近感を醸成。理想的なライフスタイルを提示
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">日曜日 - 振り返り</div>
+                            <div class="day-content">
+                                <strong>フィード投稿:</strong>
+                                今週の学び・気づき（静止画）
+                                
+                                <strong>ストーリーズ:</strong>
+                                朝: 週の振り返り<br>
+                                昼: 次週の予告<br>
+                                夜: 日曜夜のメッセージ
+                                
+                                <strong>目的:</strong>
+                                週の締めくくりと次週への期待感醸成。継続的なフォローを促進
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="tips-section">
+                <div class="container">
+                    <h2 style="text-align: center; margin-bottom: 20px;">💡 運用のコツ</h2>
+                    <p style="text-align: center; margin-bottom: 40px;">効果的なInstagram運用のための実践的なアドバイス</p>
+                    
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-title">🎯 投稿タイミング</div>
+                            <div class="tip-content">
+                                <strong>最適投稿時間:</strong><br>
+                                • 朝: 7:00-9:00（通勤時間）<br>
+                                • 昼: 12:00-13:00（ランチタイム）<br>
+                                • 夜: 19:00-22:00（帰宅後リラックス時間）<br>
+                                <br>
+                                ストーリーズは24時間通して投稿し、フォロワーの日常に溶け込むように配信
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-title">📊 KPI追跡</div>
+                            <div class="tip-content">
+                                <strong>重要指標:</strong><br>
+                                • エンゲージメント率: 8%以上維持<br>
+                                • 保存率: 15%以上（教育系投稿）<br>
+                                • プロフィール訪問率: 12%以上<br>
+                                • ストーリー閲覧率: 40%以上<br>
+                                <br>
+                                週次で分析し、低パフォーマンス要素を改善
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-title">🔗 CTA最適化</div>
+                            <div class="tip-content">
+                                <strong>段階的アプローチ:</strong><br>
+                                • ソフト: 「気になる方はプロフィールから」<br>
+                                • ミディアム: 「今すぐオープンチャットに参加」<br>
+                                • ストロング: 「人生を変える3ヶ月、始めませんか？」<br>
+                                <br>
+                                投稿の種類とフォロワーの温度感に応じて使い分け
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-title">🎨 ビジュアル統一</div>
+                            <div class="tip-content">
+                                <strong>ブランドカラー:</strong><br>
+                                • メイン: #833ab4（Instagram紫）<br>
+                                • アクセント: #fd1d1d（情熱の赤）<br>
+                                • サブ: #fcb045（温かみのオレンジ）<br>
+                                <br>
+                                フォント・レイアウトも統一し、一目でわどの投稿と分かるブランディング
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-title">💬 コメント対応</div>
+                            <div class="tip-content">
+                                <strong>迅速対応:</strong><br>
+                                • 2時間以内の返信を心がける<br>
+                                • 質問には詳細かつ価値ある回答<br>
+                                • 感謝コメントには個人的なメッセージ<br>
+                                • 批判的コメントも建設的に対応<br>
+                                <br>
+                                コメントのやり取りも他のフォロワーが見ています
+                            </div>
+                        </div>
+                        
+                        <div class="tip-card">
+                            <div class="tip-title">📈 A/Bテスト</div>
+                            <div class="tip-content">
+                                <strong>テスト項目:</strong><br>
+                                • 投稿時間（朝 vs 夜）<br>
+                                • CTA文言（ソフト vs ストロング）<br>
+                                • ビジュアル（暖色 vs 寒色）<br>
+                                • ハッシュタグ（多め vs 少なめ）<br>
+                                <br>
+                                データに基づいて継続的にコンテンツを最適化
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 わどInstagram投稿テンプレート集 - バイブコーディングローンチプロジェクト</p>
+            <p>🎯 これらのテンプレートで、Instagram運用を成功に導きましょう！</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.template-section, .schedule-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.template-nav button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add click handlers for use buttons
+        document.querySelectorAll('.use-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Create a simple notification
+                const notification = document.createElement('div');
+                notification.textContent = 'テンプレートをコピーしました！';
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: linear-gradient(45deg, #833ab4, #fd1d1d);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 25px;
+                    font-weight: bold;
+                    z-index: 10000;
+                    animation: slideInRight 0.5s ease;
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+        });
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

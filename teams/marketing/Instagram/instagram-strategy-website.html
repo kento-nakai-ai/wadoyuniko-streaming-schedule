@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>わどInstagram戦略 - バイブコーディングローンチ専用サイト</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .account-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 20px 20px 0 0;
+            margin-top: 50px;
+            padding: 60px 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .content-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .content-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .content-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .content-card li:before {
+            content: "📱";
+            margin-right: 10px;
+        }
+        
+        /* Template Section */
+        .template-showcase {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 60px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .template-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .template-card h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .template-card p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Schedule */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .schedule-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .content-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .content-card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">📱 わどInstagram戦略</div>
+                <nav class="nav">
+                    <a href="#overview">概要</a>
+                    <a href="#strategy">戦略</a>
+                    <a href="#templates">テンプレート</a>
+                    <a href="#schedule">スケジュール</a>
+                    <a href="#kpi">KPI</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>わどInstagram戦略</h1>
+            <p>バイブコーディングローンチ連動マーケティング</p>
+            
+            <div class="account-info">
+                <h3>@wad_ai0427</h3>
+                <p>わど|AI×SNSコンサルタント<br>
+                日本最高峰のAIマーケティング / 年商3億 / 総フォロワー20万人越え</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">+5,000</span>
+                    <span class="stat-label">月間フォロワー増加目標</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">200名</span>
+                    <span class="stat-label">月間オープンチャット誘導</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8%</span>
+                    <span class="stat-label">エンゲージメント率目標</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">400%</span>
+                    <span class="stat-label">期待ROI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Strategy Overview -->
+            <section id="overview" class="section">
+                <h2>🎯 戦略概要</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>📊 投稿カテゴリ構成</h3>
+                        <ul>
+                            <li>開発実演: 40% (12投稿/月)</li>
+                            <li>成功事例: 25% (8投稿/月)</li>
+                            <li>教育コンテンツ: 25% (7投稿/月)</li>
+                            <li>舞台裏: 10% (3投稿/月)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🎥 コンテンツフォーマット</h3>
+                        <ul>
+                            <li>リール: 開発実演・成功ストーリー</li>
+                            <li>カルーセル: 教育ガイド・実績報告</li>
+                            <li>ストーリーズ: 限定ノウハウ・ライブ</li>
+                            <li>静止画: 質問投げかけ・数値訴求</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🔗 オープンチャット誘導</h3>
+                        <ul>
+                            <li>バイオ最適化: 無料体験への誘導</li>
+                            <li>ハイライト5カテゴリ構成</li>
+                            <li>段階的CTA設計</li>
+                            <li>限定特典での魅力度向上</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Template Showcase -->
+            <section class="template-showcase">
+                <div class="container">
+                    <h2>📱 コンテンツテンプレート</h2>
+                    <p>すぐに使える投稿テンプレートを用意しました</p>
+                    
+                    <div class="template-grid">
+                        <div class="template-card">
+                            <h4>🎬 リール: 30分チャレンジ</h4>
+                            <p>「30分でAI○○アプリ作ってみた」形式で開発プロセスを見せる動画テンプレート</p>
+                        </div>
+                        
+                        <div class="template-card">
+                            <h4>📈 Before/After比較</h4>
+                            <p>「3ヶ月前の私 vs 現在の私」で劇的な変化を視覚的に表現</p>
+                        </div>
+                        
+                        <div class="template-card">
+                            <h4>🎓 教育カルーセル</h4>
+                            <p>「AI開発で月30万稼ぐロードマップ」など初心者向けガイド</p>
+                        </div>
+                        
+                        <div class="template-card">
+                            <h4>📊 実績報告</h4>
+                            <p>「今月の受講生実績発表」で数値と成功事例を組み合わせ</p>
+                        </div>
+                        
+                        <div class="template-card">
+                            <h4>🔥 24時間限定</h4>
+                            <p>ストーリーズで「24時間限定ノウハウ」を公開し緊急性を演出</p>
+                        </div>
+                        
+                        <div class="template-card">
+                            <h4>❓ Q&A ストーリーズ</h4>
+                            <p>質問ステッカーを活用したインタラクティブコンテンツ</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategy Details -->
+            <section id="strategy" class="section">
+                <h2>🚀 詳細戦略</h2>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>💡 開発実演シリーズ</h3>
+                        <p><strong>目的:</strong> バイブコーディングの実用性を証明</p>
+                        <ul>
+                            <li>リアルタイム開発風景の公開</li>
+                            <li>Claude Code使用の実践デモ</li>
+                            <li>「コード不要」の驚きを演出</li>
+                            <li>完成品の実際の動作確認</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🏆 成功事例訴求</h3>
+                        <p><strong>目的:</strong> 社会的証明と信頼性の構築</p>
+                        <ul>
+                            <li>受講生の収入アップ実績</li>
+                            <li>転職成功ストーリー</li>
+                            <li>Before/After の劇的変化</li>
+                            <li>数値データでの裏付け</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🎓 教育価値提供</h3>
+                        <p><strong>目的:</strong> 専門性の確立とフォロワー育成</p>
+                        <ul>
+                            <li>AI開発の基礎知識解説</li>
+                            <li>ツール比較・選び方ガイド</li>
+                            <li>よくある間違いと対策</li>
+                            <li>業界トレンド情報</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>👥 コミュニティ構築</h3>
+                        <p><strong>目的:</strong> エンゲージメント向上と親近感醸成</p>
+                        <ul>
+                            <li>舞台裏・日常の共有</li>
+                            <li>失敗談と学びの共有</li>
+                            <li>フォロワーとのインタラクション</li>
+                            <li>質問・相談への積極的な回答</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Schedule -->
+            <section id="schedule" class="section">
+                <h2>📅 週間投稿スケジュール</h2>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>曜日</th>
+                            <th>フィード投稿</th>
+                            <th>ストーリーズ（朝）</th>
+                            <th>ストーリーズ（昼）</th>
+                            <th>ストーリーズ（夜）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>月曜日</strong><br>目標設定</td>
+                            <td>受講生成功事例<br>（カルーセル）</td>
+                            <td>今週の目標設定</td>
+                            <td>月曜モチベーション</td>
+                            <td>週末成果報告</td>
+                        </tr>
+                        <tr>
+                            <td><strong>火曜日</strong><br>技術・開発</td>
+                            <td>30分でAIアプリ作成<br>（リール）</td>
+                            <td>今日学ぶ技術紹介</td>
+                            <td>開発ライブ配信</td>
+                            <td>技術的な学び</td>
+                        </tr>
+                        <tr>
+                            <td><strong>水曜日</strong><br>教育</td>
+                            <td>初心者向けガイド<br>（カルーセル）</td>
+                            <td>よくある質問回答</td>
+                            <td>初心者向けTips</td>
+                            <td>つまずきポイント解説</td>
+                        </tr>
+                        <tr>
+                            <td><strong>木曜日</strong><br>成功事例</td>
+                            <td>受講生スポットライト<br>（リール）</td>
+                            <td>成功事例紹介</td>
+                            <td>収入報告・実績</td>
+                            <td>成功の秘訣</td>
+                        </tr>
+                        <tr>
+                            <td><strong>金曜日</strong><br>コミュニティ</td>
+                            <td>Q&Aまとめ<br>（カルーセル）</td>
+                            <td>コミュニティハイライト</td>
+                            <td>フォロワー交流</td>
+                            <td>週末プロジェクト</td>
+                        </tr>
+                        <tr>
+                            <td><strong>土曜日</strong><br>ライフスタイル</td>
+                            <td>AI開発者の1日<br>（リール）</td>
+                            <td>週末の過ごし方</td>
+                            <td>プライベート時間</td>
+                            <td>来週への準備</td>
+                        </tr>
+                        <tr>
+                            <td><strong>日曜日</strong><br>振り返り</td>
+                            <td>今週の学び<br>（静止画）</td>
+                            <td>週の振り返り</td>
+                            <td>次週の予告</td>
+                            <td>日曜夜メッセージ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- KPI Section -->
+            <section id="kpi" class="section">
+                <h2>📊 KPI・効果測定</h2>
+                
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>📈 成長指標</h3>
+                        <ul>
+                            <li>フォロワー増加: +5,000人/月</li>
+                            <li>エンゲージメント率: 8%以上</li>
+                            <li>ストーリー閲覧率: 40%以上</li>
+                            <li>保存率: 15%以上</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🎯 コンバージョン指標</h3>
+                        <ul>
+                            <li>オープンチャット誘導: 200名/月</li>
+                            <li>コース問い合わせ: 50件/月</li>
+                            <li>直接購入: 15件/月</li>
+                            <li>プロフィール訪問率: 12%以上</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>💰 収益指標</h3>
+                        <ul>
+                            <li>月間売上寄与: 880万円</li>
+                            <li>顧客獲得単価: 22,000円</li>
+                            <li>ROI: 400%</li>
+                            <li>年間売上寄与目標: 1億円</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>🔄 改善サイクル</h3>
+                        <ul>
+                            <li>月曜: 前週分析・改善点抽出</li>
+                            <li>水曜: コンテンツ調整実施</li>
+                            <li>金曜: 来週戦略策定</li>
+                            <li>A/Bテスト: 継続的に実施</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2>🚀 実行準備完了</h2>
+                    <p>すべての戦略・テンプレート・スケジュールが整いました。<br>
+                    バイブコーディングローンチを成功に導くInstagram運用を開始しましょう！</p>
+                    <a href="#templates" class="cta-button">テンプレートを確認する</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 わどInstagram戦略 - バイブコーディングローンチプロジェクト</p>
+            <p>🎯 目標達成に向けて、チーム一丸となって取り組みましょう！</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content cards
+        document.querySelectorAll('.content-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
