@@ -57,18 +57,23 @@ export default function DashboardPage() {
 
   // 最近のアクティビティ
   const recentActivities = [
-    { type: "update", title: "配信資料が更新されました", time: "5分前", user: "中井健登" },
-    { type: "new", title: "新しいX投稿テンプレートが追加", time: "1時間前", user: "わど" },
-    { type: "complete", title: "8/20配信のリハーサル完了", time: "2時間前", user: "ユニコーン社" },
-    { type: "update", title: "ローンチ戦略ガイドを公開", time: "3時間前", user: "中井健登" },
-    { type: "new", title: "特典配布スケジュール確定", time: "5時間前", user: "わど" }
+    { type: "new", title: "note記事配布キャンペーンシステム構築完了", time: "5分前", user: "中井健登" },
+    { type: "complete", title: "無料・有料note記事制作完了", time: "10分前", user: "Claude Code" },
+    { type: "new", title: "戦略ダッシュボードをリアルタイム監視対応", time: "15分前", user: "中井健登" },
+    { type: "update", title: "配信資料が更新されました", time: "1時間前", user: "中井健登" },
+    { type: "new", title: "新しいX投稿テンプレートが追加", time: "2時間前", user: "わど" },
+    { type: "complete", title: "8/20配信のリハーサル完了", time: "3時間前", user: "ユニコーン社" },
+    { type: "update", title: "ローンチ戦略ガイドを公開", time: "4時間前", user: "中井健登" }
   ]
 
   // 重要な指標
   const kpiData = [
     { title: "ローンチまで", value: "11日", change: "-1", status: "urgent" },
+    { title: "オープンチャット", value: "892/1,000", change: "+156", status: "good" },
+    { title: "セミナー申込", value: "456/1,500", change: "+89", status: "warning" },
+    { title: "note閲覧数", value: "45.7K", change: "+5.2K", status: "good" },
+    { title: "有料記事購入", value: "187", change: "+48", status: "excellent" },
     { title: "配信完了", value: "4/7", change: "+1", status: "good" },
-    { title: "チーム稼働率", value: "92%", change: "+5%", status: "good" },
     { title: "進捗率", value: "75%", change: "+8%", status: "good" }
   ]
 
@@ -86,6 +91,10 @@ export default function DashboardPage() {
       case "online": return "bg-green-500"
       case "away": return "bg-yellow-500"
       case "offline": return "bg-gray-400"
+      case "excellent": return "text-green-600"
+      case "good": return "text-green-500"
+      case "warning": return "text-yellow-500"
+      case "urgent": return "text-red-500"
       default: return "bg-gray-400"
     }
   }
@@ -233,6 +242,24 @@ export default function DashboardPage() {
                     <Link href="/launch-strategy">
                       <Rocket className="w-6 h-6" />
                       <span className="text-sm">ローンチ戦略</span>
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
+                    <Link href="/note-campaign">
+                      <FileText className="w-6 h-6" />
+                      <span className="text-sm">note記事キャンペーン</span>
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
+                    <Link href="/note-distribution">
+                      <MessageSquare className="w-6 h-6" />
+                      <span className="text-sm">記事配布管理</span>
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
+                    <Link href="/strategy-dashboard">
+                      <BarChart3 className="w-6 h-6" />
+                      <span className="text-sm">戦略ダッシュボード</span>
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="h-auto p-4 flex-col gap-2">
