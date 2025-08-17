@@ -10,6 +10,204 @@ export interface NakaiPost {
 }
 
 export const nakaiPosts: NakaiPost[] = [
+  // 8/18 ローンチ週間開始 - UnionAI CEO視点
+  {
+    id: 'nakai-18-1',
+    title: '8/18朝 - UnionAI CEO ローンチ宣言',
+    content: `UnionAI CEOとして断言します
+
+2025年、AI活用できない企業は
+確実に競争から脱落する
+
+でも個人レベルなら
+まだ十分間に合う
+
+バイブコーディングで
+先行者利益を獲得しませんか？
+
+#UnionAI #AI戦略`,
+    category: 'ローンチ告知',
+    hashtags: ['#UnionAI', '#AI戦略', '#CEO視点'],
+    authority: 'business',
+    targetTime: '朝8:00',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-18-2',
+    title: '8/18昼 - 経営者視点の人材コスト分析',
+    content: `【経営者視点】
+
+優秀な開発者1名の年収：800万
+バイブコーディング習得者：300万
+
+しかし開発スピードは
+後者の方が3倍速い
+
+コストパフォーマンス
+圧倒的です
+
+これが新時代の採用基準`,
+    category: '経営戦略',
+    hashtags: ['#経営視点', '#コスパ', '#人材戦略'],
+    authority: 'business',
+    targetTime: '昼12:30',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-18-3',
+    title: '8/18夜 - 歴史的瞬間への招待',
+    content: `今日からローンチ週間開始
+
+13日間で日本のAI教育を
+根本から変える挑戦
+
+・革新的な学習メソッド
+・実践的なカリキュラム
+・確実な収益化サポート
+
+歴史的瞬間を目撃してください
+
+#歴史的瞬間`,
+    category: 'ローンチ告知',
+    hashtags: ['#歴史的瞬間', '#日本AI教育', '#革新'],
+    authority: 'business',
+    targetTime: '夜20:30',
+    audience: 'general'
+  },
+
+  // 8/19 火曜日
+  {
+    id: 'nakai-19-1',
+    title: '8/19朝 - エンジニア採用戦略',
+    content: `エンジニア採用で困ってる
+経営者の方へ
+
+求人倍率8倍の市場で
+優秀な人材獲得は困難
+
+だったら既存社員に
+バイブコーディング習得させれば？
+
+3週間で戦力化
+コスト1/10
+
+経営判断として正しい`,
+    category: 'エンジニア採用',
+    hashtags: ['#エンジニア採用', '#コスト削減', '#経営判断'],
+    authority: 'business',
+    targetTime: '朝8:00',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-19-2',
+    title: '8/19昼 - 投資家との対話',
+    content: `【投資家との会話】
+
+「AI人材への投資どう思う？」
+
+私の回答:
+「個人のスキル習得が最高ROI」
+
+・確実なリターン
+・リスク最小
+・スケーラブル
+
+バイブコーディングは
+最高の投資先です`,
+    category: 'AI投資',
+    hashtags: ['#AI投資', '#ROI', '#スキル投資'],
+    authority: 'business',
+    targetTime: '昼12:30',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-19-3',
+    title: '8/19夜 - わど実演への評価',
+    content: `わどの実演、見事でした👏
+
+30分で完成したツール
+普通なら3日かかる内容
+
+これがバイブコーディングの実力
+
+技術の民主化が
+本当に始まった瞬間を
+目撃しました
+
+#技術革命`,
+    category: '技術検証',
+    hashtags: ['#技術革命', '#民主化', '#実力証明'],
+    authority: 'technical',
+    targetTime: '夜21:30',
+    audience: 'engineers'
+  },
+
+  // 8/20 水曜日
+  {
+    id: 'nakai-20-1',
+    title: '8/20朝 - 市場準備完了の分析',
+    content: `昨夜のスペース参加者数
+200名突破
+
+これだけ多くの方が
+AI開発に興味を持ってる
+
+市場の準備は整った
+あとは適切な教育メソッド
+
+バイブコーディングが
+その答えです
+
+#市場準備完了`,
+    category: '市場分析',
+    hashtags: ['#市場準備完了', '#需要確認', '#教育メソッド'],
+    authority: 'business',
+    targetTime: '朝8:00',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-20-2',
+    title: '8/20昼 - IT人材不足データ分析',
+    content: `【データで見る現実】
+
+IT人材需給ギャップ:
+2030年まで年間45万人不足
+
+解決策は2つ:
+1. 海外人材の採用
+2. 既存人材のスキルアップ
+
+後者が現実的
+バイブコーディングが鍵
+
+#IT人材不足`,
+    category: '人材市場',
+    hashtags: ['#IT人材不足', '#解決策', '#スキルアップ'],
+    authority: 'business',
+    targetTime: '昼12:30',
+    audience: 'business'
+  },
+  {
+    id: 'nakai-20-3',
+    title: '8/20夜 - セミナー必要性の説明',
+    content: `質問が殺到してますね
+
+皆さんの関心の高さが
+よく分かります
+
+でも文字だけでは
+伝えきれない部分も
+
+だからこそ8/31のセミナー
+絶対に参加してほしい
+
+目で見れば納得します`,
+    category: 'セミナー告知',
+    hashtags: ['#セミナー必要性', '#納得', '#参加推奨'],
+    authority: 'business',
+    targetTime: '夜20:30',
+    audience: 'general'
+  },
   // 権威性強化・技術解説
   {
     id: 'nakai-1',
@@ -928,6 +1126,9 @@ AI業界の健全な発展には
 
 export const nakaiCategories = [
   'すべて',
+  'ローンチ告知',
+  'セミナー告知',
+  '市場分析',
   '技術検証',
   '開発実績',
   '技術解説',
