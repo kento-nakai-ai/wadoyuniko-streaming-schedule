@@ -46,6 +46,9 @@ export default function RootLayout({
                   <Link href="/">ホーム</Link>
                 </Button>
                 <Button variant="ghost" asChild>
+                  <Link href="/dashboard">ダッシュボード</Link>
+                </Button>
+                <Button variant="ghost" asChild>
                   <Link href="/bonus">特典リスト</Link>
                 </Button>
                 <Button variant="ghost" asChild>
@@ -86,6 +89,9 @@ export default function RootLayout({
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/competitive-analysis">競合分析</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/seminar-script">セミナー台本</Link>
                 </Button>
               </div>
               <div className="lg:hidden">
