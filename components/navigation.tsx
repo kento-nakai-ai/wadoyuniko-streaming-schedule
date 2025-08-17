@@ -17,10 +17,18 @@ import {
   Target,
   Presentation,
   Gift,
-  BarChart3
+  BarChart3,
+  Palette
 } from 'lucide-react'
 
 const navigationItems = [
+  {
+    title: "🎯 重要方針",
+    href: "/project-strategy",
+    icon: Target,
+    description: "プロジェクト重要方針・戦略",
+    badge: "必読"
+  },
   {
     title: "ダッシュボード",
     href: "/dashboard",
@@ -33,6 +41,13 @@ const navigationItems = [
     icon: Users,
     description: "チーム別ダッシュボード",
     badge: "6チーム"
+  },
+  {
+    title: "🎨 デザインチーム",
+    href: "/design-team",
+    icon: Palette,
+    description: "Canva・LP素材・サムネイル管理",
+    badge: "34点完成"
   },
   {
     title: "配信スケジュール",
