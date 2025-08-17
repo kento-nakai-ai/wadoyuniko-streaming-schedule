@@ -41,6 +41,12 @@ const navigationItems = [
     description: "ライブ配信・動画管理"
   },
   {
+    title: "ライブカレンダー",
+    href: "/live-calendar",
+    icon: Calendar,
+    description: "8月配信カレンダー"
+  },
+  {
     title: "セミナー管理",
     href: "/seminar-script",
     icon: Presentation,
@@ -51,6 +57,12 @@ const navigationItems = [
     href: "/bonus",
     icon: Gift,
     description: "ボーナス特典・配布管理"
+  },
+  {
+    title: "特典配布",
+    href: "/bonus-schedule",
+    icon: Settings,
+    description: "8月特典配布スケジュール"
   },
   {
     title: "戦略ダッシュボード",
@@ -65,10 +77,28 @@ const navigationItems = [
     description: "note記事配布戦略"
   },
   {
-    title: "KPI追跡",
-    href: "/dashboard",
+    title: "わど投稿",
+    href: "/wado-posts",
     icon: TrendingUp,
-    description: "リアルタイム数値管理"
+    description: "わど氏のSNS投稿管理"
+  },
+  {
+    title: "中井投稿",
+    href: "/nakai-posts",
+    icon: TrendingUp,
+    description: "中井健登のSNS投稿管理"
+  },
+  {
+    title: "X投稿",
+    href: "/x-posts",
+    icon: TrendingUp,
+    description: "X投稿キャンペーン管理"
+  },
+  {
+    title: "Instagram戦略",
+    href: "/instagram",
+    icon: Target,
+    description: "Instagram運用・分析"
   }
 ]
 

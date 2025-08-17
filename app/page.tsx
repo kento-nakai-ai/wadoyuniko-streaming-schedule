@@ -23,7 +23,8 @@ import {
   BarChart3,
   Sparkles,
   Star,
-  CheckCircle2
+  CheckCircle2,
+  Instagram
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -115,6 +116,12 @@ export default function HomePage() {
                 <Button size="lg" className="gap-2 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white shadow-xl">
                   <Gift className="h-5 w-5" />
                   特典リスト
+                </Button>
+              </Link>
+              <Link href="/instagram">
+                <Button size="lg" className="gap-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white shadow-xl">
+                  <Instagram className="h-5 w-5" />
+                  Instagram戦略
                 </Button>
               </Link>
               <Link href="/x-posts">
@@ -220,8 +227,56 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">8名のメンバー</span>
+                    <span className="text-sm text-muted-foreground">6チーム</span>
                     <ArrowRight className="h-4 w-4 text-purple-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* 配信スケジュール */}
+            <Link href="/streaming-schedule">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-green-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Youtube className="h-6 w-6 text-green-600" />
+                    </div>
+                    <Badge className="bg-green-600 text-white">配信中</Badge>
+                  </div>
+                  <CardTitle>配信スケジュール</CardTitle>
+                  <CardDescription>
+                    YouTube Live配信予定表
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">8月配信</span>
+                    <ArrowRight className="h-4 w-4 text-green-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* ライブカレンダー */}
+            <Link href="/live-calendar">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-red-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-red-100 dark:bg-red-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Calendar className="h-6 w-6 text-red-600" />
+                    </div>
+                    <Badge className="bg-red-600 text-white">LIVE</Badge>
+                  </div>
+                  <CardTitle>ライブカレンダー</CardTitle>
+                  <CardDescription>
+                    8月配信カレンダー・スケジュール
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">13本配信予定</span>
+                    <ArrowRight className="h-4 w-4 text-red-600 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
               </Card>
@@ -251,6 +306,30 @@ export default function HomePage() {
               </Card>
             </Link>
 
+            {/* 特典配布スケジュール */}
+            <Link href="/bonus-schedule">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-yellow-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-yellow-100 dark:bg-yellow-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Clock className="h-6 w-6 text-yellow-600" />
+                    </div>
+                    <Badge className="bg-yellow-600 text-white">配布中</Badge>
+                  </div>
+                  <CardTitle>特典配布スケジュール</CardTitle>
+                  <CardDescription>
+                    8月無料特典配布計画
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">10個の特典</span>
+                    <ArrowRight className="h-4 w-4 text-yellow-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
             {/* X投稿管理 */}
             <Link href="/x-posts">
               <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-blue-400">
@@ -275,25 +354,148 @@ export default function HomePage() {
               </Card>
             </Link>
 
-            {/* 配信スケジュール */}
-            <Link href="/streaming-schedule">
-              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-green-400">
+            {/* わど投稿 */}
+            <Link href="/wado-posts">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-indigo-400">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-2">
-                    <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg group-hover:scale-110 transition-transform">
-                      <Youtube className="h-6 w-6 text-green-600" />
+                    <div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <MessageSquare className="h-6 w-6 text-indigo-600" />
                     </div>
-                    <Badge className="bg-green-600 text-white">配信中</Badge>
+                    <Badge className="bg-indigo-600 text-white">わど</Badge>
                   </div>
-                  <CardTitle>配信スケジュール</CardTitle>
+                  <CardTitle>わど投稿管理</CardTitle>
                   <CardDescription>
-                    YouTube Live配信予定表
+                    わど氏のSNS投稿・戦略管理
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">19日間連続</span>
-                    <ArrowRight className="h-4 w-4 text-green-600 group-hover:translate-x-1 transition-transform" />
+                    <span className="text-sm text-muted-foreground">戦略投稿</span>
+                    <ArrowRight className="h-4 w-4 text-indigo-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* 中井投稿 */}
+            <Link href="/nakai-posts">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-teal-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-teal-100 dark:bg-teal-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <MessageSquare className="h-6 w-6 text-teal-600" />
+                    </div>
+                    <Badge className="bg-teal-600 text-white">中井</Badge>
+                  </div>
+                  <CardTitle>中井投稿管理</CardTitle>
+                  <CardDescription>
+                    中井健登のSNS投稿・戦略管理
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">技術投稿</span>
+                    <ArrowRight className="h-4 w-4 text-teal-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+
+          {/* 追加機能 */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-8">
+            {/* ダッシュボード */}
+            <Link href="/dashboard">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-emerald-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-emerald-100 dark:bg-emerald-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <BarChart3 className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <Badge className="bg-emerald-600 text-white">KPI</Badge>
+                  </div>
+                  <CardTitle>統合ダッシュボード</CardTitle>
+                  <CardDescription>
+                    KPI・進捗・全体概要
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">リアルタイム</span>
+                    <ArrowRight className="h-4 w-4 text-emerald-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* セミナー管理 */}
+            <Link href="/seminar-script">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-pink-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-pink-100 dark:bg-pink-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <BookOpen className="h-6 w-6 text-pink-600" />
+                    </div>
+                    <Badge className="bg-pink-600 text-white">セミナー</Badge>
+                  </div>
+                  <CardTitle>セミナー管理</CardTitle>
+                  <CardDescription>
+                    台本・スライド・運営
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">8/28-30</span>
+                    <ArrowRight className="h-4 w-4 text-pink-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* 戦略ダッシュボード */}
+            <Link href="/strategy-dashboard">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-violet-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-violet-100 dark:bg-violet-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Target className="h-6 w-6 text-violet-600" />
+                    </div>
+                    <Badge className="bg-violet-600 text-white">戦略</Badge>
+                  </div>
+                  <CardTitle>戦略ダッシュボード</CardTitle>
+                  <CardDescription>
+                    マーケティング戦略・分析
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">分析・最適化</span>
+                    <ArrowRight className="h-4 w-4 text-violet-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* note配信管理 */}
+            <Link href="/note-distribution">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-cyan-400">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-cyan-100 dark:bg-cyan-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <BookOpen className="h-6 w-6 text-cyan-600" />
+                    </div>
+                    <Badge className="bg-cyan-600 text-white">note</Badge>
+                  </div>
+                  <CardTitle>note配信管理</CardTitle>
+                  <CardDescription>
+                    note記事配布戦略
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">記事配布</span>
+                    <ArrowRight className="h-4 w-4 text-cyan-600 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
               </Card>
