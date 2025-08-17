@@ -9,13 +9,13 @@ import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'wadoyuniko AI Platform - バイブコーディング',
-  description: 'AIを活用した次世代のプログラミング教育プラットフォーム',
-  keywords: ['AI', 'プログラミング', '教育', 'バイブコーディング', 'wadoyuniko'],
+  title: 'バイブコーディング ローンチプロジェクト',
+  description: 'AI開発教育プログラム「バイブコーディング」のローンチ戦略管理システム。note記事配布、セミナー運営、効果測定を統合管理。',
+  keywords: ['AI', 'プログラミング', '教育', 'バイブコーディング', 'ローンチ', 'note配布', 'セミナー', 'wadoyuniko'],
   authors: [{ name: 'wadoyuniko' }],
   openGraph: {
-    title: 'wadoyuniko AI Platform',
-    description: 'AIを活用した次世代のプログラミング教育プラットフォーム',
+    title: 'バイブコーディング ローンチプロジェクト',
+    description: 'AI開発教育プログラム「バイブコーディング」のローンチ戦略管理システム',
     type: 'website',
     locale: 'ja_JP',
   },
@@ -49,6 +49,15 @@ export default function RootLayout({
                   <Link href="/dashboard">ダッシュボード</Link>
                 </Button>
                 <Button variant="ghost" asChild>
+                  <Link href="/note-campaign">note記事キャンペーン</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/note-distribution">記事配布管理</Link>
+                </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/strategy-dashboard">戦略ダッシュボード</Link>
+                </Button>
+                <Button variant="ghost" asChild>
                   <Link href="/bonus">特典リスト</Link>
                 </Button>
                 <Button variant="ghost" asChild>
@@ -67,25 +76,7 @@ export default function RootLayout({
                   <Link href="/teams">チームドキュメント</Link>
                 </Button>
                 <Button variant="ghost" asChild>
-                  <Link href="/x-posts">X投稿集</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/wado-posts">わど投稿</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/nakai-posts">中井投稿</Link>
-                </Button>
-                <Button variant="ghost" asChild>
                   <Link href="/launch-strategy">ローンチ戦略</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/team-overview">チーム総合</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/docs">ドキュメント</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/sales-team">セールスチーム</Link>
                 </Button>
                 <Button variant="ghost" asChild>
                   <Link href="/competitive-analysis">競合分析</Link>
@@ -96,7 +87,7 @@ export default function RootLayout({
               </div>
               <div className="lg:hidden">
                 <Button variant="ghost" asChild>
-                  <Link href="/bonus-schedule">特典配布</Link>
+                  <Link href="/note-campaign">note記事</Link>
                 </Button>
               </div>
             </div>
