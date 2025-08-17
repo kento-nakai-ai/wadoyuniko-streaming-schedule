@@ -38,7 +38,14 @@ export default function BonusPage() {
         <div className="container mx-auto px-4 py-6">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-2">🎁 バイブコーディングスクール特典リスト</h1>
-            <p className="text-lg opacity-90">総額840万円相当・104個の特典を完全公開</p>
+            <p className="text-lg opacity-90">総額840万円相当・104個の特典で2,000名集客達成！</p>
+            <div className="mt-4">
+              <div className="bg-white/20 rounded-full px-6 py-2 inline-block">
+                <span className="text-sm">現在のオプチャ参加者: </span>
+                <span className="font-bold text-lg">1,847/2,000名</span>
+                <span className="text-sm ml-2">(達成率92.4%)</span>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -275,10 +282,10 @@ export default function BonusPage() {
               <p className="text-xl mb-6">総額840万円相当の特典があなたを待っています</p>
               <div className="flex justify-center gap-4 flex-wrap">
                 <Button size="lg" variant="secondary" className="text-purple-600 font-bold">
-                  無料登録で特典GET
+                  🎁 LINEオプチャ参加で無料特典GET
                 </Button>
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white font-bold">
-                  セミナーに申し込む
+                  📅 8/28-30セミナーに申し込む
                 </Button>
               </div>
             </CardContent>

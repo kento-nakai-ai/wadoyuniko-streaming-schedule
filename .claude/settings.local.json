@@ -14,7 +14,15 @@
       "Bash(npm run dev:*)",
       "Bash(rm:*)",
       "Bash(python:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "WebSearch",
+      "Bash(claude mcp:*)",
+      "mcp__notion__notion-create-pages",
+      "mcp__notion__notion-create-database",
+      "mcp__notion__notion-update-page",
+      "mcp__notion__fetch",
+      "mcp__notion__search"
     ],
     "deny": []
   }
