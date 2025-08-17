@@ -78,6 +78,9 @@ export default function RootLayout({
                 <Button variant="ghost" asChild>
                   <Link href="/sales-team">セールスチーム</Link>
                 </Button>
+                <Button variant="ghost" asChild>
+                  <Link href="/competitive-analysis">競合分析</Link>
+                </Button>
               </div>
               <div className="lg:hidden">
                 <Button variant="ghost" asChild>
