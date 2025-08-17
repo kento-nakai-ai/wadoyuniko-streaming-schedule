@@ -1,5 +1,3 @@
-"use client"
-
 import React from 'react'
 import { notFound } from 'next/navigation'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,13 +9,14 @@ import { streamingData, type StreamingEvent } from '../data/streaming-data'
 import Link from 'next/link'
 
 interface StreamingDetailPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function StreamingDetailPage({ params }: StreamingDetailPageProps) {
-  const stream = streamingData.find(s => s.id === params.id)
+export default async function StreamingDetailPage({ params }: StreamingDetailPageProps) {
+  const { id } = await params
+  const stream = streamingData.find(s => s.id === id)
   
   if (!stream) {
     notFound()

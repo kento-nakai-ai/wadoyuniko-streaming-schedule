@@ -174,27 +174,27 @@ export default function StrategyDashboardPage() {
   }
 
   return (
-    <div className=\"min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900\">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* ヘッダー */}
-      <header className=\"bg-black/20 backdrop-blur-md border-b border-white/10 sticky top-0 z-50\">
-        <div className=\"container mx-auto px-4 py-4\">
-          <div className=\"flex items-center justify-between\">
-            <div className=\"flex items-center space-x-4\">
-              <div className=\"w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center\">
-                <BarChart3 className=\"w-6 h-6 text-white\" />
+      <header className="bg-black/20 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                <BarChart3 className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className=\"text-xl font-bold text-white\">戦略ダッシュボード</h1>
-                <p className=\"text-sm text-gray-300\">バイブコーディング ローンチ戦略 - リアルタイム監視</p>
+                <h1 className="text-xl font-bold text-white">戦略ダッシュボード</h1>
+                <p className="text-sm text-gray-300">バイブコーディング ローンチ戦略 - リアルタイム監視</p>
               </div>
             </div>
-            <div className=\"flex items-center space-x-4 text-white\">
-              <div className=\"text-sm\">
-                <div className=\"font-medium\">{currentTime.toLocaleDateString('ja-JP')}</div>
-                <div className=\"text-gray-300\">{currentTime.toLocaleTimeString('ja-JP')}</div>
+            <div className="flex items-center space-x-4 text-white">
+              <div className="text-sm">
+                <div className="font-medium">{currentTime.toLocaleDateString('ja-JP')}</div>
+                <div className="text-gray-300">{currentTime.toLocaleTimeString('ja-JP')}</div>
               </div>
-              <Button size=\"sm\" variant=\"outline\" className=\"border-white/20 text-white hover:bg-white/10\">
-                <RefreshCw className=\"w-4 h-4 mr-2\" />
+              <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
+                <RefreshCw className="w-4 h-4 mr-2" />
                 更新
               </Button>
             </div>
@@ -202,36 +202,36 @@ export default function StrategyDashboardPage() {
         </div>
       </header>
 
-      <main className=\"container mx-auto px-4 py-8\">
-        <Tabs defaultValue=\"overview\" className=\"space-y-8\">
-          <TabsList className=\"bg-black/20 border-white/10\">
-            <TabsTrigger value=\"overview\" className=\"text-white data-[state=active]:bg-white/20\">概要</TabsTrigger>
-            <TabsTrigger value=\"funnel\" className=\"text-white data-[state=active]:bg-white/20\">ファネル分析</TabsTrigger>
-            <TabsTrigger value=\"platforms\" className=\"text-white data-[state=active]:bg-white/20\">プラットフォーム</TabsTrigger>
-            <TabsTrigger value=\"actions\" className=\"text-white data-[state=active]:bg-white/20\">アクション</TabsTrigger>
+      <main className="container mx-auto px-4 py-8">
+        <Tabs defaultValue="overview" className="space-y-8">
+          <TabsList className="bg-black/20 border-white/10">
+            <TabsTrigger value="overview" className="text-white data-[state=active]:bg-white/20">概要</TabsTrigger>
+            <TabsTrigger value="funnel" className="text-white data-[state=active]:bg-white/20">ファネル分析</TabsTrigger>
+            <TabsTrigger value="platforms" className="text-white data-[state=active]:bg-white/20">プラットフォーム</TabsTrigger>
+            <TabsTrigger value="actions" className="text-white data-[state=active]:bg-white/20">アクション</TabsTrigger>
           </TabsList>
 
           {/* 概要タブ */}
-          <TabsContent value=\"overview\" className=\"space-y-8\">
+          <TabsContent value="overview" className="space-y-8">
             {/* リアルタイムアラート */}
-            <Card className=\"bg-black/20 border-white/10 text-white\">
+            <Card className="bg-black/20 border-white/10 text-white">
               <CardHeader>
-                <CardTitle className=\"flex items-center gap-2\">
-                  <AlertTriangle className=\"w-5 h-5 text-yellow-400\" />
+                <CardTitle className="flex items-center gap-2">
+                  <AlertTriangle className="w-5 h-5 text-yellow-400" />
                   リアルタイムアラート
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=\"space-y-3\">
+                <div className="space-y-3">
                   {alerts.slice(0, 3).map((alert, index) => (
                     <div key={index} className={`flex items-start gap-3 p-3 rounded-lg ${alert.type === 'success' ? 'bg-green-500/20' : alert.type === 'warning' ? 'bg-yellow-500/20' : 'bg-blue-500/20'}`}>
                       <div className={`w-2 h-2 rounded-full mt-2 ${alert.type === 'success' ? 'bg-green-400' : alert.type === 'warning' ? 'bg-yellow-400' : 'bg-blue-400'}`}></div>
-                      <div className=\"flex-1\">
-                        <div className=\"font-medium\">{alert.title}</div>
-                        <div className=\"text-sm text-gray-300\">{alert.message}</div>
-                        <div className=\"text-xs text-gray-400 mt-1\">{alert.timestamp}</div>
+                      <div className="flex-1">
+                        <div className="font-medium">{alert.title}</div>
+                        <div className="text-sm text-gray-300">{alert.message}</div>
+                        <div className="text-xs text-gray-400 mt-1">{alert.timestamp}</div>
                       </div>
-                      <Badge variant={alert.priority === 'high' ? 'destructive' : 'secondary'} className=\"text-xs\">
+                      <Badge variant={alert.priority === 'high' ? 'destructive' : 'secondary'} className="text-xs">
                         {alert.priority === 'high' ? '緊急' : '中'}
                       </Badge>
                     </div>
@@ -241,35 +241,35 @@ export default function StrategyDashboardPage() {
             </Card>
 
             {/* 主要KPI */}
-            <div className=\"grid grid-cols-2 md:grid-cols-4 gap-6\">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {Object.entries(campaignKPIs).map(([key, kpi]) => {
                 const percentage = (kpi.current / kpi.target) * 100
                 const isOnTrack = percentage >= 70
                 
                 return (
-                  <Card key={key} className=\"bg-black/20 border-white/10 text-white\">
-                    <CardContent className=\"p-4\">
-                      <div className=\"flex items-center justify-between mb-2\">
-                        <div className=\"text-sm font-medium text-gray-300 capitalize\">
+                  <Card key={key} className="bg-black/20 border-white/10 text-white">
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="text-sm font-medium text-gray-300 capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </div>
                         {isOnTrack ? (
-                          <ArrowUp className=\"w-4 h-4 text-green-400\" />
+                          <ArrowUp className="w-4 h-4 text-green-400" />
                         ) : (
-                          <ArrowDown className=\"w-4 h-4 text-red-400\" />
+                          <ArrowDown className="w-4 h-4 text-red-400" />
                         )}
                       </div>
-                      <div className=\"text-2xl font-bold mb-1\">
+                      <div className="text-2xl font-bold mb-1">
                         {kpi.current.toLocaleString()}{kpi.unit}
                       </div>
-                      <div className=\"text-xs text-gray-400 mb-2\">
+                      <div className="text-xs text-gray-400 mb-2">
                         目標: {kpi.target.toLocaleString()}{kpi.unit}
                       </div>
                       <Progress 
                         value={Math.min(percentage, 100)} 
                         className={`h-2 ${getProgressColor(percentage)}`}
                       />
-                      <div className=\"text-xs text-gray-300 mt-1\">
+                      <div className="text-xs text-gray-300 mt-1">
                         {percentage.toFixed(1)}% 達成
                       </div>
                     </CardContent>
@@ -279,35 +279,35 @@ export default function StrategyDashboardPage() {
             </div>
 
             {/* デイリートレンド */}
-            <Card className=\"bg-black/20 border-white/10 text-white\">
+            <Card className="bg-black/20 border-white/10 text-white">
               <CardHeader>
-                <CardTitle className=\"flex items-center gap-2\">
-                  <TrendingUp className=\"w-5 h-5\" />
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
                   過去7日間のトレンド
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* 閲覧数とダウンロード数 */}
                   <div>
-                    <h4 className=\"font-medium mb-3\">閲覧数 & ダウンロード数</h4>
-                    <div className=\"space-y-2\">
+                    <h4 className="font-medium mb-3">閲覧数 & ダウンロード数</h4>
+                    <div className="space-y-2">
                       {dailyTrends.map((day, index) => (
-                        <div key={index} className=\"flex items-center justify-between p-2 bg-white/5 rounded\">
-                          <span className=\"text-sm w-12\">{day.date}</span>
-                          <div className=\"flex-1 mx-4\">
-                            <div className=\"flex items-center gap-2 text-xs\">
-                              <div className=\"flex items-center gap-1\">
-                                <Eye className=\"w-3 h-3 text-blue-400\" />
+                        <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded">
+                          <span className="text-sm w-12">{day.date}</span>
+                          <div className="flex-1 mx-4">
+                            <div className="flex items-center gap-2 text-xs">
+                              <div className="flex items-center gap-1">
+                                <Eye className="w-3 h-3 text-blue-400" />
                                 <span>{day.views.toLocaleString()}</span>
                               </div>
-                              <div className=\"flex items-center gap-1\">
-                                <Download className=\"w-3 h-3 text-green-400\" />
+                              <div className="flex items-center gap-1">
+                                <Download className="w-3 h-3 text-green-400" />
                                 <span>{day.downloads}</span>
                               </div>
                             </div>
                           </div>
-                          <div className=\"text-xs text-gray-400\">
+                          <div className="text-xs text-gray-400">
                             CVR {((day.downloads / day.views) * 100).toFixed(1)}%
                           </div>
                         </div>
@@ -317,24 +317,24 @@ export default function StrategyDashboardPage() {
 
                   {/* 購入数とオープンチャット参加 */}
                   <div>
-                    <h4 className=\"font-medium mb-3\">購入数 & オープンチャット参加</h4>
-                    <div className=\"space-y-2\">
+                    <h4 className="font-medium mb-3">購入数 & オープンチャット参加</h4>
+                    <div className="space-y-2">
                       {dailyTrends.map((day, index) => (
-                        <div key={index} className=\"flex items-center justify-between p-2 bg-white/5 rounded\">
-                          <span className=\"text-sm w-12\">{day.date}</span>
-                          <div className=\"flex-1 mx-4\">
-                            <div className=\"flex items-center gap-2 text-xs\">
-                              <div className=\"flex items-center gap-1\">
-                                <ShoppingCart className=\"w-3 h-3 text-purple-400\" />
+                        <div key={index} className="flex items-center justify-between p-2 bg-white/5 rounded">
+                          <span className="text-sm w-12">{day.date}</span>
+                          <div className="flex-1 mx-4">
+                            <div className="flex items-center gap-2 text-xs">
+                              <div className="flex items-center gap-1">
+                                <ShoppingCart className="w-3 h-3 text-purple-400" />
                                 <span>{day.purchases}</span>
                               </div>
-                              <div className=\"flex items-center gap-1\">
-                                <UserPlus className=\"w-3 h-3 text-orange-400\" />
+                              <div className="flex items-center gap-1">
+                                <UserPlus className="w-3 h-3 text-orange-400" />
                                 <span>{day.openchat}</span>
                               </div>
                             </div>
                           </div>
-                          <div className=\"text-xs text-gray-400\">
+                          <div className="text-xs text-gray-400">
                             ¥{(day.purchases * 100).toLocaleString()}
                           </div>
                         </div>
@@ -347,36 +347,36 @@ export default function StrategyDashboardPage() {
           </TabsContent>
 
           {/* ファネル分析タブ */}
-          <TabsContent value=\"funnel\" className=\"space-y-8\">
-            <Card className=\"bg-black/20 border-white/10 text-white\">
+          <TabsContent value="funnel" className="space-y-8">
+            <Card className="bg-black/20 border-white/10 text-white">
               <CardHeader>
                 <CardTitle>ユーザー行動ファネル分析</CardTitle>
-                <CardDescription className=\"text-gray-300\">
+                <CardDescription className="text-gray-300">
                   note記事閲覧からセミナー申込までの変換率
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className=\"space-y-6\">
+                <div className="space-y-6">
                   {funnelData.map((stage, index) => (
-                    <div key={index} className=\"relative\">
-                      <div className=\"flex items-center gap-4\">
-                        <div className=\"w-24 text-sm text-gray-300\">{stage.stage}</div>
-                        <div className=\"flex-1\">
+                    <div key={index} className="relative">
+                      <div className="flex items-center gap-4">
+                        <div className="w-24 text-sm text-gray-300">{stage.stage}</div>
+                        <div className="flex-1">
                           <div className={`h-8 ${stage.color} rounded-lg flex items-center px-4`} 
                                style={{ width: `${Math.max(stage.percentage, 10)}%` }}>
-                            <span className=\"text-white font-medium text-sm\">
+                            <span className="text-white font-medium text-sm">
                               {stage.count.toLocaleString()}
                             </span>
                           </div>
                         </div>
-                        <div className=\"w-16 text-sm text-gray-300 text-right\">
+                        <div className="w-16 text-sm text-gray-300 text-right">
                           {stage.percentage.toFixed(1)}%
                         </div>
                       </div>
                       {index < funnelData.length - 1 && (
-                        <div className=\"flex items-center gap-4 mt-2 mb-2\">
-                          <div className=\"w-24\"></div>
-                          <div className=\"text-xs text-gray-400\">
+                        <div className="flex items-center gap-4 mt-2 mb-2">
+                          <div className="w-24"></div>
+                          <div className="text-xs text-gray-400">
                             変換率: {index === 0 ? 'ベース' : 
                                    index === 1 ? `${((funnelData[1].count / funnelData[0].count) * 100).toFixed(1)}%` :
                                    index === 2 ? `${((funnelData[2].count / funnelData[1].count) * 100).toFixed(1)}%` :
@@ -392,29 +392,29 @@ export default function StrategyDashboardPage() {
             </Card>
 
             {/* ファネル最適化提案 */}
-            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
-              <Card className=\"bg-black/20 border-white/10 text-white\">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <Card className="bg-black/20 border-white/10 text-white">
                 <CardHeader>
-                  <CardTitle className=\"text-lg\">ボトルネック分析</CardTitle>
+                  <CardTitle className="text-lg">ボトルネック分析</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-4\">
-                    <div className=\"p-3 bg-red-500/20 rounded-lg border border-red-500/30\">
-                      <div className=\"font-medium text-red-400\">最大のボトルネック</div>
-                      <div className=\"text-sm text-gray-300 mt-1\">
+                  <div className="space-y-4">
+                    <div className="p-3 bg-red-500/20 rounded-lg border border-red-500/30">
+                      <div className="font-medium text-red-400">最大のボトルネック</div>
+                      <div className="text-sm text-gray-300 mt-1">
                         note閲覧→無料DL: 7.5% (目標: 15%)
                       </div>
-                      <div className=\"text-xs text-gray-400 mt-2\">
+                      <div className="text-xs text-gray-400 mt-2">
                         改善により最大4,000DL追加可能
                       </div>
                     </div>
                     
-                    <div className=\"p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30\">
-                      <div className=\"font-medium text-yellow-400\">注意が必要</div>
-                      <div className=\"text-sm text-gray-300 mt-1\">
+                    <div className="p-3 bg-yellow-500/20 rounded-lg border border-yellow-500/30">
+                      <div className="font-medium text-yellow-400">注意が必要</div>
+                      <div className="text-sm text-gray-300 mt-1">
                         オープンチャット→セミナー: 51.1% (目標: 70%)
                       </div>
-                      <div className=\"text-xs text-gray-400 mt-2\">
+                      <div className="text-xs text-gray-400 mt-2">
                         168名の追加申込が可能
                       </div>
                     </div>
@@ -422,38 +422,38 @@ export default function StrategyDashboardPage() {
                 </CardContent>
               </Card>
 
-              <Card className=\"bg-black/20 border-white/10 text-white\">
+              <Card className="bg-black/20 border-white/10 text-white">
                 <CardHeader>
-                  <CardTitle className=\"text-lg\">改善施策</CardTitle>
+                  <CardTitle className="text-lg">改善施策</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-3\">
-                    <div className=\"flex items-start gap-3 p-3 bg-green-500/20 rounded-lg\">
-                      <CheckCircle className=\"w-5 h-5 text-green-400 mt-0.5\" />
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-green-500/20 rounded-lg">
+                      <CheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
                       <div>
-                        <div className=\"font-medium text-sm\">note記事の体験価値向上</div>
-                        <div className=\"text-xs text-gray-400 mt-1\">
+                        <div className="font-medium text-sm">note記事の体験価値向上</div>
+                        <div className="text-xs text-gray-400 mt-1">
                           30分体験の分かりやすさ改善 → CVR 7.5%→12%目標
                         </div>
                       </div>
                     </div>
 
-                    <div className=\"flex items-start gap-3 p-3 bg-blue-500/20 rounded-lg\">
-                      <Clock className=\"w-5 h-5 text-blue-400 mt-0.5\" />
+                    <div className="flex items-start gap-3 p-3 bg-blue-500/20 rounded-lg">
+                      <Clock className="w-5 h-5 text-blue-400 mt-0.5" />
                       <div>
-                        <div className=\"font-medium text-sm\">オープンチャット活性化</div>
-                        <div className=\"text-xs text-gray-400 mt-1\">
+                        <div className="font-medium text-sm">オープンチャット活性化</div>
+                        <div className="text-xs text-gray-400 mt-1">
                           セミナー予告・限定特典でエンゲージメント向上
                         </div>
                       </div>
                     </div>
 
-                    <div className=\"flex items-start gap-3 p-3 bg-purple-500/20 rounded-lg\">
-                      <Zap className=\"w-5 h-5 text-purple-400 mt-0.5\" />
+                    <div className="flex items-start gap-3 p-3 bg-purple-500/20 rounded-lg">
+                      <Zap className="w-5 h-5 text-purple-400 mt-0.5" />
                       <div>
-                        <div className=\"font-medium text-sm\">緊急性の演出</div>
-                        <div className=\"text-xs text-gray-400 mt-1\">
-                          \"参入最後のチャンス\"メッセージ強化
+                        <div className="font-medium text-sm">緊急性の演出</div>
+                        <div className="text-xs text-gray-400 mt-1">
+                          "参入最後のチャンス"メッセージ強化
                         </div>
                       </div>
                     </div>
@@ -464,41 +464,41 @@ export default function StrategyDashboardPage() {
           </TabsContent>
 
           {/* プラットフォーム分析タブ */}
-          <TabsContent value=\"platforms\" className=\"space-y-8\">
-            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
+          <TabsContent value="platforms" className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {platformAnalysis.map((platform, index) => (
-                <Card key={index} className=\"bg-black/20 border-white/10 text-white\">
+                <Card key={index} className="bg-black/20 border-white/10 text-white">
                   <CardHeader>
-                    <div className=\"flex items-center justify-between\">
-                      <CardTitle className=\"text-lg\">{platform.platform}</CardTitle>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-lg">{platform.platform}</CardTitle>
                       <div className={`w-3 h-3 rounded-full ${getStatusColor(platform.status)}`}></div>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className=\"grid grid-cols-2 gap-4\">
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <div className=\"text-sm text-gray-400\">フォロワー/メンバー</div>
-                        <div className=\"text-xl font-bold\">{platform.members?.toLocaleString() || platform.followers?.toLocaleString() || platform.subscribers?.toLocaleString()}</div>
+                        <div className="text-sm text-gray-400">フォロワー/メンバー</div>
+                        <div className="text-xl font-bold">{platform.members?.toLocaleString() || platform.followers?.toLocaleString() || platform.subscribers?.toLocaleString()}</div>
                       </div>
                       <div>
-                        <div className=\"text-sm text-gray-400\">エンゲージメント</div>
-                        <div className=\"text-xl font-bold\">{platform.engagement}%</div>
+                        <div className="text-sm text-gray-400">エンゲージメント</div>
+                        <div className="text-xl font-bold">{platform.engagement}%</div>
                       </div>
                       <div>
-                        <div className=\"text-sm text-gray-400\">デイリーアクティブ</div>
-                        <div className=\"text-lg font-bold\">{(platform.dailyActive || platform.dailyReach || platform.dailyViews)?.toLocaleString()}</div>
+                        <div className="text-sm text-gray-400">デイリーアクティブ</div>
+                        <div className="text-lg font-bold">{(platform.dailyActive || platform.dailyReach || platform.dailyViews)?.toLocaleString()}</div>
                       </div>
                       <div>
-                        <div className=\"text-sm text-gray-400\">変換率</div>
-                        <div className=\"text-lg font-bold\">
+                        <div className="text-sm text-gray-400">変換率</div>
+                        <div className="text-lg font-bold">
                           {(platform.conversionToSeminar || platform.conversionToOpenchat || platform.conversionToPaid)?.toFixed(1)}%
                         </div>
                       </div>
                     </div>
                     
-                    <div className=\"mt-4 p-3 bg-white/5 rounded-lg\">
-                      <div className=\"text-sm font-medium mb-2\">パフォーマンス分析</div>
-                      <div className=\"text-xs text-gray-400\">
+                    <div className="mt-4 p-3 bg-white/5 rounded-lg">
+                      <div className="text-sm font-medium mb-2">パフォーマンス分析</div>
+                      <div className="text-xs text-gray-400">
                         {platform.status === 'excellent' && '目標を大幅に上回る優秀な成果'}
                         {platform.status === 'good' && '目標達成ペースで順調に推移'}
                         {platform.status === 'warning' && '改善の余地あり、施策検討が必要'}
@@ -511,37 +511,37 @@ export default function StrategyDashboardPage() {
             </div>
 
             {/* プラットフォーム間連携分析 */}
-            <Card className=\"bg-black/20 border-white/10 text-white\">
+            <Card className="bg-black/20 border-white/10 text-white">
               <CardHeader>
                 <CardTitle>プラットフォーム間連携分析</CardTitle>
-                <CardDescription className=\"text-gray-300\">
+                <CardDescription className="text-gray-300">
                   各プラットフォームからの流入とコンバージョン
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4\">
-                  <div className=\"text-center p-4 bg-blue-500/20 rounded-lg\">
-                    <div className=\"text-2xl font-bold\">X → note</div>
-                    <div className=\"text-sm text-gray-300 mt-1\">15,000 → 1,200</div>
-                    <div className=\"text-xs text-blue-400\">8.0% 流入率</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-blue-500/20 rounded-lg">
+                    <div className="text-2xl font-bold">X → note</div>
+                    <div className="text-sm text-gray-300 mt-1">15,000 → 1,200</div>
+                    <div className="text-xs text-blue-400">8.0% 流入率</div>
                   </div>
                   
-                  <div className=\"text-center p-4 bg-red-500/20 rounded-lg\">
-                    <div className=\"text-2xl font-bold\">YouTube → note</div>
-                    <div className=\"text-sm text-gray-300 mt-1\">8,500 → 850</div>
-                    <div className=\"text-xs text-red-400\">10.0% 流入率</div>
+                  <div className="text-center p-4 bg-red-500/20 rounded-lg">
+                    <div className="text-2xl font-bold">YouTube → note</div>
+                    <div className="text-sm text-gray-300 mt-1">8,500 → 850</div>
+                    <div className="text-xs text-red-400">10.0% 流入率</div>
                   </div>
                   
-                  <div className=\"text-center p-4 bg-green-500/20 rounded-lg\">
-                    <div className=\"text-2xl font-bold\">note → オプチャ</div>
-                    <div className=\"text-sm text-gray-300 mt-1\">45,672 → 892</div>
-                    <div className=\"text-xs text-green-400\">2.0% 変換率</div>
+                  <div className="text-center p-4 bg-green-500/20 rounded-lg">
+                    <div className="text-2xl font-bold">note → オプチャ</div>
+                    <div className="text-sm text-gray-300 mt-1">45,672 → 892</div>
+                    <div className="text-xs text-green-400">2.0% 変換率</div>
                   </div>
                   
-                  <div className=\"text-center p-4 bg-purple-500/20 rounded-lg\">
-                    <div className=\"text-2xl font-bold\">オプチャ → セミナー</div>
-                    <div className=\"text-sm text-gray-300 mt-1\">892 → 456</div>
-                    <div className=\"text-xs text-purple-400\">51.1% 変換率</div>
+                  <div className="text-center p-4 bg-purple-500/20 rounded-lg">
+                    <div className="text-2xl font-bold">オプチャ → セミナー</div>
+                    <div className="text-sm text-gray-300 mt-1">892 → 456</div>
+                    <div className="text-xs text-purple-400">51.1% 変換率</div>
                   </div>
                 </div>
               </CardContent>
@@ -549,39 +549,39 @@ export default function StrategyDashboardPage() {
           </TabsContent>
 
           {/* アクションタブ */}
-          <TabsContent value=\"actions\" className=\"space-y-8\">
+          <TabsContent value="actions" className="space-y-8">
             {strategicActions.map((category, categoryIndex) => (
-              <Card key={categoryIndex} className=\"bg-black/20 border-white/10 text-white\">
+              <Card key={categoryIndex} className="bg-black/20 border-white/10 text-white">
                 <CardHeader>
-                  <CardTitle className=\"flex items-center gap-2\">
-                    <Target className=\"w-5 h-5\" />
+                  <CardTitle className="flex items-center gap-2">
+                    <Target className="w-5 h-5" />
                     {category.category}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-3\">
+                  <div className="space-y-3">
                     {category.items.map((item, itemIndex) => (
-                      <div key={itemIndex} className=\"flex items-center justify-between p-3 bg-white/5 rounded-lg\">
-                        <div className=\"flex items-center gap-3\">
+                      <div key={itemIndex} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                        <div className="flex items-center gap-3">
                           <div className={`w-3 h-3 rounded-full ${
                             item.status === 'completed' ? 'bg-green-400' :
                             item.status === 'in-progress' ? 'bg-blue-400' :
                             'bg-gray-400'
                           }`}></div>
                           <div>
-                            <div className=\"font-medium\">{item.task}</div>
-                            <div className=\"text-sm text-gray-400\">期限: {item.deadline}</div>
+                            <div className="font-medium">{item.task}</div>
+                            <div className="text-sm text-gray-400">期限: {item.deadline}</div>
                           </div>
                         </div>
-                        <div className=\"flex items-center gap-2\">
+                        <div className="flex items-center gap-2">
                           <Badge variant={
                             item.priority === 'high' ? 'destructive' :
                             item.priority === 'medium' ? 'default' :
                             'secondary'
-                          } className=\"text-xs\">
+                          } className="text-xs">
                             {item.priority === 'high' ? '高' : item.priority === 'medium' ? '中' : '低'}
                           </Badge>
-                          <Button size=\"sm\" variant=\"outline\" className=\"border-white/20 text-white hover:bg-white/10\">
+                          <Button size="sm" variant="outline" className="border-white/20 text-white hover:bg-white/10">
                             {item.status === 'completed' ? '完了' :
                              item.status === 'in-progress' ? '進行中' :
                              '開始'}
@@ -595,43 +595,43 @@ export default function StrategyDashboardPage() {
             ))}
 
             {/* 予測分析 */}
-            <Card className=\"bg-black/20 border-white/10 text-white\">
+            <Card className="bg-black/20 border-white/10 text-white">
               <CardHeader>
-                <CardTitle className=\"flex items-center gap-2\">
-                  <TrendingUp className=\"w-5 h-5\" />
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
                   予測分析
                 </CardTitle>
-                <CardDescription className=\"text-gray-300\">
+                <CardDescription className="text-gray-300">
                   現在のペースでの8月31日時点の予測値
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6\">
-                  <div className=\"text-center p-4 bg-green-500/20 rounded-lg border border-green-500/30\">
-                    <div className=\"text-sm text-green-400 mb-2\">オープンチャット参加者</div>
-                    <div className=\"text-2xl font-bold\">1,125名</div>
-                    <div className=\"text-xs text-gray-400 mt-1\">目標1,000名を12.5%上回る</div>
-                    <Badge variant=\"default\" className=\"mt-2 bg-green-500\">目標達成</Badge>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center p-4 bg-green-500/20 rounded-lg border border-green-500/30">
+                    <div className="text-sm text-green-400 mb-2">オープンチャット参加者</div>
+                    <div className="text-2xl font-bold">1,125名</div>
+                    <div className="text-xs text-gray-400 mt-1">目標1,000名を12.5%上回る</div>
+                    <Badge variant="default" className="mt-2 bg-green-500">目標達成</Badge>
                   </div>
 
-                  <div className=\"text-center p-4 bg-yellow-500/20 rounded-lg border border-yellow-500/30\">
-                    <div className=\"text-sm text-yellow-400 mb-2\">セミナー申込者</div>
-                    <div className=\"text-2xl font-bold\">1,247名</div>
-                    <div className=\"text-xs text-gray-400 mt-1\">目標1,500名まで253名不足</div>
-                    <Badge variant=\"secondary\" className=\"mt-2 bg-yellow-500\">要改善</Badge>
+                  <div className="text-center p-4 bg-yellow-500/20 rounded-lg border border-yellow-500/30">
+                    <div className="text-sm text-yellow-400 mb-2">セミナー申込者</div>
+                    <div className="text-2xl font-bold">1,247名</div>
+                    <div className="text-xs text-gray-400 mt-1">目標1,500名まで253名不足</div>
+                    <Badge variant="secondary" className="mt-2 bg-yellow-500">要改善</Badge>
                   </div>
 
-                  <div className=\"text-center p-4 bg-blue-500/20 rounded-lg border border-blue-500/30\">
-                    <div className=\"text-sm text-blue-400 mb-2\">予測売上</div>
-                    <div className=\"text-2xl font-bold\">2,494万円</div>
-                    <div className=\"text-xs text-gray-400 mt-1\">目標3,000万円まで506万円不足</div>
-                    <Badge variant=\"secondary\" className=\"mt-2 bg-blue-500\">追加施策必要</Badge>
+                  <div className="text-center p-4 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                    <div className="text-sm text-blue-400 mb-2">予測売上</div>
+                    <div className="text-2xl font-bold">2,494万円</div>
+                    <div className="text-xs text-gray-400 mt-1">目標3,000万円まで506万円不足</div>
+                    <Badge variant="secondary" className="mt-2 bg-blue-500">追加施策必要</Badge>
                   </div>
                 </div>
 
-                <div className=\"mt-6 p-4 bg-blue-500/20 rounded-lg border border-blue-500/30\">
-                  <div className=\"font-medium text-blue-400 mb-2\">目標達成のための推奨アクション</div>
-                  <ul className=\"text-sm text-gray-300 space-y-1\">
+                <div className="mt-6 p-4 bg-blue-500/20 rounded-lg border border-blue-500/30">
+                  <div className="font-medium text-blue-400 mb-2">目標達成のための推奨アクション</div>
+                  <ul className="text-sm text-gray-300 space-y-1">
                     <li>• セミナー申込促進: 限定特典追加で+253名獲得</li>
                     <li>• 単価向上: セット販売強化で平均単価30万円→35万円</li>
                     <li>• 追加セミナー: 8月30日に追加回開催検討</li>

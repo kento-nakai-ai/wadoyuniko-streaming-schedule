@@ -249,22 +249,22 @@ export default function NoteDistributionPage() {
   const currentTemplate = messagingTemplates.openChat[selectedArticle as keyof typeof messagingTemplates.openChat]
 
   return (
-    <div className=\"min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50\">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-50">
       {/* ヘッダー */}
-      <header className=\"bg-white/80 backdrop-blur-md border-b sticky top-0 z-50\">
-        <div className=\"container mx-auto px-4 py-4\">
-          <div className=\"flex items-center justify-between\">
+      <header className="bg-white/80 backdrop-blur-md border-b sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
             <div>
-              <h1 className=\"text-2xl font-bold text-gray-900\">note記事配布管理</h1>
-              <p className=\"text-gray-600\">戦略的配布でセミナー参加者最大化</p>
+              <h1 className="text-2xl font-bold text-gray-900">note記事配布管理</h1>
+              <p className="text-gray-600">戦略的配布でセミナー参加者最大化</p>
             </div>
-            <div className=\"flex gap-2\">
-              <Button size=\"sm\" variant=\"outline\">
-                <Calendar className=\"w-4 h-4 mr-2\" />
+            <div className="flex gap-2">
+              <Button size="sm" variant="outline">
+                <Calendar className="w-4 h-4 mr-2" />
                 配布スケジュール
               </Button>
-              <Button size=\"sm\">
-                <Send className=\"w-4 h-4 mr-2\" />
+              <Button size="sm">
+                <Send className="w-4 h-4 mr-2" />
                 即時配布
               </Button>
             </div>
@@ -272,51 +272,51 @@ export default function NoteDistributionPage() {
         </div>
       </header>
 
-      <main className=\"container mx-auto px-4 py-8\">
-        <Tabs defaultValue=\"articles\" className=\"space-y-8\">
-          <TabsList className=\"grid w-full grid-cols-4\">
-            <TabsTrigger value=\"articles\">記事管理</TabsTrigger>
-            <TabsTrigger value=\"distribution\">配布実行</TabsTrigger>
-            <TabsTrigger value=\"schedule\">スケジュール</TabsTrigger>
-            <TabsTrigger value=\"analytics\">効果測定</TabsTrigger>
+      <main className="container mx-auto px-4 py-8">
+        <Tabs defaultValue="articles" className="space-y-8">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="articles">記事管理</TabsTrigger>
+            <TabsTrigger value="distribution">配布実行</TabsTrigger>
+            <TabsTrigger value="schedule">スケジュール</TabsTrigger>
+            <TabsTrigger value="analytics">効果測定</TabsTrigger>
           </TabsList>
 
           {/* 記事管理タブ */}
-          <TabsContent value=\"articles\" className=\"space-y-6\">
-            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
+          <TabsContent value="articles" className="space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* 無料記事 */}
               <Card className={`border-2 cursor-pointer transition-all ${selectedArticle === 'free' ? 'border-green-500 bg-green-50' : 'border-green-200 hover:border-green-300'}`}
                     onClick={() => setSelectedArticle('free')}>
                 <CardHeader>
-                  <div className=\"flex items-center justify-between\">
-                    <Badge variant=\"secondary\" className=\"bg-green-100 text-green-800\">無料</Badge>
-                    <div className=\"flex gap-2\">
-                      <Button size=\"sm\" variant=\"outline\">
-                        <ExternalLink className=\"w-4 h-4\" />
+                  <div className="flex items-center justify-between">
+                    <Badge variant="secondary" className="bg-green-100 text-green-800">無料</Badge>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="w-4 h-4" />
                       </Button>
-                      <Button size=\"sm\" variant=\"outline\">
-                        <Copy className=\"w-4 h-4\" />
+                      <Button size="sm" variant="outline">
+                        <Copy className="w-4 h-4" />
                       </Button>
                     </div>
                   </div>
-                  <CardTitle className=\"text-lg line-clamp-2\">{articles.free.title}</CardTitle>
-                  <CardDescription className=\"line-clamp-2\">{articles.free.description}</CardDescription>
+                  <CardTitle className="text-lg line-clamp-2">{articles.free.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{articles.free.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-3\">
-                    <div className=\"grid grid-cols-2 gap-4 text-sm\">
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <div className=\"font-medium text-gray-700\">想定読者数</div>
-                        <div className=\"text-gray-600\">{articles.free.estimatedReads}</div>
+                        <div className="font-medium text-gray-700">想定読者数</div>
+                        <div className="text-gray-600">{articles.free.estimatedReads}</div>
                       </div>
                       <div>
-                        <div className=\"font-medium text-gray-700\">変換目標</div>
-                        <div className=\"text-gray-600\">{articles.free.conversionTarget}</div>
+                        <div className="font-medium text-gray-700">変換目標</div>
+                        <div className="text-gray-600">{articles.free.conversionTarget}</div>
                       </div>
                     </div>
-                    <div className=\"flex gap-2\">
-                      <Button size=\"sm\" className=\"flex-1\" onClick={() => setSelectedArticle('free')}>
-                        <Download className=\"w-4 h-4 mr-2\" />
+                    <div className="flex gap-2">
+                      <Button size="sm" className="flex-1" onClick={() => setSelectedArticle('free')}>
+                        <Download className="w-4 h-4 mr-2" />
                         詳細確認
                       </Button>
                     </div>
@@ -328,35 +328,35 @@ export default function NoteDistributionPage() {
               <Card className={`border-2 cursor-pointer transition-all ${selectedArticle === 'paid' ? 'border-purple-500 bg-purple-50' : 'border-purple-200 hover:border-purple-300'}`}
                     onClick={() => setSelectedArticle('paid')}>
                 <CardHeader>
-                  <div className=\"flex items-center justify-between\">
-                    <Badge variant=\"secondary\" className=\"bg-purple-100 text-purple-800\">100円</Badge>
-                    <div className=\"flex gap-2\">
-                      <Button size=\"sm\" variant=\"outline\">
-                        <ExternalLink className=\"w-4 h-4\" />
+                  <div className="flex items-center justify-between">
+                    <Badge variant="secondary" className="bg-purple-100 text-purple-800">100円</Badge>
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline">
+                        <ExternalLink className="w-4 h-4" />
                       </Button>
-                      <Button size=\"sm\" variant=\"outline\">
-                        <Copy className=\"w-4 h-4\" />
+                      <Button size="sm" variant="outline">
+                        <Copy className="w-4 h-4" />
                       </Button>
                     </div>
                   </div>
-                  <CardTitle className=\"text-lg line-clamp-2\">{articles.paid.title}</CardTitle>
-                  <CardDescription className=\"line-clamp-2\">{articles.paid.description}</CardDescription>
+                  <CardTitle className="text-lg line-clamp-2">{articles.paid.title}</CardTitle>
+                  <CardDescription className="line-clamp-2">{articles.paid.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-3\">
-                    <div className=\"grid grid-cols-2 gap-4 text-sm\">
+                  <div className="space-y-3">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <div className=\"font-medium text-gray-700\">想定読者数</div>
-                        <div className=\"text-gray-600\">{articles.paid.estimatedReads}</div>
+                        <div className="font-medium text-gray-700">想定読者数</div>
+                        <div className="text-gray-600">{articles.paid.estimatedReads}</div>
                       </div>
                       <div>
-                        <div className=\"font-medium text-gray-700\">変換目標</div>
-                        <div className=\"text-gray-600\">{articles.paid.conversionTarget}</div>
+                        <div className="font-medium text-gray-700">変換目標</div>
+                        <div className="text-gray-600">{articles.paid.conversionTarget}</div>
                       </div>
                     </div>
-                    <div className=\"flex gap-2\">
-                      <Button size=\"sm\" className=\"flex-1\" onClick={() => setSelectedArticle('paid')}>
-                        <Download className=\"w-4 h-4 mr-2\" />
+                    <div className="flex gap-2">
+                      <Button size="sm" className="flex-1" onClick={() => setSelectedArticle('paid')}>
+                        <Download className="w-4 h-4 mr-2" />
                         詳細確認
                       </Button>
                     </div>
@@ -368,38 +368,38 @@ export default function NoteDistributionPage() {
             {/* 選択記事の詳細 */}
             <Card>
               <CardHeader>
-                <CardTitle className=\"flex items-center gap-2\">
-                  <Star className=\"w-5 h-5\" />
+                <CardTitle className="flex items-center gap-2">
+                  <Star className="w-5 h-5" />
                   選択記事詳細: {currentArticle.price}記事
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
-                  <div className=\"space-y-4\">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <div className="space-y-4">
                     <div>
-                      <h4 className=\"font-medium text-gray-900 mb-2\">記事タイトル</h4>
-                      <p className=\"text-sm text-gray-700 bg-gray-50 p-3 rounded-lg\">{currentArticle.title}</p>
+                      <h4 className="font-medium text-gray-900 mb-2">記事タイトル</h4>
+                      <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">{currentArticle.title}</p>
                     </div>
                     <div>
-                      <h4 className=\"font-medium text-gray-900 mb-2\">ターゲット読者</h4>
-                      <p className=\"text-sm text-gray-600\">{currentArticle.targetAudience}</p>
+                      <h4 className="font-medium text-gray-900 mb-2">ターゲット読者</h4>
+                      <p className="text-sm text-gray-600">{currentArticle.targetAudience}</p>
                     </div>
                     <div>
-                      <h4 className=\"font-medium text-gray-900 mb-2\">緊急性</h4>
-                      <p className=\"text-sm text-orange-600 font-medium\">{currentArticle.urgency}</p>
+                      <h4 className="font-medium text-gray-900 mb-2">緊急性</h4>
+                      <p className="text-sm text-orange-600 font-medium">{currentArticle.urgency}</p>
                     </div>
                     <div>
-                      <h4 className=\"font-medium text-gray-900 mb-2\">行動喚起</h4>
-                      <p className=\"text-sm text-blue-600 font-medium\">{currentArticle.cta}</p>
+                      <h4 className="font-medium text-gray-900 mb-2">行動喚起</h4>
+                      <p className="text-sm text-blue-600 font-medium">{currentArticle.cta}</p>
                     </div>
                   </div>
                   <div>
-                    <h4 className=\"font-medium text-gray-900 mb-2\">主要コンテンツ</h4>
-                    <ul className=\"space-y-2\">
+                    <h4 className="font-medium text-gray-900 mb-2">主要コンテンツ</h4>
+                    <ul className="space-y-2">
                       {currentArticle.keyFeatures.map((feature, index) => (
-                        <li key={index} className=\"flex items-start gap-2 text-sm\">
-                          <CheckCircle className=\"w-4 h-4 text-green-500 mt-0.5 flex-shrink-0\" />
-                          <span className=\"text-gray-700\">{feature}</span>
+                        <li key={index} className="flex items-start gap-2 text-sm">
+                          <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -410,8 +410,8 @@ export default function NoteDistributionPage() {
           </TabsContent>
 
           {/* 配布実行タブ */}
-          <TabsContent value=\"distribution\" className=\"space-y-6\">
-            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
+          <TabsContent value="distribution" className="space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* 配布チャネル */}
               <Card>
                 <CardHeader>
@@ -419,17 +419,17 @@ export default function NoteDistributionPage() {
                   <CardDescription>プラットフォーム別の最適化配布</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-4\">
+                  <div className="space-y-4">
                     {distributionChannels.map((channel, index) => (
-                      <div key={index} className=\"flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50\">
-                        <div className=\"flex items-center gap-3\">
+                      <div key={index} className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+                        <div className="flex items-center gap-3">
                           <div className={`w-3 h-3 rounded-full ${channel.engagement === '最高' ? 'bg-green-500' : channel.engagement === '高' ? 'bg-blue-500' : 'bg-yellow-500'}`}></div>
                           <div>
-                            <div className=\"font-medium\">{channel.name}</div>
-                            <div className=\"text-sm text-gray-600\">{channel.primaryRole} • {channel.audience}</div>
+                            <div className="font-medium">{channel.name}</div>
+                            <div className="text-sm text-gray-600">{channel.primaryRole} • {channel.audience}</div>
                           </div>
                         </div>
-                        <Button size=\"sm\" variant=\"outline\">
+                        <Button size="sm" variant="outline">
                           選択
                         </Button>
                       </div>
@@ -445,22 +445,22 @@ export default function NoteDistributionPage() {
                   <CardDescription>オープンチャット向けメッセージ</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-4\">
+                  <div className="space-y-4">
                     <div>
-                      <label className=\"text-sm font-medium text-gray-700 mb-2 block\">
+                      <label className="text-sm font-medium text-gray-700 mb-2 block">
                         配布記事選択
                       </label>
-                      <div className=\"flex gap-2\">
+                      <div className="flex gap-2">
                         <Button
                           variant={selectedArticle === 'free' ? 'default' : 'outline'}
-                          size=\"sm\"
+                          size="sm"
                           onClick={() => setSelectedArticle('free')}
                         >
                           無料記事
                         </Button>
                         <Button
                           variant={selectedArticle === 'paid' ? 'default' : 'outline'}
-                          size=\"sm\"
+                          size="sm"
                           onClick={() => setSelectedArticle('paid')}
                         >
                           100円記事
@@ -469,25 +469,25 @@ export default function NoteDistributionPage() {
                     </div>
 
                     <div>
-                      <label className=\"text-sm font-medium text-gray-700 mb-2 block\">
+                      <label className="text-sm font-medium text-gray-700 mb-2 block">
                         配布メッセージ
                       </label>
                       <Textarea
-                        placeholder=\"配布メッセージを入力...\"
+                        placeholder="配布メッセージを入力..."
                         value={distributionMessage || currentTemplate}
                         onChange={(e) => setDistributionMessage(e.target.value)}
                         rows={12}
-                        className=\"font-mono text-sm\"
+                        className="font-mono text-sm"
                       />
                     </div>
 
-                    <div className=\"flex gap-2\">
-                      <Button size=\"sm\" variant=\"outline\" onClick={() => setDistributionMessage(currentTemplate)}>
-                        <Copy className=\"w-4 h-4 mr-2\" />
+                    <div className="flex gap-2">
+                      <Button size="sm" variant="outline" onClick={() => setDistributionMessage(currentTemplate)}>
+                        <Copy className="w-4 h-4 mr-2" />
                         テンプレート使用
                       </Button>
-                      <Button size=\"sm\">
-                        <Send className=\"w-4 h-4 mr-2\" />
+                      <Button size="sm">
+                        <Send className="w-4 h-4 mr-2" />
                         今すぐ配布
                       </Button>
                     </div>
@@ -502,42 +502,42 @@ export default function NoteDistributionPage() {
                 <CardTitle>プラットフォーム別テンプレート</CardTitle>
               </CardHeader>
               <CardContent>
-                <Tabs defaultValue=\"openChat\" className=\"w-full\">
-                  <TabsList className=\"grid w-full grid-cols-4\">
-                    <TabsTrigger value=\"openChat\">オープンチャット</TabsTrigger>
-                    <TabsTrigger value=\"twitter\">X (Twitter)</TabsTrigger>
-                    <TabsTrigger value=\"youtube\">YouTube</TabsTrigger>
-                    <TabsTrigger value=\"line\">公式LINE</TabsTrigger>
+                <Tabs defaultValue="openChat" className="w-full">
+                  <TabsList className="grid w-full grid-cols-4">
+                    <TabsTrigger value="openChat">オープンチャット</TabsTrigger>
+                    <TabsTrigger value="twitter">X (Twitter)</TabsTrigger>
+                    <TabsTrigger value="youtube">YouTube</TabsTrigger>
+                    <TabsTrigger value="line">公式LINE</TabsTrigger>
                   </TabsList>
                   
-                  <TabsContent value=\"openChat\" className=\"space-y-4\">
-                    <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-4\">
+                  <TabsContent value="openChat" className="space-y-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                       <div>
-                        <h4 className=\"font-medium mb-2\">無料記事用</h4>
-                        <div className=\"bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line\">
+                        <h4 className="font-medium mb-2">無料記事用</h4>
+                        <div className="bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line">
                           {messagingTemplates.openChat.free}
                         </div>
                       </div>
                       <div>
-                        <h4 className=\"font-medium mb-2\">100円記事用</h4>
-                        <div className=\"bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line\">
+                        <h4 className="font-medium mb-2">100円記事用</h4>
+                        <div className="bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line">
                           {messagingTemplates.openChat.paid}
                         </div>
                       </div>
                     </div>
                   </TabsContent>
 
-                  <TabsContent value=\"twitter\" className=\"space-y-4\">
-                    <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-4\">
+                  <TabsContent value="twitter" className="space-y-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                       <div>
-                        <h4 className=\"font-medium mb-2\">無料記事用スレッド</h4>
-                        <div className=\"bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line\">
+                        <h4 className="font-medium mb-2">無料記事用スレッド</h4>
+                        <div className="bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line">
                           {messagingTemplates.twitter.free}
                         </div>
                       </div>
                       <div>
-                        <h4 className=\"font-medium mb-2\">100円記事用投稿</h4>
-                        <div className=\"bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line\">
+                        <h4 className="font-medium mb-2">100円記事用投稿</h4>
+                        <div className="bg-gray-50 p-3 rounded-lg text-sm font-mono whitespace-pre-line">
                           {messagingTemplates.twitter.paid}
                         </div>
                       </div>
@@ -549,56 +549,56 @@ export default function NoteDistributionPage() {
           </TabsContent>
 
           {/* スケジュールタブ */}
-          <TabsContent value=\"schedule\" className=\"space-y-6\">
+          <TabsContent value="schedule" className="space-y-6">
             <Card>
               <CardHeader>
-                <CardTitle className=\"flex items-center gap-2\">
-                  <Calendar className=\"w-5 h-5\" />
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
                   配布スケジュール管理
                 </CardTitle>
                 <CardDescription>8月18日〜31日の戦略的配布計画</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className=\"space-y-4\">
+                <div className="space-y-4">
                   {scheduleData.map((schedule, index) => (
-                    <Card key={index} className=\"border-l-4 border-l-blue-500\">
-                      <CardHeader className=\"pb-3\">
-                        <div className=\"flex items-center justify-between\">
-                          <div className=\"flex items-center gap-3\">
-                            <Badge variant=\"outline\">{schedule.date} ({schedule.day})</Badge>
-                            <Badge variant=\"secondary\">{schedule.theme}</Badge>
-                            <span className=\"text-sm text-gray-600\">予想リーチ: {schedule.estimatedReach}</span>
+                    <Card key={index} className="border-l-4 border-l-blue-500">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <Badge variant="outline">{schedule.date} ({schedule.day})</Badge>
+                            <Badge variant="secondary">{schedule.theme}</Badge>
+                            <span className="text-sm text-gray-600">予想リーチ: {schedule.estimatedReach}</span>
                           </div>
-                          <div className=\"flex items-center gap-2\">
+                          <div className="flex items-center gap-2">
                             <Badge variant={schedule.status === 'scheduled' ? 'secondary' : 'default'}>
                               {schedule.status === 'scheduled' ? '予定' : '完了'}
                             </Badge>
-                            <Button size=\"sm\" variant=\"outline\">
-                              <Clock className=\"w-4 h-4\" />
+                            <Button size="sm" variant="outline">
+                              <Clock className="w-4 h-4" />
                             </Button>
                           </div>
                         </div>
                       </CardHeader>
                       <CardContent>
-                        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-4\">
-                          <div className=\"bg-green-50 p-3 rounded-lg\">
-                            <div className=\"text-sm font-medium text-green-800 mb-1\">無料記事</div>
-                            <div className=\"text-sm text-green-600\">{schedule.freeArticle}</div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="bg-green-50 p-3 rounded-lg">
+                            <div className="text-sm font-medium text-green-800 mb-1">無料記事</div>
+                            <div className="text-sm text-green-600">{schedule.freeArticle}</div>
                           </div>
-                          <div className=\"bg-purple-50 p-3 rounded-lg\">
-                            <div className=\"text-sm font-medium text-purple-800 mb-1\">100円記事</div>
-                            <div className=\"text-sm text-purple-600\">{schedule.paidArticle}</div>
+                          <div className="bg-purple-50 p-3 rounded-lg">
+                            <div className="text-sm font-medium text-purple-800 mb-1">100円記事</div>
+                            <div className="text-sm text-purple-600">{schedule.paidArticle}</div>
                           </div>
-                          <div className=\"bg-blue-50 p-3 rounded-lg\">
-                            <div className=\"text-sm font-medium text-blue-800 mb-1\">メインイベント</div>
-                            <div className=\"text-sm text-blue-600\">{schedule.mainEvent}</div>
+                          <div className="bg-blue-50 p-3 rounded-lg">
+                            <div className="text-sm font-medium text-blue-800 mb-1">メインイベント</div>
+                            <div className="text-sm text-blue-600">{schedule.mainEvent}</div>
                           </div>
                         </div>
-                        <div className=\"mt-3 flex gap-2\">
-                          <Button size=\"sm\" variant=\"outline\">
+                        <div className="mt-3 flex gap-2">
+                          <Button size="sm" variant="outline">
                             詳細編集
                           </Button>
-                          <Button size=\"sm\">
+                          <Button size="sm">
                             即時実行
                           </Button>
                         </div>
@@ -611,67 +611,67 @@ export default function NoteDistributionPage() {
           </TabsContent>
 
           {/* 分析タブ */}
-          <TabsContent value=\"analytics\" className=\"space-y-6\">
-            <div className=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4\">
+          <TabsContent value="analytics" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               <Card>
-                <CardContent className=\"p-4\">
-                  <div className=\"flex items-center gap-2 mb-2\">
-                    <Users className=\"w-4 h-4 text-blue-500\" />
-                    <span className=\"text-sm font-medium\">総リーチ</span>
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Users className="w-4 h-4 text-blue-500" />
+                    <span className="text-sm font-medium">総リーチ</span>
                   </div>
-                  <div className=\"text-2xl font-bold\">45,672</div>
-                  <div className=\"text-xs text-green-500\">+18% vs 昨日</div>
+                  <div className="text-2xl font-bold">45,672</div>
+                  <div className="text-xs text-green-500">+18% vs 昨日</div>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardContent className=\"p-4\">
-                  <div className=\"flex items-center gap-2 mb-2\">
-                    <Download className=\"w-4 h-4 text-green-500\" />
-                    <span className=\"text-sm font-medium\">無料DL</span>
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Download className="w-4 h-4 text-green-500" />
+                    <span className="text-sm font-medium">無料DL</span>
                   </div>
-                  <div className=\"text-2xl font-bold\">3,421</div>
-                  <div className=\"text-xs text-green-500\">CVR 7.5%</div>
+                  <div className="text-2xl font-bold">3,421</div>
+                  <div className="text-xs text-green-500">CVR 7.5%</div>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardContent className=\"p-4\">
-                  <div className=\"flex items-center gap-2 mb-2\">
-                    <Heart className=\"w-4 h-4 text-purple-500\" />
-                    <span className=\"text-sm font-medium\">有料購入</span>
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Heart className="w-4 h-4 text-purple-500" />
+                    <span className="text-sm font-medium">有料購入</span>
                   </div>
-                  <div className=\"text-2xl font-bold\">187</div>
-                  <div className=\"text-xs text-purple-500\">CVR 5.5%</div>
+                  <div className="text-2xl font-bold">187</div>
+                  <div className="text-xs text-purple-500">CVR 5.5%</div>
                 </CardContent>
               </Card>
 
               <Card>
-                <CardContent className=\"p-4\">
-                  <div className=\"flex items-center gap-2 mb-2\">
-                    <TrendingUp className=\"w-4 h-4 text-orange-500\" />
-                    <span className=\"text-sm font-medium\">売上</span>
+                <CardContent className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <TrendingUp className="w-4 h-4 text-orange-500" />
+                    <span className="text-sm font-medium">売上</span>
                   </div>
-                  <div className=\"text-2xl font-bold\">¥18,700</div>
-                  <div className=\"text-xs text-orange-500\">単価 ¥100</div>
+                  <div className="text-2xl font-bold">¥18,700</div>
+                  <div className="text-xs text-orange-500">単価 ¥100</div>
                 </CardContent>
               </Card>
             </div>
 
-            <div className=\"grid grid-cols-1 lg:grid-cols-2 gap-6\">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <Card>
                 <CardHeader>
                   <CardTitle>プラットフォーム別パフォーマンス</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-4\">
+                  <div className="space-y-4">
                     {distributionChannels.map((channel, index) => (
-                      <div key={index} className=\"flex items-center justify-between p-3 bg-gray-50 rounded-lg\">
+                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                         <div>
-                          <div className=\"font-medium\">{channel.name}</div>
-                          <div className=\"text-sm text-gray-600\">{channel.expectations}</div>
+                          <div className="font-medium">{channel.name}</div>
+                          <div className="text-sm text-gray-600">{channel.expectations}</div>
                         </div>
-                        <div className=\"text-right\">
+                        <div className="text-right">
                           <div className={`text-sm font-medium ${channel.engagement === '最高' ? 'text-green-600' : channel.engagement === '高' ? 'text-blue-600' : 'text-yellow-600'}`}>
                             {channel.engagement}エンゲージメント
                           </div>
@@ -687,37 +687,37 @@ export default function NoteDistributionPage() {
                   <CardTitle>目標達成状況</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className=\"space-y-4\">
-                    <div className=\"flex items-center justify-between p-3 bg-green-50 rounded-lg\">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                       <div>
-                        <div className=\"font-medium text-green-900\">オープンチャット参加</div>
-                        <div className=\"text-sm text-green-600\">目標: 1,000名</div>
+                        <div className="font-medium text-green-900">オープンチャット参加</div>
+                        <div className="text-sm text-green-600">目標: 1,000名</div>
                       </div>
-                      <div className=\"text-right\">
-                        <div className=\"text-lg font-bold text-green-700\">892名</div>
-                        <div className=\"text-xs text-green-500\">89.2%</div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-green-700">892名</div>
+                        <div className="text-xs text-green-500">89.2%</div>
                       </div>
                     </div>
 
-                    <div className=\"flex items-center justify-between p-3 bg-orange-50 rounded-lg\">
+                    <div className="flex items-center justify-between p-3 bg-orange-50 rounded-lg">
                       <div>
-                        <div className=\"font-medium text-orange-900\">セミナー申込</div>
-                        <div className=\"text-sm text-orange-600\">目標: 1,500名</div>
+                        <div className="font-medium text-orange-900">セミナー申込</div>
+                        <div className="text-sm text-orange-600">目標: 1,500名</div>
                       </div>
-                      <div className=\"text-right\">
-                        <div className=\"text-lg font-bold text-orange-700\">456名</div>
-                        <div className=\"text-xs text-orange-500\">30.4%</div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-orange-700">456名</div>
+                        <div className="text-xs text-orange-500">30.4%</div>
                       </div>
                     </div>
 
-                    <div className=\"flex items-center justify-between p-3 bg-blue-50 rounded-lg\">
+                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                       <div>
-                        <div className=\"font-medium text-blue-900\">記事総閲覧数</div>
-                        <div className=\"text-sm text-blue-600\">目標: 50,000</div>
+                        <div className="font-medium text-blue-900">記事総閲覧数</div>
+                        <div className="text-sm text-blue-600">目標: 50,000</div>
                       </div>
-                      <div className=\"text-right\">
-                        <div className=\"text-lg font-bold text-blue-700\">45,672</div>
-                        <div className=\"text-xs text-blue-500\">91.3%</div>
+                      <div className="text-right">
+                        <div className="text-lg font-bold text-blue-700">45,672</div>
+                        <div className="text-xs text-blue-500">91.3%</div>
                       </div>
                     </div>
                   </div>

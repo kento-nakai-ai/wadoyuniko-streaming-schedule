@@ -4,9 +4,14 @@
 
 > **2025年8月28-30日ローンチ | 売上目標3,000万円 | 受講者目標100名**
 
+[![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://wadoyuniko.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+
 ## 📌 プロジェクト概要
 
-**バイブコーディング**は、プログラミング経験の少ない方や過去に挫折した方を対象とした、AIを活用した革新的な開発教育プログラムです。`Cursor`や`Claude Code`などの最新AI開発ツールを使用し、自然言語での対話を通じて直感的にアプリケーション開発を学べるスクールです。
+**バイブコーディング**は、プログラミング経験の少ない方や過去に挫折した方を対象とした、AIを活用した革新的な開発教育プログラムです。`Cursor`や`Claude`などの最新AI開発ツールを使用し、自然言語での対話を通じて直感的にアプリケーション開発を学べるオンラインスクールです。
 
 ### 🎯 プロジェクトの目標
 - **売上目標**: 3,000万円
@@ -16,18 +21,19 @@
   - セット版（プロンプトエンジニアリング込み）: 50万円
 - **ローンチ期間**: 2025年8月28日〜30日
 
-### 🎪 主催・協力
+### 🤝 主催・協力
 - **主催**: wadoyuniko（和道ユニコ）
-- **コンテンツ提供**: ユニコーン社（既存501名の受講生実績あり）
+- **技術パートナー**: ユニコーン社（既存501名の受講生実績）
 - **形態**: 共同ローンチプロジェクト
 
 ## ✨ 特徴
 
-- **実績あるコンテンツ**: 既に501名の受講生が成果を上げている実証済みプログラム（90%が未経験からスタート）
-- **AI開発特化**: 複雑なコード記述ではなく、AIとの対話でアプリ開発
-- **実践重視**: 実際のツール開発を通じたハンズオン学習
-- **永久会員制**: 追加料金なし、新コンテンツも永久無料
-- **収益化支援**: 学んだスキルでクライアントワークや副業に活用
+- **🎯 実績あるコンテンツ**: 既に501名の受講生が成果を上げている実証済みプログラム（90%が未経験からスタート）
+- **🤖 AI開発特化**: 複雑なコード記述ではなく、AIとの対話でアプリ開発
+- **⚡ 実践重視**: 実際のツール開発を通じたハンズオン学習
+- **♾️ 永久会員制**: 追加料金なし、新コンテンツも永久無料
+- **💰 収益化支援**: 学んだスキルでクライアントワークや副業に活用
+- **📱 現代的な管理システム**: Next.js 15 + TypeScript で構築された統合管理システム
 
 ## 📁 プロジェクト構造
 
@@ -52,36 +58,41 @@ wadoyuniko/
 
 ## 🛠️ 技術スタック
 
-### フロントエンド
+### 🎨 フロントエンド
 - **Next.js 15** (App Router) - React ベースフルスタックフレームワーク
 - **TypeScript** (strict mode) - 型安全性保証
 - **Tailwind CSS + shadcn/ui** - モダンUI・デザインシステム
-- **React Hook Form + Zod** - フォーム管理・バリデーション
+- **Lucide React** - アイコンライブラリ
 - **next-themes** - ダーク/ライトテーマ切り替え
 
-### デプロイメント
-- **Vercel** - 本番環境（静的サイト生成対応）
-- **GitHub Pages** - ドキュメントサイト
+### 🚀 デプロイメント & インフラ
+- **Vercel** - 本番環境（自動デプロイ対応）
+- **GitHub Actions** - CI/CD パイプライン
 - **静的サイト出力** - `output: 'export'` 設定済み
 
-### 開発・品質管理
-- **Jest + Testing Library** - テストフレームワーク
+### 🔧 開発・品質管理
 - **ESLint + Prettier** - コード品質・フォーマット
 - **TypeScript** - 静的型チェック
+- **Git Hooks** - コミット前品質チェック
+
+### 📊 データ管理
+- **JSON ベース** - 軽量データストレージ
+- **TypeScript 型定義** - データ構造の型安全性
+- **動的ルーティング** - Next.js App Router 活用
 
 ## 🚀 クイックスタート
 
-### 1. 環境セットアップ
+### 1. 🛠️ 環境セットアップ
 ```bash
 # リポジトリをクローン
-git clone <repository-url>
+git clone https://github.com/kento-nakai-ai/wadoyuniko-streaming-schedule.git
 cd wadoyuniko
 
 # 依存関係をインストール
 npm install
 ```
 
-### 2. 開発サーバーの起動
+### 2. 🌐 開発サーバーの起動
 ```bash
 # 開発サーバーを起動
 npm run dev
@@ -89,32 +100,36 @@ npm run dev
 # ブラウザで http://localhost:3000 を開く
 ```
 
-### 3. ドキュメントサイトの確認
+### 3. 📊 主要機能の確認
 ```bash
 # 本番ビルド＆プレビュー
 npm run build
 npm run start
 
-# チームドキュメント: http://localhost:3000/teams
+# アクセス可能なページ:
+# - ダッシュボード: http://localhost:3000/dashboard
+# - チームドキュメント: http://localhost:3000/teams
+# - 配信スケジュール: http://localhost:3000/streaming-schedule
+# - セミナー管理: http://localhost:3000/seminar-script
 ```
 
 ## 👥 プロジェクト体制
 
-### 統括・マネジメント
-- **中井健登（PM）**: プロジェクト全体統括、ユニコ様連携窓口、セミナー実施（8/30）
+### 🎯 統括・マネジメント
+- **中井健登（PM）**: プロジェクト全体統括、技術アーキテクチャ設計、セミナー実施（8/30）
 
-### コンテンツ制作チーム
-- **ゆき（リード）**: セミナースライド制作、サムネイル・デザイン制作
+### 🎨 コンテンツ制作チーム
+- **ゆき（リード）**: セミナースライド制作、UI/UXデザイン、サムネイル制作
 - **ちょこ**: ローンチ動画編集（縦型/横型）、MV動画構成・編集
-- **こばやし ゆうた**: MV動画台本作成・編集
+- **こばやし ゆうた**: MV動画台本作成・編集、コンテンツ企画
 
-### マーケティング・セールス
-- **わど**: セミナー実施（8/28-29）、スペース配信
-- **中上裕三**: 競合分析、特典企画・制作、数値管理
-- **Yui Mitsui**: LINE配信管理、決済システム（mosh）管理
+### 📈 マーケティング・セールス
+- **わど**: セミナー実施（8/28-29）、Xスペース配信、ブランディング
+- **中上裕三**: 競合分析、特典企画・制作、KPI数値管理
+- **Yui Mitsui**: LINE配信管理、決済システム（mosh）管理、顧客サポート
 
-### 外部連携
-- **ユニコーン社**: コンテンツ提供、特典5個制作、Discord運営、既存受講生対応
+### 🤝 外部パートナー
+- **ユニコーン社**: コンテンツ提供、特典制作、Discord運営、既存受講生サポート
 
 ## 📊 ローンチスケジュール
 
@@ -155,115 +170,179 @@ npm run start
   - セミナー台本・スライド構成案作成
   - マーケティング活動効率化ツール
 
-## 📚 ドキュメント構造
+## 📚 システム・ドキュメント構造
 
-### 🔗 **[チームドキュメント（新統合システム）](/teams/)**
-各チームの最新ドキュメントと進捗管理：
-- **[PMチーム](/teams/pm/)** - スケジュール、KPI、タスク管理
-- **[Contentチーム](/teams/content/)** - セミナー、特典、技術ガイド
-- **[Marketingチーム](/teams/marketing/)** - 販売戦略、SNS、LP制作
-- **[Designチーム](/teams/design/)** - ブランド、ビジュアル制作
-- **[Liveチーム](/teams/live/)** - 配信、動画制作
+### 🌐 **[統合Webダッシュボード](https://wadoyuniko.vercel.app/)**
+Next.js 15で構築された現代的な管理システム：
+
+| 機能 | URL | 説明 |
+|------|-----|------|
+| 🏠 **メインダッシュボード** | `/dashboard` | KPI、進捗、全体概要 |
+| 👥 **チーム管理** | `/teams` | 各チーム別ドキュメント統合 |
+| 📺 **配信スケジュール** | `/streaming-schedule` | ライブ配信・動画制作管理 |
+| 📝 **セミナー管理** | `/seminar-script` | セミナー台本・スライド管理 |
+| 🎁 **特典管理** | `/bonus` | 特典コンテンツ・配布管理 |
+| 📊 **戦略ダッシュボード** | `/strategy-dashboard` | マーケティング戦略・分析 |
+
+### 📁 **チーム別ドキュメント**
+- **[PMチーム](/teams/pm/)** - プロジェクト管理、スケジュール、KPI追跡
+- **[Contentチーム](/teams/content/)** - セミナー資料、特典制作、技術ガイド
+- **[Marketingチーム](/teams/marketing/)** - 販売戦略、SNS運用、LP制作
+- **[Designチーム](/teams/design/)** - ブランドガイドライン、ビジュアル制作
+- **[Liveチーム](/teams/live/)** - 配信企画、動画制作、技術サポート
 - **[Xチーム](/teams/x/)** - SNS戦略、アルゴリズム最適化
 
-### 🌐 **[Webダッシュボード](https://wadoyuniko.vercel.app/teams)**
-ブラウザからアクセス可能な統合ダッシュボード
+### 📖 **技術ドキュメント**
+- **[CLAUDE.md](./CLAUDE.md)** - AI開発プロジェクト指示書
+- **[components.json](./components.json)** - shadcn/ui設定ファイル
+- **[package.json](./package.json)** - 依存関係・スクリプト定義
 
-### 📖 追加ドキュメント
-- **[TEAMS_README.md](./TEAMS_README.md)** - チーム運営の詳細ガイド
-- **[CLAUDE.md](./CLAUDE.md)** - プロジェクト指示書（AI組織の憲法）
-- **[DUPLICATE_FILES_REPORT.md](./DUPLICATE_FILES_REPORT.md)** - ファイル整理レポート
+## 📋 開発・運用コマンド
 
-## 📋 開発スクリプト
-
+### 🛠️ 開発環境
 ```bash
-# 開発
-npm run dev          # 開発サーバー起動
+npm run dev          # 開発サーバー起動 (http://localhost:3000)
 npm run build        # プロダクションビルド（静的サイト生成）
 npm run start        # プロダクションサーバー起動
-
-# 品質管理
-npm run lint         # ESLintによるコードチェック
-npm run format       # Prettierによるフォーマット
-npm run type-check   # TypeScript型チェック
-
-# テスト
-npm run test         # 全テスト実行
-npm run test:watch   # ウォッチモードでテスト
-npm run test:coverage # カバレッジ付きテスト実行
 ```
 
-## 🔧 環境変数
+### 🔍 品質管理
+```bash
+npm run lint         # ESLintによるコードチェック
+npm run lint:fix     # ESLintエラー自動修正
+npm run type-check   # TypeScript型チェック
+```
 
-開発に必要な環境変数を `.env.local` に設定:
+### 🚀 デプロイメント
+```bash
+# Vercelへの自動デプロイ（mainブランチプッシュ時）
+git push origin main
+
+# 手動デプロイ確認
+vercel --prod
+```
+
+### 📊 プロジェクト管理
+```bash
+# ファイル構造確認
+tree -I 'node_modules|.next|.git'
+
+# 依存関係確認
+npm list --depth=0
+```
+
+## 🔧 環境変数・設定
+
+### 📝 環境変数設定
+`.env.local` ファイルを作成（オプション）:
 
 ```bash
-# アプリケーション（必須）
+# アプリケーション基本設定
 NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_NAME="Vibe Coding Launch Project"
 
-# Supabase（オプション - 今後の拡張用）
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+# 今後の拡張用（現在は不要）
+# NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+# NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-## 📊 プロジェクト進捗
+### ⚙️ 重要な設定ファイル
+- **`next.config.js`**: Next.js設定（静的エクスポート有効）
+- **`tailwind.config.js`**: Tailwind CSS カスタマイズ
+- **`tsconfig.json`**: TypeScript strict mode設定
+- **`components.json`**: shadcn/ui コンポーネント設定
 
-### 🎯 現在の状況（2025年1月13日）
-- ✅ プロジェクト構造整理完了
-- ✅ チーム別ドキュメント統合完了
-- ✅ Webダッシュボード構築完了
-- ✅ 重複ファイル削除・最適化完了
+## 📊 プロジェクト進捗・成果
 
-### 🚧 次のステップ
-- セミナースライド最終調整
-- 特典コンテンツ制作完了
-- ローンチ動画制作
-- KPI追跡システム運用開始
+### ✅ 完了済み（2025年1月13日時点）
+- **🏗️ システム基盤**: Next.js 15 + TypeScript 統合管理システム構築
+- **📁 プロジェクト整理**: チーム別ドキュメント統合・重複ファイル削除
+- **🌐 Webダッシュボード**: 全32ページの機能的なダッシュボード完成
+- **🚀 自動デプロイ**: Vercel連携・CI/CD パイプライン構築
+- **🔧 技術修正**: ビルドエラー修正・Next.js 15対応完了
+
+### 🚧 進行中・次のステップ
+- **📝 セミナー資料**: スライド・台本の最終調整
+- **🎁 特典制作**: 5大特典コンテンツの完成
+- **🎬 動画制作**: ローンチMV・プロモーション動画
+- **📈 KPI管理**: リアルタイム数値追跡システム運用開始
 
 ## 🤝 サポート・問い合わせ
 
-### 技術的問題
-1. **開発関連**: `npm run lint` と `npm run type-check` を実行
-2. **ビルドエラー**: `npm run build` でエラー詳細を確認
-3. **ドキュメント**: `/teams/` の該当チームREADMEを確認
+### 🔧 技術的問題
+| 問題の種類 | 対処方法 | コマンド |
+|------------|----------|----------|
+| **開発エラー** | コード品質チェック | `npm run lint && npm run type-check` |
+| **ビルドエラー** | ビルドログ確認 | `npm run build` |
+| **型エラー** | TypeScript確認 | `npx tsc --noEmit` |
 
-### プロジェクト問い合わせ
-- **プロジェクト統括**: 中井健登（PM）
-- **緊急連絡**: Discord #開発ローンチch
-- **ドキュメント管理**: [チームドキュメントサイト](https://wadoyuniko.vercel.app/teams)
+### 👥 プロジェクト問い合わせ
+- **🎯 プロジェクト統括**: 中井健登（PM）- 技術・全体戦略
+- **📞 緊急連絡**: Discord #開発ローンチch
+- **📚 ドキュメント**: [統合管理システム](https://wadoyuniko.vercel.app/)
 
-### Webサイト・機能
-- **本番サイト**: https://wadoyuniko.vercel.app
-- **チームダッシュボード**: https://wadoyuniko.vercel.app/teams
-- **配信スケジュール**: https://wadoyuniko.vercel.app/streaming-schedule
+### 🌐 主要リンク
+| サービス | URL | 用途 |
+|----------|-----|------|
+| **🏠 本番サイト** | https://wadoyuniko.vercel.app | メインダッシュボード |
+| **👥 チーム管理** | https://wadoyuniko.vercel.app/teams | チーム別ドキュメント |
+| **📺 配信管理** | https://wadoyuniko.vercel.app/streaming-schedule | ライブ配信・動画管理 |
+| **📊 戦略分析** | https://wadoyuniko.vercel.app/strategy-dashboard | KPI・戦略ダッシュボード |
 
 ## 🗓️ ローンチカウントダウン
 
-### 📍 重要な日程（2025年）
-- **8月14日**: 大型コラボ告知（**最重要**）
-- **8月21日**: ローンチ投稿開始
-- **8月28-30日**: セミナー実施・成約フェーズ
+### 📍 重要マイルストーン（2025年）
+| 日付 | イベント | 重要度 | 担当 |
+|------|----------|--------|------|
+| **8月14日** | 🎯 大型コラボ告知・オプチャ公開 | 🔥 **最重要** | わど・中井 |
+| **8月21日** | 📢 ローンチ投稿開始 | 🔥 高 | Marketing Team |
+| **8月22日** | 📡 Xスペース実施 | 🔥 高 | わど |
+| **8月27日** | 📡 わどユニコスペース | 🔥 高 | わど・ユニコ |
+| **8月28-30日** | 🎯 セミナー実施・成約フェーズ | 🔥 **最重要** | 全チーム |
 
 ### 🚨 クリティカルパス
-1. 特典コンテンツ完成（Priority: 最高）
-2. セミナースライド・台本完成（Priority: 最高）
-3. ローンチ動画制作（Priority: 高）
-4. 各チームの運用体制確立（Priority: 高）
-
----
+| 優先度 | タスク | 期限 | 状況 |
+|--------|--------|------|------|
+| 🔥 **最高** | 特典コンテンツ完成 | 8月10日 | 🚧 進行中 |
+| 🔥 **最高** | セミナースライド・台本完成 | 8月12日 | 🚧 進行中 |
+| 🔴 **高** | ローンチ動画制作 | 8月15日 | 📋 準備中 |
+| 🟡 **中** | システム最適化 | 8月20日 | ✅ 完了 |
 
 ## 🎯 プロジェクト成功指標
 
-| 指標 | 目標 | 現状 | 達成率 |
-|------|------|------|--------|
-| 総売上 | 3,000万円 | - | 0% |
-| 受講者数 | 100名 | - | 0% |
-| セミナー登録 | 1,000名 | - | 0% |
-| LINE登録 | 1,200名 | - | 0% |
+### 📊 KPI ダッシュボード
+| 指標 | 目標 | 現状 | 達成率 | 進捗 |
+|------|------|------|--------|------|
+| 💰 **総売上** | 3,000万円 | - | 0% | 🚧 準備中 |
+| 👥 **受講者数** | 100名 | - | 0% | 🚧 準備中 |
+| 📺 **セミナー登録** | 1,000名 | - | 0% | 🚧 準備中 |
+| 📱 **LINE登録** | 1,200名 | - | 0% | 🚧 準備中 |
+
+### 🏆 技術的成果
+- ✅ **システム構築**: Next.js 15 統合管理システム完成
+- ✅ **自動化**: CI/CD パイプライン・自動デプロイ構築
+- ✅ **品質保証**: TypeScript strict mode・ESLint導入
+- ✅ **UI/UX**: shadcn/ui によるモダンデザインシステム
 
 ---
 
-**Created by wadoyuniko team**  
-*Powered by Vibe Coding Launch Project v2.0*
+## 🚀 Next Steps
 
-**🌟 「AIで月収100万円を実現する」- その夢を、わどユニコが現実にします。**
+### 📈 今後の展開
+1. **リアルタイムKPI追跡**: 数値の自動更新システム
+2. **顧客管理システム**: CRM機能の追加
+3. **決済システム連携**: moshとの統合強化
+4. **AI機能拡張**: Wado AI の本格運用
+
+---
+
+<div align="center">
+
+**🌟 Created by wadoyuniko team**  
+*Powered by Vibe Coding Launch Project v3.0*
+
+**「AIで月収100万円を実現する」- その夢を、わどユニコが現実にします。**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/kento-nakai-ai/wadoyuniko-streaming-schedule)
+
+</div>
