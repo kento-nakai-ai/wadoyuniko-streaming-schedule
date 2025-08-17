@@ -46,6 +46,9 @@ export class ClaudeClient {
     } = options
 
     try {
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 60000) // 60秒タイムアウト
+
       const response = await fetch(this.baseUrl, {
         method: 'POST',
         headers: {
@@ -59,8 +62,11 @@ export class ClaudeClient {
           temperature,
           system: systemPrompt,
           messages
-        })
+        }),
+        signal: controller.signal
       })
+
+      clearTimeout(timeoutId)
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}))
@@ -70,6 +76,10 @@ export class ClaudeClient {
       const data: ClaudeResponse = await response.json()
       return data.content[0]?.text || ''
     } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.error('Claude API request timed out after 60 seconds')
+        throw new Error('API request timed out. Please try again.')
+      }
       console.error('Claude API request failed:', error)
       throw error
     }

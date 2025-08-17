@@ -22,7 +22,10 @@
       "mcp__notion__notion-create-database",
       "mcp__notion__notion-update-page",
       "mcp__notion__fetch",
-      "mcp__notion__search"
+      "mcp__notion__search",
+      "Bash(npx shadcn-ui:*)",
+      "Bash(npx:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }
