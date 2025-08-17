@@ -73,6 +73,9 @@ export default function RootLayout({
                   <Link href="/nakai-posts">中井投稿</Link>
                 </Button>
                 <Button variant="ghost" asChild>
+                  <Link href="/launch-strategy">ローンチ戦略</Link>
+                </Button>
+                <Button variant="ghost" asChild>
                   <Link href="/team-overview">チーム総合</Link>
                 </Button>
                 <Button variant="ghost" asChild>
