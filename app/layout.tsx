@@ -3,8 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/toaster'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import Navigation from '@/components/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,64 +34,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* グローバルナビゲーション */}
-          <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-            <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-              <Link href="/" className="text-xl font-bold text-primary">
-                wadoyuniko
-              </Link>
-              <div className="hidden lg:flex space-x-4">
-                <Button variant="ghost" asChild>
-                  <Link href="/">ホーム</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/dashboard">ダッシュボード</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/note-campaign">note記事キャンペーン</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/note-distribution">記事配布管理</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/strategy-dashboard">戦略ダッシュボード</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/bonus">特典リスト</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/bonus-schedule">特典配布</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/streaming-schedule">配信スケジュール</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/streaming-materials">配信資料</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/live-calendar">ライブカレンダー</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/teams">チームドキュメント</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/launch-strategy">ローンチ戦略</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/competitive-analysis">競合分析</Link>
-                </Button>
-                <Button variant="ghost" asChild>
-                  <Link href="/seminar-script">セミナー台本</Link>
-                </Button>
-              </div>
-              <div className="lg:hidden">
-                <Button variant="ghost" asChild>
-                  <Link href="/note-campaign">note記事</Link>
-                </Button>
-              </div>
-            </div>
-          </nav>
-          {children}
+          <div className="flex h-screen">
+            {/* サイドバーナビゲーション */}
+            <Navigation />
+            
+            {/* メインコンテンツ */}
+            <main className="flex-1 overflow-y-auto lg:ml-0">
+              {children}
+            </main>
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>

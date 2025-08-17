@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Users, Calendar, Target } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { ArrowLeft, Users, Calendar, Target, FileText, TrendingUp, Activity, Clock, AlertTriangle } from "lucide-react"
 
 export default function PMTeamPage() {
   const teamInfo = {
@@ -63,9 +64,25 @@ export default function PMTeamPage() {
   ]
 
   const keyDates = [
-    { date: "8月14日", event: "大規模コラボレーション発表" },
-    { date: "8月21日", event: "ローンチポストキャンペーン開始" },
-    { date: "8月28-30日", event: "3日間セミナー実施" }
+    { date: "8月14日", event: "大規模コラボレーション発表", status: "upcoming" },
+    { date: "8月21日", event: "ローンチポストキャンペーン開始", status: "upcoming" },
+    { date: "8月28-30日", event: "3日間セミナー実施", status: "critical" }
+  ]
+
+  const currentStats = {
+    documentsTotal: 45,
+    tasksCompleted: 78,
+    tasksInProgress: 12,
+    meetingsThisWeek: 8,
+    projectProgress: 78,
+    riskLevel: "medium"
+  }
+
+  const recentActivities = [
+    { time: "2時間前", action: "KPI ダッシュボード更新", user: "中井健登" },
+    { time: "4時間前", action: "会議議事録追加", user: "システム" },
+    { time: "6時間前", action: "タスク完了報告", user: "中井健登" },
+    { time: "1日前", action: "進捗レポート作成", user: "中井健登" }
   ]
 
   return (
@@ -90,6 +107,34 @@ export default function PMTeamPage() {
         </div>
         
         <p className="text-muted-foreground">{teamInfo.description}</p>
+      </div>
+
+      {/* リアルタイム統計ダッシュボード */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-blue-600">{currentStats.documentsTotal}</div>
+            <div className="text-sm text-muted-foreground">総ドキュメント数</div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-green-600">{currentStats.tasksCompleted}%</div>
+            <div className="text-sm text-muted-foreground">タスク完了率</div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-purple-600">{currentStats.projectProgress}%</div>
+            <div className="text-sm text-muted-foreground">プロジェクト進捗</div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-4 text-center">
+            <div className="text-2xl font-bold text-orange-600">{currentStats.meetingsThisWeek}</div>
+            <div className="text-sm text-muted-foreground">今週の会議数</div>
+          </CardContent>
+        </Card>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
@@ -130,10 +175,14 @@ export default function PMTeamPage() {
                         </Badge>
                       ))}
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 flex gap-2">
                       <Badge variant="outline" className="text-xs">
                         📁 teams/pm/{category.path}/
                       </Badge>
+                      <Button variant="outline" size="sm" className="text-xs h-6">
+                        <FileText className="h-3 w-3 mr-1" />
+                        ドキュメント閲覧
+                      </Button>
                     </div>
                   </CardContent>
                 </Card>
@@ -155,11 +204,45 @@ export default function PMTeamPage() {
             <CardContent>
               <div className="space-y-3">
                 {keyDates.map((item, index) => (
-                  <div key={index} className="border-l-2 border-blue-500 pl-3">
-                    <div className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                  <div key={index} className={`border-l-2 pl-3 ${
+                    item.status === 'critical' ? 'border-red-500' : 'border-blue-500'
+                  }`}>
+                    <div className={`text-sm font-medium ${
+                      item.status === 'critical' 
+                        ? 'text-red-600 dark:text-red-400' 
+                        : 'text-blue-600 dark:text-blue-400'
+                    }`}>
                       {item.date}
+                      {item.status === 'critical' && (
+                        <AlertTriangle className="h-3 w-3 inline ml-1" />
+                      )}
                     </div>
                     <div className="text-sm">{item.event}</div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* 最近のアクティビティ */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Activity className="h-5 w-5" />
+                最近のアクティビティ
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {recentActivities.map((activity, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                    <div className="flex-1">
+                      <div className="text-sm">{activity.action}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {activity.time} • {activity.user}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
