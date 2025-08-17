@@ -124,6 +124,12 @@ export default function HomePage() {
                   Instagram戦略
                 </Button>
               </Link>
+              <a href="/teams/marketing/Instagram/kpi-dashboard-website.html" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="gap-2 bg-gradient-to-r from-pink-600 to-red-500 hover:from-pink-700 hover:to-red-600 text-white shadow-xl">
+                  <Target className="h-5 w-5" />
+                  KPI集客ダッシュボード
+                </Button>
+              </a>
               <Link href="/x-posts">
                 <Button size="lg" variant="outline" className="gap-2 border-2 hover:bg-purple-50 dark:hover:bg-purple-950">
                   <MessageSquare className="h-5 w-5" />
@@ -500,6 +506,30 @@ export default function HomePage() {
                 </CardContent>
               </Card>
             </Link>
+
+            {/* Instagram KPIダッシュボード */}
+            <a href="/teams/marketing/Instagram/kpi-dashboard-website.html" target="_blank" rel="noopener noreferrer">
+              <Card className="hover:shadow-2xl transition-all duration-300 cursor-pointer group border-2 hover:border-pink-400 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950">
+                <CardHeader>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="p-3 bg-pink-100 dark:bg-pink-900 rounded-lg group-hover:scale-110 transition-transform">
+                      <Target className="h-6 w-6 text-pink-600" />
+                    </div>
+                    <Badge className="bg-pink-600 text-white">KPI</Badge>
+                  </div>
+                  <CardTitle>Instagram KPI</CardTitle>
+                  <CardDescription>
+                    オープンチャット200人集客ダッシュボード
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">月間200名目標</span>
+                    <ArrowRight className="h-4 w-4 text-pink-600 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </a>
           </div>
 
           {/* 追加リソース */}

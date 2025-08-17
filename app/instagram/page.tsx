@@ -330,6 +330,56 @@ export default function InstagramPage() {
             </CardContent>
           </Card>
 
+          {/* 新しい機能 - KPIダッシュボード */}
+          <Card className="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950 border-2 border-pink-200">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-pink-700">
+                <Target className="h-5 w-5" />
+                オープンチャット200人集客
+              </CardTitle>
+              <CardDescription>
+                月間KPI達成のための戦略ダッシュボード
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="bg-white/70 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-pink-600 mb-1">200名</div>
+                <div className="text-sm text-muted-foreground">月間オープンチャット誘導目標</div>
+              </div>
+              <a 
+                href="/teams/marketing/Instagram/kpi-dashboard-website.html" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button className="w-full bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white">
+                  <Target className="h-4 w-4 mr-2" />
+                  KPIダッシュボード
+                </Button>
+              </a>
+              <a 
+                href="/teams/marketing/Instagram/kpi-action-plan-openchat-200.md" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button className="w-full" variant="outline">
+                  📋 詳細アクションプラン
+                </Button>
+              </a>
+              <a 
+                href="/teams/marketing/Instagram/team-execution-checklist.md" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button className="w-full" variant="outline">
+                  ✅ 実行チェックリスト
+                </Button>
+              </a>
+            </CardContent>
+          </Card>
+
           {/* 目標設定 */}
           <Card>
             <CardHeader>
