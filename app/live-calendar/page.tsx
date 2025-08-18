@@ -13,7 +13,7 @@ interface StreamEvent {
   theme: string
   target: string
   type: 'tech' | 'entertainment' | 'space' | 'seminar'
-  platform: 'youtube' | 'twitter'
+  platform: 'youtube' | 'twitter' | 'offline'
   duration: string
   description: string[]
   dayOfWeek: string
